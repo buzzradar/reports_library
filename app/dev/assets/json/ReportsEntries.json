@@ -1,0 +1,106 @@
+{
+  "reportsentries": [
+
+    {
+      "slug": "report-share-voice",
+      "imgName" : "report_share_voice.jpg",
+      "name": "Report Share of Voice"
+    },
+    {
+      "slug": "report-heatmap",
+      "imgName" : "report_heatmap.jpg",
+      "name": "Report Heatmap"
+    },
+    {
+      "slug": "report-daily-sentiment",
+      "imgName" : "report_daily_sentiment.jpg",
+      "name": "Daily Sentiment"
+    },
+    {
+      "slug": "report-most-talked-about",
+      "imgName" : "report_most_talked_about.jpg",
+      "name": "Most Talked About (MTA)"
+    },
+    {
+      "slug": "report-word-cloud",
+      "imgName" : "report_word_cloud.jpg",
+      "name": "Word Cloud"
+    },
+    {
+      "slug": "report-AA-SocialIntel-benchmark-scorecard",
+      "imgName" : "report_aa_social_intel_benchmark_scorecard.jpg",
+      "name": "AA & Social Intelligence - Benchmark Scorecard"
+    },
+    {
+      "slug": "report-cross-channel-social-media-analysis",
+      "imgName" : "report_crosschannel_social_media_analysis.jpg",
+      "name": "Cross-Channel Social Media Analysis"
+    },
+    {
+      "slug": "report-AA-SocialIntel-audience-vs-content",
+      "imgName" : "report_aa_social_intel_audience_v_content.jpg",
+      "name": "AA & Social Intelligence - Audience VS Content"
+    },
+    {
+      "slug": "report-top-audience-analysis",
+      "imgName" : "report_top_audiences_analysis.jpg",
+      "name": "Top Audience Analysis"
+    },
+    {
+      "slug": "report-audience-consumption-preferences",
+      "imgName" : "report_audience_consumption_preferences.jpg",
+      "name": "Audience Consumption Preferences"
+    },
+    {
+      "slug": "report-overall-audience-analysis",
+      "imgName" : "report_overall_audience_analysis.jpg",
+      "name": "Overall Audience Analysis"
+    },
+    {
+      "slug": "report-twitter-avatar-paragraph",
+      "imgName" : "report_twitter_avatar_paragraph.jpg",
+      "name": "Twitter Avatar + Paragraph"
+    },
+    {
+      "slug": "report-social-insights-piechart",
+      "imgName" : "report_social_insights_piechart.jpg",
+      "name": "Social Insights + Pie Chart"
+    },
+    {
+      "slug": "report-3-most-effective-posts",
+      "imgName" : "report_3_most_effective_posts.jpg",
+      "name": "3 Most Effective Posts"
+    },
+    {
+      "slug": "report-top-influencers-tweet-right",
+      "imgName" : "report_top_influencers_tweet_right.jpg",
+      "name": "Top Influencers + Tweet on the right"
+    },
+    {
+      "slug": "report-most-pos-neg-post-piechart-right",
+      "imgName" : "report_most_pos_neg_post_piechart_right.jpg",
+      "name": "Most Pos/Neg Post + pieChart on the Right"
+    },
+    {
+      "slug": "report-end-thank-you",
+      "imgName" : "report_end_thank_you.jpg",
+      "name": "End Report Thank You"
+    },
+    {
+      "slug": "report-cover-slide",
+      "imgName" : "report_cover_slide.jpg",
+      "name": "Cover Slide"
+    },
+    {
+      "slug": "report-presentation-slide",
+      "imgName" : "report_presentation_slide.jpg",
+      "name": "Presentation Slide"
+    },
+    {
+      "slug": "report-basic-template",
+      "imgName" : "report_basic_template.jpg",
+      "name": "Report Basic Template"
+    }
+    
+  ]
+}

@@ -1,0 +1,184 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
+
+
+$orange: #f6921e;
+$teel: #4dc5b2;
+$dark: #404040;
+$green_positive:#7bdb46;
+$red_negative:#d45855;
+
+
+$twitter_color: #4dc5b2;
+$facebook_color: #5D88C6;
+$instagram_color: #A790E0;
+$youtube_color: #FC7A7A;
+
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+
+
+html, body {
+    color:#0000;
+    background: #f9f9f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+.amcharts-chart-div{
+    a {
+        display:none !important;
+    }
+}
+
+button:focus {outline:0;}
+textarea:focus {outline:0;}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+
+
+.report-cover-slide{
+
+    position:absolute;
+    width:1920px;
+    height: 1080px;
+    top:0;
+    left:0;
+    
+    //--------------------------------
+    // Main Content (Slide)
+    //--------------------------------
+
+    .slide {
+        position:relative;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        color:#404040;
+
+        .report_title {
+            position:absolute;
+            text-transform: uppercase;    
+            color:white;
+            //background: yellow;                      
+            top:265px;
+            left:738px;
+            width:800px;
+
+            .top{    
+                font-size: 50px;
+                font-weight:bold;
+            }
+        }
+
+
+        .content{
+            position:relative;
+            width:1771px;
+            height:860px;
+            font-size:25px;
+            margin-top:145px;
+            margin-left:83px;
+            //background:pink;
+            padding:0px 20px;            
+        }
+
+        .badge{
+            background:white;
+            width:525px;
+            height:525px;
+            position:absolute;
+            top:118px;
+            left:175px;
+            border-radius: 50%;
+            text-align:center;
+
+            img{
+                margin-top:50px;
+            }
+        }
+
+        
+    }
+ 
+
+
+    //--------------------------------
+    // Background 
+    //--------------------------------
+
+
+    .slide-background{
+        position:absolute;
+        top:0;
+        left:0;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        background:#2b3f7d;
+
+        .left-bar{
+            position:absolute;
+            top:0;
+            left:0;
+            width:83px;
+            height:1080px;
+        }
+
+        .right-bar{
+            position:absolute;
+            top:0px;
+            left:1895px;
+            width:25px;
+            height:1080px;
+        }
+
+    }
+
+
+    //--------------------------------
+    // Color Palette 
+    //--------------------------------
+
+    .orange {
+        background: #f6921d;
+    }
+    .teel {
+        background: #3fc6ca;
+    }
+    .dark-blue {
+        background: #2b3f7d;
+    }
+    .white {
+        background: white;
+    }
+
+
+}
+
+
+
+
+

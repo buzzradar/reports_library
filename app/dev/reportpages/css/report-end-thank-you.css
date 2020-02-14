@@ -1,0 +1,106 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+html, body {
+  color: #0000;
+  background: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+.amcharts-chart-div a {
+  display: none !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+.absolute {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+.report-end-thank-you {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+.report-end-thank-you .slide {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-size: 110px;
+}
+.report-end-thank-you .slide.bg_orange {
+  background: #f6921e;
+}
+.report-end-thank-you .slide.bg_dark {
+  background: #404040;
+}
+.report-end-thank-you .slide .content {
+  width: inherit;
+  position: absolute;
+  top: 230px;
+  color: #404040;
+  font-size: 30px;
+}
+.report-end-thank-you .logo_corner {
+  position: absolute;
+  top: 1000px;
+  left: 1610px;
+}
+.report-end-thank-you .thankyou {
+  text-align: center;
+  width: 1920px;
+  top: 0px;
+  position: absolute;
+  color: white;
+  margin-top: 730px;
+}
+.report-end-thank-you .thankyou span {
+  color: #f6921e;
+}
+.report-end-thank-you .thankyou a {
+  text-align: center;
+  width: 1920px;
+  top: 50px;
+  position: absolute;
+  display: block;
+}
+.report-end-thank-you .buzzradar_link {
+  text-align: center;
+  display: block;
+  color: white;
+  margin-top: 130px;
+  font-size: 50px;
+  text-decoration: underline;
+}
+.report-end-thank-you .buzzradar_link span {
+  color: #f6921e;
+}

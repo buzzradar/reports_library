@@ -1,0 +1,216 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
+
+
+$orange: #f6921e;
+$teel: #4dc5b2;
+$dark: #404040;
+$green_positive:#7bdb46;
+$red_negative:#d45855;
+
+
+$twitter_color: #4dc5b2;
+$facebook_color: #5D88C6;
+$instagram_color: #A790E0;
+$youtube_color: #FC7A7A;
+
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+
+
+html, body {
+    color:#0000;
+    background: #f9f9f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+.amcharts-chart-div{
+    a {
+        display:none !important;
+    }
+}
+
+button:focus {outline:0;}
+textarea:focus {outline:0;}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+
+
+.report-presentation-slide{
+
+    position:absolute;
+    width:1920px;
+    height: 1080px;
+    top:0;
+    left:0;
+    
+    //--------------------------------
+    // Main Content (Slide)
+    //--------------------------------
+
+    .slide {
+        position:relative;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        color:#404040;
+
+        .content{
+            width:1920px;
+            height: 1080px;
+            position: relative;
+            //background:pink;
+            color:white;
+        }
+
+        .presentation_holder{
+            position:absolute;
+            top:30%;
+            left:550px;
+            color:white;
+        }
+
+        .title_report{
+            font-size:60px;
+            font-weight:bold;
+            padding-bottom:10px;
+        }
+        .topic_name{
+            font-size:60px;
+            padding-bottom:10px;
+        }
+        .date_report{
+            font-size:35px;
+            padding-bottom:10px;
+        }
+
+
+        .avatar {
+            position:relative;
+            border-radius: 5%;
+            display: inline-block;
+            background-position: center;
+            background-size: contain;
+            background-repeat:no-repeat;
+            float:left;
+
+            &.big {
+                width:300px;
+                height:300px;
+            }
+
+        }
+
+
+        
+    }
+ 
+
+
+    //--------------------------------
+    // Background 
+    //--------------------------------
+
+
+    .slide-background{
+        position:absolute;
+        top:0;
+        left:0;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        background:#2b3f7d;
+
+        .left-bar{
+            position:absolute;
+            top:0;
+            left:0;
+            width:83px;
+            height:1080px;
+        }
+
+        .right-bar{
+            position:absolute;
+            top:0px;
+            left:1895px;
+            width:25px;
+            height:1080px;
+        }
+
+        .bubbles{
+            .b-left{
+                position:absolute;
+                height: 1080px;
+                width: 1080px;
+                border-radius: 50%;
+                top:0px;
+                left:-650px;
+            }
+            .b-top{
+                position:absolute;
+                height: 950px;
+                width: 950px;
+                border-radius: 50%;
+                top:-700px;
+                left:510px;
+            }
+            .b-bottom{
+                position:absolute;
+                height: 500px;
+                width: 500px;
+                border-radius: 50%;
+                top:830px;
+                left:1550px;
+            }
+        }
+
+    }
+
+
+    //--------------------------------
+    // Color Palette 
+    //--------------------------------
+
+    .orange {
+        background: #f6921d;
+    }
+    .teel {
+        background: #3fc6ca;
+    }
+    .dark-blue {
+        background: #2b3f7d;
+    }
+    .white {
+        background: white;
+    }
+
+
+}
+
+
+
+
+

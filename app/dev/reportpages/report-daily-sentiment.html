@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-daily-sentiment.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-daily-sentiment" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">Mentions over past 30 days with sentiment</div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="col_title year">Year: XXXX</div>
+                <div id="daily_sentiment_graph" class="graph_wrap" style="height:820px;width:1350px;"></div>
+              </div>
+
+              <div class="big_circle pos" style="left:1440px;top:80px;">
+                <p>Positive Mentions <strong>XXXK</strong></p>
+                <h2>XX%</h2>
+              </div>
+
+              <div class="big_circle neg" style="left:1440px;top:440px;">
+                <p>Negative Mentions <strong>XXXK</strong></p>
+                <h2>XX%</h2>
+              </div>
+
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+
+    <script>
+
+
+      var DailySentimentInstance = function () {
+
+          var pageDataJS = {"twitterDailySentiment":{"chart":[{"created":"2020-01-06 00:00:00+00","twitter_mentions":23,"twitter_positive_tweets":9,"twitter_negative_tweets":4,"date":"January 06, 2020","pos_percent":"39.13","neg_percent":"17.39"},{"created":"2020-01-07 00:00:00+00","twitter_mentions":24,"twitter_positive_tweets":6,"twitter_negative_tweets":8,"date":"January 07, 2020","pos_percent":"25.00","neg_percent":"33.33"},{"created":"2020-01-08 00:00:00+00","twitter_mentions":16,"twitter_positive_tweets":8,"twitter_negative_tweets":4,"date":"January 08, 2020","pos_percent":"50.00","neg_percent":"25.00"},{"created":"2020-01-09 00:00:00+00","twitter_mentions":22,"twitter_positive_tweets":10,"twitter_negative_tweets":6,"date":"January 09, 2020","pos_percent":"45.45","neg_percent":"27.27"},{"created":"2020-01-10 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":5,"date":"January 10, 2020","pos_percent":"42.11","neg_percent":"26.32"},{"created":"2020-01-11 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":4,"twitter_negative_tweets":2,"date":"January 11, 2020","pos_percent":"40.00","neg_percent":"20.00"},{"created":"2020-01-12 00:00:00+00","twitter_mentions":14,"twitter_positive_tweets":4,"twitter_negative_tweets":2,"date":"January 12, 2020","pos_percent":"28.57","neg_percent":"14.29"},{"created":"2020-01-13 00:00:00+00","twitter_mentions":9,"twitter_positive_tweets":4,"twitter_negative_tweets":1,"date":"January 13, 2020","pos_percent":"44.44","neg_percent":"11.11"},{"created":"2020-01-14 00:00:00+00","twitter_mentions":13,"twitter_positive_tweets":4,"twitter_negative_tweets":4,"date":"January 14, 2020","pos_percent":"30.77","neg_percent":"30.77"},{"created":"2020-01-15 00:00:00+00","twitter_mentions":23,"twitter_positive_tweets":9,"twitter_negative_tweets":7,"date":"January 15, 2020","pos_percent":"39.13","neg_percent":"30.43"},{"created":"2020-01-16 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":8,"twitter_negative_tweets":5,"date":"January 16, 2020","pos_percent":"47.06","neg_percent":"29.41"},{"created":"2020-01-17 00:00:00+00","twitter_mentions":29,"twitter_positive_tweets":10,"twitter_negative_tweets":6,"date":"January 17, 2020","pos_percent":"34.48","neg_percent":"20.69"},{"created":"2020-01-18 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":6,"twitter_negative_tweets":3,"date":"January 18, 2020","pos_percent":"50.00","neg_percent":"25.00"},{"created":"2020-01-19 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":10,"twitter_negative_tweets":1,"date":"January 19, 2020","pos_percent":"58.82","neg_percent":"5.88"},{"created":"2020-01-20 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":6,"twitter_negative_tweets":3,"date":"January 20, 2020","pos_percent":"60.00","neg_percent":"30.00"},{"created":"2020-01-21 00:00:00+00","twitter_mentions":13,"twitter_positive_tweets":4,"twitter_negative_tweets":4,"date":"January 21, 2020","pos_percent":"30.77","neg_percent":"30.77"},{"created":"2020-01-22 00:00:00+00","twitter_mentions":11,"twitter_positive_tweets":2,"twitter_negative_tweets":2,"date":"January 22, 2020","pos_percent":"18.18","neg_percent":"18.18"},{"created":"2020-01-23 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":5,"twitter_negative_tweets":5,"date":"January 23, 2020","pos_percent":"26.32","neg_percent":"26.32"},{"created":"2020-01-24 00:00:00+00","twitter_mentions":18,"twitter_positive_tweets":6,"twitter_negative_tweets":2,"date":"January 24, 2020","pos_percent":"33.33","neg_percent":"11.11"},{"created":"2020-01-25 00:00:00+00","twitter_mentions":21,"twitter_positive_tweets":7,"twitter_negative_tweets":4,"date":"January 25, 2020","pos_percent":"33.33","neg_percent":"19.05"},{"created":"2020-01-26 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":0,"date":"January 26, 2020","pos_percent":"42.11","neg_percent":"0.00"},{"created":"2020-01-27 00:00:00+00","twitter_mentions":6,"twitter_positive_tweets":4,"twitter_negative_tweets":0,"date":"January 27, 2020","pos_percent":"66.67","neg_percent":"0.00"},{"created":"2020-01-28 00:00:00+00","twitter_mentions":11,"twitter_positive_tweets":7,"twitter_negative_tweets":1,"date":"January 28, 2020","pos_percent":"63.64","neg_percent":"9.09"},{"created":"2020-01-29 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":6,"twitter_negative_tweets":1,"date":"January 29, 2020","pos_percent":"60.00","neg_percent":"10.00"},{"created":"2020-01-30 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":5,"twitter_negative_tweets":3,"date":"January 30, 2020","pos_percent":"41.67","neg_percent":"25.00"},{"created":"2020-01-31 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":0,"twitter_negative_tweets":4,"date":"January 31, 2020","pos_percent":"0.00","neg_percent":"33.33"},{"created":"2020-02-01 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":2,"twitter_negative_tweets":3,"date":"February 01, 2020","pos_percent":"16.67","neg_percent":"25.00"},{"created":"2020-02-02 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":2,"date":"February 02, 2020","pos_percent":"42.11","neg_percent":"10.53"},{"created":"2020-02-03 00:00:00+00","twitter_mentions":14,"twitter_positive_tweets":5,"twitter_negative_tweets":4,"date":"February 03, 2020","pos_percent":"35.71","neg_percent":"28.57"},{"created":"2020-02-04 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":7,"twitter_negative_tweets":0,"date":"February 04, 2020","pos_percent":"41.18","neg_percent":"0.00"}],"total_mentions":472,"total_mentions_positive":182,"total_mentions_negative":96}};
+
+
+          var pageId = '';
+          var slideDom = $('#report_slide'+pageId);
+          console.log("Unique Page ID:", "report_slide"+pageId);
+          console.log(pageDataJS);
+
+
+          var formatNumber = function(value) {
+            var finalValue;
+            if (value > 1000000) {
+              finalValue = Number((value/1000000).toFixed(2)) +' M';
+              return finalValue;
+            }
+            if (value > 1000) {
+              finalValue = Number((value/1000).toFixed(2)) +' K';
+              return finalValue;
+            }else{
+              finalValue = value;
+              return finalValue;
+            }
+          };
+
+          var getPercentage = function(total, value) {
+
+              return Math.round(value/total * 100);
+
+          };
+
+
+          var showPositiveMentions = function(pageDataJS) {
+
+              var dom = slideDom.find('.big_circle.pos');
+              var total = pageDataJS.twitterDailySentiment.total_mentions;
+              var positive = pageDataJS.twitterDailySentiment.total_mentions_positive;
+
+              dom.find('p').html('Positive Mentions<br><strong>'+formatNumber(positive)+'K</strong>');
+              dom.find('h2').html(getPercentage(total, positive)+'%');
+
+          };
+
+          var showNegativeMentions = function(pageDataJS) {
+
+              var dom = slideDom.find('.big_circle.neg');
+              var total = pageDataJS.twitterDailySentiment.total_mentions;
+              var negative = pageDataJS.twitterDailySentiment.total_mentions_negative;
+
+              dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'K</strong>');
+              dom.find('h2').html(getPercentage(total, negative)+'%');
+
+          };
+
+          var loadChart = function() {
+
+              var dataProvider = [];
+              for (var i = 0; i < pageDataJS.twitterDailySentiment.chart.length; i++) {
+
+                  var monthDay = pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0];
+                  var year = pageDataJS.twitterDailySentiment.chart[i].date.split(',')[1];
+
+                  slideDom.find('.col_title.year').html('Year: '+year);
+
+                  dataProvider.push({
+                      "date": monthDay,
+                      "positive": pageDataJS.twitterDailySentiment.chart[i].twitter_positive_tweets,
+                      "negative": pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets,
+                      "colorPos" : '#71d53e',
+                      "colorNeg" : '#ce4d4b',
+                  });
+              }
+
+              var chart = AmCharts.makeChart(slideDom.find('#daily_sentiment_graph').get(0), {
+                "type": "serial",
+                "theme": "none",
+                "addClassNames": true,
+                "fontFamily" : 'Open Sans',
+                "dataProvider": dataProvider,
+                "graphs": [{
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 1,
+                    "labelText": "[[value]]",
+                    "fillColorsField": "colorPos",
+                    "lineAlpha": 0,
+                    "title": "Positive",
+                    "type": "column",
+                    "color": "#000000",
+                    "fillColor": "#000000",
+                    "valueField": "positive",
+                    "fontSize" : 25,
+                    "lineColor": "transparent",
+                }, {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 1,
+                    "labelText": "[[value]]",
+                    "fillColorsField": "colorNeg",
+                    "lineAlpha": 0,
+                    "title": "Negative",
+                    "type": "column",
+                    "color": "#000000",
+                    "valueField": "negative",
+                    "fontSize" : 25,
+                    "lineColor": "transparent",
+                }],
+                "categoryField": "date",
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "axisAlpha": 0,
+                    "gridAlpha": 0,
+                    "labelRotation": 45,
+                    "position": "left",
+                    "fontSize" : 17,
+                },
+                "valueAxes": [{
+                    "stackType": "regular",
+                    "axisAlpha": 0.3,
+                    "gridAlpha": 0
+                }],
+                "export": {
+                  "enabled": true
+                }
+
+            });
+
+          };
+
+          return {
+              init: function () {
+                showPositiveMentions(pageDataJS);
+                showNegativeMentions(pageDataJS);
+                loadChart();
+              }
+          };
+
+      }();
+
+      DailySentimentInstance.init();
+
+
+    </script>
+
+
+  </body>
+</html>

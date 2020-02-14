@@ -1,0 +1,222 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+html, body {
+  color: #0000;
+  background: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+.amcharts-chart-div a {
+  display: none !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+.report-cross-channel-social-media-analysis-slide {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+.report-cross-channel-social-media-analysis-slide .slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  color: #404040;
+}
+.report-cross-channel-social-media-analysis-slide .slide .report_title {
+  text-transform: uppercase;
+  border-bottom: 10px solid #f6921d;
+  padding: 15px 15px 15px 105px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .report_title .top {
+  font-size: 40px;
+  font-weight: bold;
+}
+.report-cross-channel-social-media-analysis-slide .slide .report_title .bottom {
+  font-size: 40px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content {
+  position: relative;
+  width: 1771px;
+  height: 850px;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: 83px;
+  padding: 0px 20px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .content-area {
+  color: black;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 500px;
+  background: yellow;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .content-area .col_title {
+  position: relative;
+  color: #404040;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .main-layout-wrap {
+  color: #404040;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-top: 60px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .main-layout-wrap .col1 {
+  float: left;
+  width: 40%;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .main-layout-wrap .col2 {
+  float: left;
+  width: 20%;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .main-layout-wrap .col3 {
+  float: left;
+  width: 40%;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .main-layout-wrap .col_title {
+  position: relative;
+  color: #404040;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .card {
+  color: #404040;
+  background: #f3f3f4;
+  padding: 3px 25px;
+  font-size: 20px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .content .card h3 {
+  margin: 15px 0px 5px 0px;
+}
+.report-cross-channel-social-media-analysis-slide .slide .graph_wrap {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  color: white;
+  margin-top: 15px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: white;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .left-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 83px;
+  height: 1080px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .right-bar {
+  position: absolute;
+  top: 0px;
+  left: 1895px;
+  width: 25px;
+  height: 1080px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .bubbles .b-top {
+  position: absolute;
+  height: 650px;
+  width: 650px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: -200px;
+  left: -150px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .bubbles .b-middle {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 281px;
+  left: 510px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .bubbles .b-bottom {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 930px;
+  left: 1620px;
+}
+.report-cross-channel-social-media-analysis-slide .slide-background .vertical {
+  position: absolute;
+  font-size: 35px;
+  color: white;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  left: 15px;
+  top: 1040px;
+  text-transform: uppercase;
+}
+.report-cross-channel-social-media-analysis-slide .footer {
+  position: absolute;
+  top: 1020px;
+  width: 1920px;
+  height: 60px;
+  color: #a9a9a9;
+}
+.report-cross-channel-social-media-analysis-slide .footer .date-range {
+  position: absolute;
+  font-size: 25px;
+  top: 18px;
+  left: 100px;
+  text-transform: uppercase;
+}
+.report-cross-channel-social-media-analysis-slide .footer img {
+  float: right;
+  margin-right: 40px;
+}
+.report-cross-channel-social-media-analysis-slide .orange {
+  background: #f6921d;
+}
+.report-cross-channel-social-media-analysis-slide .teel {
+  background: #3fc6ca;
+}
+.report-cross-channel-social-media-analysis-slide .dark-blue {
+  background: #2b3f7d;
+}

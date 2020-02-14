@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-total-vs-previous-line-chart-comments-right.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-total-vs-previous-line-chart-comments-right" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">Top 10 countries by number of mentions</div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <!-- <div class="col_title">Potential Reach: XXX</div> -->
+                <div class="potential_reach_stats" style="top:80px;left:50px;">
+                    <label>XXXXX</label>
+                    <span>Total Mentions</span>
+                </div>
+                <div class="potential_reach_stats positive" style="top:220px;left:50px;">
+                    <label>(No data yet. Ask Marius) <i class="fa fa-caret-up"></i></label>
+                    <span>Versus Previous<br>Comparable Period</span>
+                </div>
+
+              </div>
+              <div class="col2">
+                <!-- <div class="col_title">Social Performance in the last 30 days</div> -->
+
+                <div class="comments-wrap">
+                  <div class="comment-col1">
+                    <label>Egiptian Hospitality</label>Accompanied by Dr Anwar Gargash Foreign Affairs Minister, HRH visit to Egypt sparks expressions of hospitality, whilsst journalists reporting on alleged deal with an US mercenary company, prompts negativity.
+                  </div>
+                  <div class="comment-col2">
+                    <label>Youth-LED Efforts Reap Positivity</label>In celebration of World Youth Day, coverage showcasing HRH at the Youth Circle seminar and news reports commending leadership role in inspiring the future generations of innovators, top to trigger mentions.
+                  </div>
+                </div>
+
+                <div id="bar_graph" class="graph_wrap" style="height: 830px;"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+
+    <script>
+
+      var pageDataJS = {"twitterDailyMentions":{"chart":[{"created":"2020-01-01 00:00:00+00","twitter_mentions":15,"date":"January 01, 2020"},{"created":"2020-01-02 00:00:00+00","twitter_mentions":12,"date":"January 02, 2020"},{"created":"2020-01-03 00:00:00+00","twitter_mentions":13,"date":"January 03, 2020"},{"created":"2020-01-04 00:00:00+00","twitter_mentions":13,"date":"January 04, 2020"},{"created":"2020-01-05 00:00:00+00","twitter_mentions":15,"date":"January 05, 2020"},{"created":"2020-01-06 00:00:00+00","twitter_mentions":23,"date":"January 06, 2020"},{"created":"2020-01-07 00:00:00+00","twitter_mentions":24,"date":"January 07, 2020"},{"created":"2020-01-08 00:00:00+00","twitter_mentions":16,"date":"January 08, 2020"},{"created":"2020-01-09 00:00:00+00","twitter_mentions":22,"date":"January 09, 2020"},{"created":"2020-01-10 00:00:00+00","twitter_mentions":19,"date":"January 10, 2020"},{"created":"2020-01-11 00:00:00+00","twitter_mentions":10,"date":"January 11, 2020"},{"created":"2020-01-12 00:00:00+00","twitter_mentions":14,"date":"January 12, 2020"},{"created":"2020-01-13 00:00:00+00","twitter_mentions":9,"date":"January 13, 2020"},{"created":"2020-01-14 00:00:00+00","twitter_mentions":13,"date":"January 14, 2020"},{"created":"2020-01-15 00:00:00+00","twitter_mentions":23,"date":"January 15, 2020"},{"created":"2020-01-16 00:00:00+00","twitter_mentions":17,"date":"January 16, 2020"},{"created":"2020-01-17 00:00:00+00","twitter_mentions":29,"date":"January 17, 2020"},{"created":"2020-01-18 00:00:00+00","twitter_mentions":12,"date":"January 18, 2020"},{"created":"2020-01-19 00:00:00+00","twitter_mentions":17,"date":"January 19, 2020"},{"created":"2020-01-20 00:00:00+00","twitter_mentions":10,"date":"January 20, 2020"},{"created":"2020-01-21 00:00:00+00","twitter_mentions":13,"date":"January 21, 2020"},{"created":"2020-01-22 00:00:00+00","twitter_mentions":11,"date":"January 22, 2020"},{"created":"2020-01-23 00:00:00+00","twitter_mentions":19,"date":"January 23, 2020"},{"created":"2020-01-24 00:00:00+00","twitter_mentions":18,"date":"January 24, 2020"},{"created":"2020-01-25 00:00:00+00","twitter_mentions":21,"date":"January 25, 2020"},{"created":"2020-01-26 00:00:00+00","twitter_mentions":19,"date":"January 26, 2020"},{"created":"2020-01-27 00:00:00+00","twitter_mentions":6,"date":"January 27, 2020"},{"created":"2020-01-28 00:00:00+00","twitter_mentions":11,"date":"January 28, 2020"},{"created":"2020-01-29 00:00:00+00","twitter_mentions":10,"date":"January 29, 2020"},{"created":"2020-01-30 00:00:00+00","twitter_mentions":12,"date":"January 30, 2020"}],"total":466},"twitterDailyReach":{"chart":[{"created":"2020-01-01 00:00:00+00","social_reach":715864,"date":"January 01, 2020"},{"created":"2020-01-02 00:00:00+00","social_reach":1180305,"date":"January 02, 2020"},{"created":"2020-01-03 00:00:00+00","social_reach":775023,"date":"January 03, 2020"},{"created":"2020-01-04 00:00:00+00","social_reach":253066,"date":"January 04, 2020"},{"created":"2020-01-05 00:00:00+00","social_reach":221692,"date":"January 05, 2020"},{"created":"2020-01-06 00:00:00+00","social_reach":542329,"date":"January 06, 2020"},{"created":"2020-01-07 00:00:00+00","social_reach":547721,"date":"January 07, 2020"},{"created":"2020-01-08 00:00:00+00","social_reach":2065567,"date":"January 08, 2020"},{"created":"2020-01-09 00:00:00+00","social_reach":639288,"date":"January 09, 2020"},{"created":"2020-01-10 00:00:00+00","social_reach":15696576,"date":"January 10, 2020"},{"created":"2020-01-11 00:00:00+00","social_reach":1586047,"date":"January 11, 2020"},{"created":"2020-01-12 00:00:00+00","social_reach":572495,"date":"January 12, 2020"},{"created":"2020-01-13 00:00:00+00","social_reach":148398,"date":"January 13, 2020"},{"created":"2020-01-14 00:00:00+00","social_reach":2422315,"date":"January 14, 2020"},{"created":"2020-01-15 00:00:00+00","social_reach":422324,"date":"January 15, 2020"},{"created":"2020-01-16 00:00:00+00","social_reach":2473903,"date":"January 16, 2020"},{"created":"2020-01-17 00:00:00+00","social_reach":772434,"date":"January 17, 2020"},{"created":"2020-01-18 00:00:00+00","social_reach":377771,"date":"January 18, 2020"},{"created":"2020-01-19 00:00:00+00","social_reach":2182707,"date":"January 19, 2020"},{"created":"2020-01-20 00:00:00+00","social_reach":757995,"date":"January 20, 2020"},{"created":"2020-01-21 00:00:00+00","social_reach":821771,"date":"January 21, 2020"},{"created":"2020-01-22 00:00:00+00","social_reach":617232,"date":"January 22, 2020"},{"created":"2020-01-23 00:00:00+00","social_reach":619442,"date":"January 23, 2020"},{"created":"2020-01-24 00:00:00+00","social_reach":299328,"date":"January 24, 2020"},{"created":"2020-01-25 00:00:00+00","social_reach":486774,"date":"January 25, 2020"},{"created":"2020-01-26 00:00:00+00","social_reach":264632,"date":"January 26, 2020"},{"created":"2020-01-27 00:00:00+00","social_reach":167628,"date":"January 27, 2020"},{"created":"2020-01-28 00:00:00+00","social_reach":383932,"date":"January 28, 2020"},{"created":"2020-01-29 00:00:00+00","social_reach":963190,"date":"January 29, 2020"},{"created":"2020-01-30 00:00:00+00","social_reach":273369,"date":"January 30, 2020"}],"total":39251118},"twitterMentionsByCountry":{"twitterNumMentions":{"originalNumber":461,"number":"461","unit":null,"percentage":-18.41},"twitterEstimatedSocialReach":{"originalNumber":1328648,"number":"1.33","unit":"M","percentage":33.84},"heatmap_data":[{"id":"GB","value":51,"name":"United Kingdom"},{"id":"US","value":410,"name":"United States"}]}};
+
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+
+        
+
+        var formatDataGraph = function() {
+
+          var dataProvider = [];
+          for (var i = 0; i < pageDataJS.twitterMentionsByCountry.heatmap_data.length; i++) {
+            dataProvider.push({
+              "country": pageDataJS.twitterMentionsByCountry.heatmap_data[i].name,
+              "visits": pageDataJS.twitterMentionsByCountry.heatmap_data[i].value,
+              "color": "#3fc6ca"
+            })
+          }
+
+          return dataProvider;
+
+        };  
+
+
+        var formatNumber = function(value) {
+          var finalValue;
+          if (value > 1000000) {
+            finalValue = parseFloat(value/1000000).toFixed(0) +' M';
+            return finalValue;
+          }
+          if (value > 1000) {
+            finalValue = parseFloat(value/1000,2).toFixed(2) +' K';
+            return finalValue;
+          }else{
+            finalValue = value;
+            return finalValue;
+          }
+        };
+
+        var showPotentialReach = function() {
+          slideDom.find('.col_title').html('Potential Reach: <strong>'+formatNumber(pageDataJS.twitterDailyReach.total)+'</strong>');
+        };
+
+        var showTotalMentions = function() {
+          slideDom.find('.potential_reach_stats:first-child label').html(formatNumber(pageDataJS.twitterDailyMentions.total));
+        };
+
+        var showVSPrevious = function() {
+          slideDom.find('.potential_reach_stats:nth-child(2) label').html(formatNumber(pageDataJS.twitterDailyReach.total));
+        };
+
+
+        //===========================================================================
+
+        var chart = AmCharts.makeChart(slideDom.find('#bar_graph').get(0), {
+          "type": "serial",
+          "theme": "light",
+          "addClassNames": true,
+          "marginRight": 70,
+          "dataProvider": formatDataGraph(),
+          "valueAxes": [{
+            "position": "left",
+            "title": " ",
+            "gridThickness":0,
+            "fontSize" : 20,
+            "gridAlpha" : 0,
+          }],
+          "startDuration": 0,
+          "graphs": [{
+            "balloonText": "<b>[[category]]: [[value]]</b>",
+            "fillColorsField": "color",
+            "fillAlphas": 1,
+            "lineAlpha": 0,
+            "lineColor": "transparent",
+            "type": "column",
+            "valueField": "visits"
+          }],
+          "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+          },
+          "categoryField": "country",
+          "categoryAxis": {
+            "gridPosition": "start",
+            "labelRotation": 0,
+            "gridThickness":0,
+            "gridAlpha" : 0,
+            "position": "left",
+            "fontSize" : 17,
+            "labelRotation": 45,
+          },
+          "export": {
+            "enabled": true
+          }
+
+        });
+
+        showPotentialReach();
+        showTotalMentions();
+        // showVSPrevious();
+          
+    </script>
+
+
+  </body>
+</html>

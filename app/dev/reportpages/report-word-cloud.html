@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-word-cloud.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-word-cloud" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">Most used words when discussing {{topic.name}}</div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <!-- <div class="col_title">Colmumn 1</div> -->
+                <div id="wordgraph" class="graph_wrap" style="height:810px;"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+
+    <script>
+
+      /**
+       * Created by Juan Infante 
+       */
+
+      var WordCloudInstance = function () {
+          
+          var pageDataJS = {"twitterWordCloud":{"data":["shirt","gucci","africa","flavour","versace","calvinklein","fendi","model","scarf","king","actor","baby","insta","page","musician","shower","coat","back","wearing","london"],"style":[{"color":"#FFFFFF","size":100},{"color":"#F6921E","size":80},{"color":"#77C0B2","size":60},{"color":"#FFFFFF","size":50},{"color":"#F6921E","size":40},{"color":"#77C0B2","size":30},{"color":"#FFFFFF","size":25},{"color":"#F6921E","size":25},{"color":"#77C0B2","size":25},{"color":"#FFFFFF","size":25},{"color":"#F6921E","size":20},{"color":"#77C0B2","size":20},{"color":"#FFFFFF","size":20},{"color":"#F6921E","size":20},{"color":"#77C0B2","size":15},{"color":"#FFFFFF","size":15},{"color":"#F6921E","size":15},{"color":"#77C0B2","size":15},{"color":"#FFFFFF","size":10},{"color":"#F6921E","size":10}]}};
+          var pageId = '';
+          var slideDom = $('#report_slide'+pageId);
+          console.log("Unique Page ID:", "report_slide"+pageId);
+
+          var loadChart = function() {
+
+            anychart.onDocumentReady(function() {
+
+              var data = [];
+              var colors = [];
+              for (var i = 0; i < pageDataJS.twitterWordCloud.data.length; i++) {
+                // console.log(pageDataJS.twitterWordCloud.data[i]);
+
+                var word = pageDataJS.twitterWordCloud.data[i];
+                var value = pageDataJS.twitterWordCloud.style[i].size;
+                var wordcolor = pageDataJS.twitterWordCloud.style[i].color.toUpperCase();
+
+                data.push( {"x": word, "value": value } );
+
+                if (colors.indexOf(wordcolor)==-1) {
+                  if ( wordcolor == "WHITE" || wordcolor == "#FFFFFF" || wordcolor == "#FFF") {
+                    wordcolor = "#404040";
+                  }
+                  colors.push(wordcolor);
+                }
+              }
+
+             // create a tag (word) cloud chart
+              var chart = anychart.tagCloud(data);
+
+               // set a chart title
+              //chart.title('15 most spoken languages')
+              // set an array of angles at which the words will be laid out
+              chart.angles([0, -45, 90])
+              
+              // set the color range length
+              chart.colorRange().length('80%');
+
+              // display the word cloud chart
+              chart.container(slideDom.find('#wordgraph').get(0));
+
+              chart.background().fill("transparent");
+
+
+              // create and configure a color scale.
+              var customColorScale = anychart.scales.ordinalColor();
+              customColorScale.colors(colors);
+
+              // set the color scale as the color scale of the chart
+              chart.colorScale(customColorScale);
+
+              // add a color range
+              //chart.colorRange().enabled(true);
+
+
+              chart.draw();
+            });
+
+
+          };
+
+
+          return {
+              init: function () {
+
+                loadChart();
+
+              }
+          };
+
+
+      }();
+
+      WordCloudInstance.init();
+      
+    </script>
+
+
+  </body>
+</html>

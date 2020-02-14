@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-social-insights-piechart.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-social-insights-piechart" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">Social Performance in Past 30 days</div>
+              <!-- <div class="bottom">Subtitle</div> -->
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="col_title">Community</div>
+                
+                <div class="followers_column" style="top:100px;left:20px;">
+                    <label>Followers</label>
+                    <div class="followers_holder">
+                      <!-- Javascript -->
+                    </div>
+                    <!-- 
+                    <div class="follower">
+                        <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/facebook.png" width="50" />
+                        <span>1,000,000</span>
+                    </div>
+                     -->
+                </div>
+
+                <div class="audience_engagement_column" style="top:100px;left:400px;">
+                    <label>Aud. engagement VS prev. period</label>
+                    <!-- Developer Note: 100% would be width = 300px. Easy to do the maths. Let me know If you have a question. -->
+                    <div class="aud_engament_holder">
+                      <!-- Javascript -->
+                    </div>
+
+                    <!-- <div class="percentage" style="margin-top: 25px;">
+                        <div class="bar_percentage teel" style="width:130px;"></div>
+                        <span>70</span><span class="prev_period_percentage positive">+ 3%</span>
+                    </div> -->
+
+                </div>
+
+                <div class="activity_engagement_column" style="top:430px;left:20px;">
+                    <label>Activity and Engagement</label>
+                    <!-- Total number of Posts -->
+                    <div class="panel-holder">
+                        <label style="border-bottom: 0;position: absolute;font-size: 22px;">Total Num. Posts</label>
+
+                        <div class="total_num_posts_holder">
+                          <!-- Javascript -->
+                        </div>
+                        <!-- <div class="num_posts">
+                            <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/twitter.png" width="50" />
+                            <span>1235</span>
+                        </div> -->
+                    </div>
+
+                    <!-- Engagement Rate -->
+                    <div class="panel-holder" style="left:270px;">
+                        <label style="border-bottom: 0;position: absolute;font-size: 22px;">Engagement Rate</label>
+
+                        <div class="eng_rate_holder">
+                          <!-- Javascript -->
+                        </div>
+                        
+                        <!-- <div class="eng_rate">
+                            <span>0.9</span>
+                        </div> -->
+                        
+                    </div>
+
+                    <!-- Engagement Rate -->
+                    <div class="panel-holder" style="left:540px;">
+                        <label style="border-bottom: 0;position: absolute;font-size: 22px;">VS Prev. Period</label>
+
+                        <div class="post_vs_previous_holder">
+                          <!-- Javascript -->
+                        </div>
+
+                        <!-- <div class="post_vs_previous positive">
+                            <span>+0.9 %</span>
+                        </div> -->
+                        
+                    </div>
+
+                </div>
+
+              </div>
+              <div class="col2">
+                <div class="col_title center">Share Content by Type</div>
+                <div id="pie_graph" class="graph_wrap" style="top:0px;left:0px;height:750px;"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+        var SocialInsightsPieChartInstance = function () {
+
+          var pageDataJS = {"socialPerformance":{"twitterFollowersNumber":{"originalNumber":8381487,"number":"8.38","unit":"M","percentage":-0.04},"numberOfFacebookPageLikes":{"originalNumber":250,"number":"250","unit":null,"percentage":0},"numberOfInstagramFollowers":{"originalNumber":0,"number":"0","unit":null,"percentage":0},"totalSubscribersCount":{"originalNumber":1260000,"number":"1.26","unit":"M","percentage":1.61},"content_by_type":{"total":46,"text":21,"photo":0,"video":25},"facebook_engagement":{"total_posts":0,"total_engagement":0,"photo":0,"video":0,"change":-100,"engagement_rate":0,"engagement_rate_change":-100},"facebook_engagement_prev":{"total_posts":19,"total_engagement":6,"engagement_rate":"0.126"},"instagram_engagement":{"total_posts":0,"total_engagement":0,"photo":0,"video":0,"change":0,"engagement_rate":0,"engagement_rate_change":0},"instagram_engagement_prev":{"total_posts":0,"total_engagement":0},"twitter_engagement":{"total_posts":21,"total_engagement":1032,"photo":0,"change":-45.94,"engagement_rate":"0.001","engagement_rate_change":0},"twitter_engagement_prev":{"total_posts":34,"total_engagement":1909,"engagement_rate":"0.001"},"youtube_engagement":{"total_posts":25,"total_engagement":14773,"change":-1.78,"engagement_rate":"0.047","engagement_rate_change":-32.86},"youtube_engagement_prev":{"total_posts":17,"total_engagement":15041,"engagement_rate":"0.070"}}};
+
+          var pageId = '';
+          var slideDom = $('#report_slide'+pageId);
+          console.log("Unique Page ID:", "report_slide"+pageId);
+          console.log(pageDataJS);
+
+
+          var getSocialSquareIcon = function(social) {
+
+            switch(social) {
+              case "twitter":
+                return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/twitter.png';
+              break;
+              case "facebook":
+                return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/facebook.png';
+              break;
+              case "youtube":
+                return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/youtube.png';
+              break;
+              case "instagram":
+                return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/instagram.png';
+              break;
+            }
+
+          };
+
+
+          var formatNumber = function(value) {
+            var finalValue;
+            if (value > 1000000) {
+              finalValue = Number((value/1000000).toFixed(2)) +' M';
+              return finalValue;
+            }
+            if (value > 1000) {
+              finalValue = Number((value/1000).toFixed(2)) +' K';
+              return finalValue;
+            }else{
+              finalValue = value;
+              return finalValue;
+            }
+          };
+
+
+          var displayFollowers = function () {
+
+            var targetDOM = slideDom.find('.followers_holder');
+            
+            //Twitter
+            if ( pageDataJS.socialPerformance.hasOwnProperty('twitterFollowersNumber') ) {
+              var template = '<div class="follower"><img src="'+getSocialSquareIcon('twitter')+'" width="50" /><span>'+formatNumber(pageDataJS.socialPerformance.twitterFollowersNumber.originalNumber)+'</span></div>';
+              targetDOM.append(template);
+            }
+            //Facebook
+            if ( pageDataJS.socialPerformance.hasOwnProperty('numberOfFacebookPageLikes') ) {
+              var template = '<div class="follower"><img src="'+getSocialSquareIcon('facebook')+'" width="50" /><span>'+formatNumber(pageDataJS.socialPerformance.numberOfFacebookPageLikes.originalNumber)+'</span></div>';
+              targetDOM.append(template);
+            }
+            //Instagram
+            if ( pageDataJS.socialPerformance.hasOwnProperty('numberOfInstagramFollowers') ) {
+              var template = '<div class="follower"><img src="'+getSocialSquareIcon('instagram')+'" width="50" /><span>'+formatNumber(pageDataJS.socialPerformance.numberOfInstagramFollowers.originalNumber)+'</span></div>';
+              targetDOM.append(template);
+            }
+            //YouTube
+            if ( pageDataJS.socialPerformance.hasOwnProperty('totalSubscribersCount') ) {
+              var template = '<div class="follower"><img src="'+getSocialSquareIcon('youtube')+'" width="50" /><span>'+formatNumber(pageDataJS.socialPerformance.totalSubscribersCount.originalNumber)+'</span></div>';
+              targetDOM.append(template);
+            }
+            
+          };
+
+
+          var getPercentageColor = function(changeValue) {
+
+            return (changeValue < 0) ? 'negative' : 'positive';
+
+          };
+
+
+          var getPercentageWidthBar = function(val) {
+
+            //Developer Note: 100% would be width = 300px. Easy to do the maths. Let me know If you have a question.
+            val = Math.abs(val);
+            if (val > 100) {
+              val = 100;
+            }
+            return (300*val)/100;
+
+          };
+
+
+          var displayAudienceEngagementVSPrev = function () {
+
+            
+            var targetDOM = slideDom.find('.aud_engament_holder');
+            
+            //Twitter
+            if ( pageDataJS.socialPerformance.hasOwnProperty('twitter_engagement') ) {
+              var template = '<div class="percentage"><div class="bar_percentage '+getPercentageColor(pageDataJS.socialPerformance.twitter_engagement.change)+'" style="width:'+getPercentageWidthBar(pageDataJS.socialPerformance.twitter_engagement.change)+'px;"></div><span>'+formatNumber(pageDataJS.socialPerformance.twitter_engagement.total_engagement)+'</span><span class="prev_period_percentage '+getPercentageColor(pageDataJS.socialPerformance.twitter_engagement.change)+'">'+pageDataJS.socialPerformance.twitter_engagement.change+' %</span></div>';
+              targetDOM.append(template);
+            }
+            //facebook
+            if ( pageDataJS.socialPerformance.hasOwnProperty('facebook_engagement') ) {
+              var template = '<div class="percentage"><div class="bar_percentage '+getPercentageColor(pageDataJS.socialPerformance.facebook_engagement.change)+'" style="width:'+getPercentageWidthBar(pageDataJS.socialPerformance.facebook_engagement.change)+'px;"></div><span>'+formatNumber(pageDataJS.socialPerformance.facebook_engagement.total_engagement)+'</span><span class="prev_period_percentage '+getPercentageColor(pageDataJS.socialPerformance.facebook_engagement.change)+'">'+pageDataJS.socialPerformance.facebook_engagement.change+' %</span></div>';
+              targetDOM.append(template);
+            }
+            //instagram
+            if ( pageDataJS.socialPerformance.hasOwnProperty('instagram_engagement') ) {
+              var template = '<div class="percentage"><div class="bar_percentage '+getPercentageColor(pageDataJS.socialPerformance.instagram_engagement.change)+'" style="width:'+getPercentageWidthBar(pageDataJS.socialPerformance.instagram_engagement.change)+'px;"></div><span>'+formatNumber(pageDataJS.socialPerformance.instagram_engagement.total_engagement)+'</span><span class="prev_period_percentage '+getPercentageColor(pageDataJS.socialPerformance.instagram_engagement.change)+'">'+pageDataJS.socialPerformance.instagram_engagement.change+' %</span></div>';
+              targetDOM.append(template);
+            }
+            //youtube
+            if ( pageDataJS.socialPerformance.hasOwnProperty('youtube_engagement') ) {
+              var template = '<div class="percentage"><div class="bar_percentage '+getPercentageColor(pageDataJS.socialPerformance.youtube_engagement.change)+'" style="width:'+getPercentageWidthBar(pageDataJS.socialPerformance.youtube_engagement.change)+'px;"></div><span>'+formatNumber(pageDataJS.socialPerformance.youtube_engagement.total_engagement)+'</span><span class="prev_period_percentage '+getPercentageColor(pageDataJS.socialPerformance.youtube_engagement.change)+'">'+pageDataJS.socialPerformance.youtube_engagement.change+' %</span></div>';
+              targetDOM.append(template);
+            }
+
+            
+          };
+
+
+          var displayTotalNumberPosts = function () {
+
+            //Developer Note: 100% would be width = 300px. Easy to do the maths. Let me know If you have a question.
+            var targetDOM = slideDom.find('.total_num_posts_holder');
+            
+            //Twitter
+            if ( pageDataJS.socialPerformance.hasOwnProperty('twitter_engagement') ) {
+              var template = '<div class="num_posts"><img src="'+getSocialSquareIcon('twitter')+'" width="50" /><span>'+pageDataJS.socialPerformance.twitter_engagement.total_posts+'</span></div>';
+              targetDOM.append(template);
+            }
+            //Facebook
+            if ( pageDataJS.socialPerformance.hasOwnProperty('facebook_engagement') ) {
+              var template = '<div class="num_posts"><img src="'+getSocialSquareIcon('facebook')+'" width="50" /><span>'+pageDataJS.socialPerformance.facebook_engagement.total_posts+'</span></div>';
+              targetDOM.append(template);
+            }
+            //instagram
+            if ( pageDataJS.socialPerformance.hasOwnProperty('instagram_engagement') ) {
+              var template = '<div class="num_posts"><img src="'+getSocialSquareIcon('instagram')+'" width="50" /><span>'+pageDataJS.socialPerformance.instagram_engagement.total_posts+'</span></div>';
+              targetDOM.append(template);
+            }
+            //youtube
+            if ( pageDataJS.socialPerformance.hasOwnProperty('youtube_engagement') ) {
+              var template = '<div class="num_posts"><img src="'+getSocialSquareIcon('youtube')+'" width="50" /><span>'+pageDataJS.socialPerformance.youtube_engagement.total_posts+'</span></div>';
+              targetDOM.append(template);
+            }
+
+            
+          };
+
+
+          var displayEngagementRate = function () {
+
+            var targetDOM = slideDom.find('.eng_rate_holder');
+            
+            //Twitter
+            if ( pageDataJS.socialPerformance.hasOwnProperty('twitter_engagement') ) {
+              var template = '<div class="eng_rate"><span>'+pageDataJS.socialPerformance.twitter_engagement.engagement_rate+'</span></div>';
+              targetDOM.append(template);
+            }
+            //facebook
+            if ( pageDataJS.socialPerformance.hasOwnProperty('facebook_engagement') ) {
+              var template = '<div class="eng_rate"><span>'+pageDataJS.socialPerformance.facebook_engagement.engagement_rate+'</span></div>';
+              targetDOM.append(template);
+            }
+            //instagram
+            if ( pageDataJS.socialPerformance.hasOwnProperty('instagram_engagement') ) {
+              var template = '<div class="eng_rate"><span>'+pageDataJS.socialPerformance.instagram_engagement.engagement_rate+'</span></div>';
+              targetDOM.append(template);
+            }
+            //youtube
+            if ( pageDataJS.socialPerformance.hasOwnProperty('youtube_engagement') ) {
+              var template = '<div class="eng_rate"><span>'+pageDataJS.socialPerformance.youtube_engagement.engagement_rate+'</span></div>';
+              targetDOM.append(template);
+            }
+            
+          };
+
+
+          var displayVSPeriod = function () {
+
+            var targetDOM = slideDom.find('.post_vs_previous_holder');
+            
+            //Twitter
+            if ( pageDataJS.socialPerformance.twitter_engagement_prev.hasOwnProperty('engagement_rate') ) {
+              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate+' %</span></div>';
+              targetDOM.append(template);
+            }else{
+              targetDOM.append('<div class="post_vs_previous positive"><span>0 %</span></div>');
+            }
+            //Facebook
+            if ( pageDataJS.socialPerformance.facebook_engagement_prev.hasOwnProperty('engagement_rate') ) {
+              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate+' %</span></div>';
+              targetDOM.append(template);
+            }else{
+              targetDOM.append('<div class="post_vs_previous positive"><span>0 %</span></div>');
+            }
+            //instagram
+            if ( pageDataJS.socialPerformance.instagram_engagement_prev.hasOwnProperty('engagement_rate') ) {
+              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate+' %</span></div>';
+              targetDOM.append(template);
+            }else{
+              targetDOM.append('<div class="post_vs_previous positive"><span>0 %</span></div>');
+            }
+            //youtube
+            if ( pageDataJS.socialPerformance.youtube_engagement_prev.hasOwnProperty('engagement_rate') ) {
+              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate+' %</span></div>';
+              targetDOM.append(template);
+            }else{
+              targetDOM.append('<div class="post_vs_previous positive"><span>0 %</span></div>');
+            }
+
+
+            
+          };
+
+
+          var loadChart = function() {
+
+            AmCharts.makeChart( slideDom.find("#pie_graph").get(0), {
+              "type": "pie",
+              "pullOutDuration": 0,
+              "pullOutRadius": 0,
+              "color": "#404040",
+              "addClassNames": true,
+              "startDuration":0,
+              
+              "fontSize" : 25,
+              "fontFamily" : 'Open Sans',
+              "labelsEnabled" : true,
+              "labelText": "[[value]]",
+              "labelRadius" : 10,
+              "bold" : false,
+
+              "theme": "light",
+              "dataProvider": [ 
+                  {
+                    "title": "Text",
+                    "color": "#f6921e",
+                    "value": pageDataJS.socialPerformance.content_by_type.text
+                  }, {
+                    "title": "Image",
+                    "color": "#4dc5b2",
+                    "value": pageDataJS.socialPerformance.content_by_type.photo
+                  },
+                  {
+                    "title": "Video",
+                    "color": "#65b2fa",
+                    "value": pageDataJS.socialPerformance.content_by_type.video
+                  }  
+              ],
+              "titleField": "title",
+              "valueField": "value",
+              "colorField": "color",
+              "labelRadius": 5,
+              "radius": "42%",
+              "innerRadius": "60%",
+              "labelText": "[[title]]",
+              "labelRadius": 30,
+              "legend":{
+                "enabled":true,
+                "align" : "center",
+                "labelText" : "[[title]]",
+                "valueText" : false,
+                "valueWidth" : 90,
+                "fontSize" : 30,
+                "maxColumns" : 3,
+                "bold" : false,
+                "markerType" : "circle",
+              },
+              "export": {
+                "enabled": true
+              }
+            } );
+
+          };
+
+
+          return {
+              init: function () {
+                loadChart();
+                displayFollowers(pageDataJS);
+                displayAudienceEngagementVSPrev(pageDataJS);
+                displayTotalNumberPosts(pageDataJS);
+                displayEngagementRate(pageDataJS);
+                displayVSPeriod(pageDataJS);
+              }
+          };
+          
+        }();
+
+        SocialInsightsPieChartInstance.init();
+          
+    </script>
+
+
+  </body>
+</html>

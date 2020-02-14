@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-AA-SocialIntel-benchmark-scorecard.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="aa-benchmark-scorecard" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">Competitor Benchmark Scorecard</div>
+              <!-- <div class="bottom">Subtitle</div> -->
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                
+                <table class="scorecard">
+                  <tr>
+                    <th></th>
+                    <th>Client 1</th>
+                    <th>Client 2</th>
+                    <th>Client 3</th>
+                    <th>Client 4</th>
+                  </tr>
+                  <tr>
+                    <td>Engagement Rate</td>
+                    <td>0.029%</td>
+                    <td>0.014%</td>
+                    <td>0.024%</td>
+                    <td>0.75%</td>
+                  </tr>
+                  <tr>
+                    <td>Share of Voice</td>
+                    <td>44%</td>
+                    <td>10%</td>
+                    <td>41%</td>
+                    <td>5%</td>
+                  </tr>
+                  <tr>
+                    <td>Audience Size</td>
+                    <td>728 K</td>
+                    <td>202 K</td>
+                    <td>1.76 M</td>
+                    <td>21K</td>
+                  </tr>
+                  <tr>
+                    <td>Audience Resonance</td>
+                    <td>62%</td>
+                    <td>61%</td>
+                    <td>60%</td>
+                    <td>67%</td>
+                  </tr>
+                  <tr>
+                    <td>Positive</td>
+                    <td>84%</td>
+                    <td>N/A</td>
+                    <td>78%</td>
+                    <td>79%</td>
+                  </tr>
+                </table>
+
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      //Code for the Graphs
+          
+    </script>
+
+
+  </body>
+</html>

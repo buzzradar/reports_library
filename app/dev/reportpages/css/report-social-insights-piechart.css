@@ -1,0 +1,373 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+html, body {
+  color: #0000;
+  background: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+.amcharts-chart-div a {
+  display: none !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+.report-social-insights-piechart {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+.report-social-insights-piechart .slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  color: #404040;
+}
+.report-social-insights-piechart .slide .report_title {
+  text-transform: uppercase;
+  border-bottom: 10px solid #f6921d;
+  padding: 15px 15px 15px 105px;
+}
+.report-social-insights-piechart .slide .report_title .top {
+  font-size: 40px;
+  font-weight: bold;
+}
+.report-social-insights-piechart .slide .report_title .bottom {
+  font-size: 40px;
+}
+.report-social-insights-piechart .slide .content {
+  position: relative;
+  width: 1771px;
+  height: 850px;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: 83px;
+  padding: 0px 20px;
+}
+.report-social-insights-piechart .slide .content .content-area {
+  color: black;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 500px;
+  background: yellow;
+}
+.report-social-insights-piechart .slide .content .content-area .col_title {
+  position: relative;
+  color: #404040;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.report-social-insights-piechart .slide .content .main-layout-wrap {
+  color: #404040;
+  display: flex;
+  align-items: bottom;
+  padding-top: 50px;
+}
+.report-social-insights-piechart .slide .content .main-layout-wrap .col1 {
+  float: left;
+  width: 55%;
+}
+.report-social-insights-piechart .slide .content .main-layout-wrap .col2 {
+  float: left;
+  width: 45%;
+}
+.report-social-insights-piechart .slide .content .main-layout-wrap .col_title {
+  position: relative;
+  color: #404040;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.report-social-insights-piechart .slide .content .main-layout-wrap .col_title.center {
+  text-align: center;
+}
+.report-social-insights-piechart .slide .content .followers_column, .report-social-insights-piechart .slide .content .activity_engagement_column {
+  position: absolute;
+  width: 310px;
+  height: 207px;
+  color: #404040;
+}
+.report-social-insights-piechart .slide .content .followers_column label, .report-social-insights-piechart .slide .content .activity_engagement_column label {
+  text-transform: uppercase;
+  border-bottom: 3px solid #404040;
+  display: block;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower:first-child, .report-social-insights-piechart .slide .content .activity_engagement_column .follower:first-child {
+  margin-top: 25px;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower, .report-social-insights-piechart .slide .content .activity_engagement_column .follower {
+  margin-top: 10px;
+  height: 50px;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower .square, .report-social-insights-piechart .slide .content .activity_engagement_column .follower .square {
+  width: 50px;
+  height: 50px;
+  background: white;
+  float: left;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower .square.teel, .report-social-insights-piechart .slide .content .activity_engagement_column .follower .square.teel {
+  background: #4dc5b2;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower img, .report-social-insights-piechart .slide .content .activity_engagement_column .follower img {
+  width: 50px;
+  height: 50px;
+}
+.report-social-insights-piechart .slide .content .followers_column .follower span, .report-social-insights-piechart .slide .content .activity_engagement_column .follower span {
+  position: absolute;
+  margin-left: 10px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column {
+  position: absolute;
+  width: 500px;
+  height: 207px;
+  color: #404040;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column label {
+  text-transform: uppercase;
+  border-bottom: 3px solid #404040;
+  display: block;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage:first-child {
+  margin-top: 25px;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage {
+  margin-top: 10px;
+  background: #ccc;
+  width: 300px;
+  height: 50px;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .bar_percentage {
+  height: 50px;
+  background: white;
+  position: absolute;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .bar_percentage.teel {
+  background: #4dc5b2;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .bar_percentage.positive {
+  background: #7bdb46;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .bar_percentage.negative {
+  background: #d45855;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage span {
+  position: relative;
+  left: 310px;
+  font-weight: bold;
+  font-size: 33px;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .prev_period_percentage {
+  margin-left: 10px;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .prev_period_percentage.positive {
+  color: #7bdb46;
+}
+.report-social-insights-piechart .slide .content .audience_engagement_column .percentage .prev_period_percentage.negative {
+  color: #d45855;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column {
+  width: 880px;
+  height: 400px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .panel-holder {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  width: 250px;
+  height: 380px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .num_posts:first-child {
+  margin-top: 50px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .num_posts {
+  height: 50px;
+  position: relative;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 30px;
+  width: 250px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .num_posts img {
+  float: left;
+  margin-right: 5px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .num_posts span {
+  margin-left: 5px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .graph {
+  position: absolute;
+  width: 530px;
+  height: 320px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .eng_rate:first-child {
+  margin-top: 50px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .eng_rate {
+  height: 50px;
+  position: relative;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 30px;
+  width: 250px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .post_vs_previous:first-child {
+  margin-top: 50px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .post_vs_previous {
+  height: 50px;
+  position: relative;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 250px;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .post_vs_previous.positive {
+  color: #7bdb46;
+}
+.report-social-insights-piechart .slide .content .activity_engagement_column .post_vs_previous.negative {
+  color: #d45855;
+}
+.report-social-insights-piechart .slide .content .stats {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  text-align: left;
+}
+.report-social-insights-piechart .slide .content .stats label {
+  border-bottom: 0px;
+}
+.report-social-insights-piechart .slide .content .stats label.positive {
+  color: #7bdb46;
+}
+.report-social-insights-piechart .slide .content .stats label.negative {
+  color: #d45855;
+}
+.report-social-insights-piechart .slide .content .stats.txt-align-right {
+  text-align: right;
+}
+.report-social-insights-piechart .slide .graph_wrap {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  color: white;
+  margin-top: 15px;
+}
+.report-social-insights-piechart .slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: white;
+}
+.report-social-insights-piechart .slide-background .left-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 83px;
+  height: 1080px;
+}
+.report-social-insights-piechart .slide-background .right-bar {
+  position: absolute;
+  top: 0px;
+  left: 1895px;
+  width: 25px;
+  height: 1080px;
+}
+.report-social-insights-piechart .slide-background .bubbles .b-top {
+  position: absolute;
+  height: 650px;
+  width: 650px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: -200px;
+  left: -150px;
+}
+.report-social-insights-piechart .slide-background .bubbles .b-middle {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 281px;
+  left: 510px;
+}
+.report-social-insights-piechart .slide-background .bubbles .b-bottom {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 930px;
+  left: 1620px;
+}
+.report-social-insights-piechart .slide-background .vertical {
+  position: absolute;
+  font-size: 35px;
+  color: white;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  left: 15px;
+  top: 1040px;
+  text-transform: uppercase;
+}
+.report-social-insights-piechart .footer {
+  position: absolute;
+  top: 1020px;
+  width: 1920px;
+  height: 60px;
+  color: #a9a9a9;
+}
+.report-social-insights-piechart .footer .date-range {
+  position: absolute;
+  font-size: 25px;
+  top: 18px;
+  left: 100px;
+  text-transform: uppercase;
+}
+.report-social-insights-piechart .footer img {
+  float: right;
+  margin-right: 40px;
+}
+.report-social-insights-piechart .orange {
+  background: #f6921d;
+}
+.report-social-insights-piechart .teel {
+  background: #3fc6ca;
+}
+.report-social-insights-piechart .dark-blue {
+  background: #2b3f7d;
+}

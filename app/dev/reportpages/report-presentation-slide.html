@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-presentation-slide.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-presentation-slide">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-left white"></div>
+          <div class="b-top orange"></div>
+          <div class="b-bottom teel"></div>
+        </div>
+
+      </div>
+
+      <div class="slide">
+
+
+          <div class="content">
+
+              <div class="presentation_holder">
+                <div class="title_report">{{report.name}}</div>
+                <div class="topic_name">{{topic.name}}</div>
+                <div class="date_report">{{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+                <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/PoweredBy_RGB_DarkBG.png" width="300" />
+              </div>
+
+              <div style="position: absolute;top:350px;left:40px;">
+                  <div class="avatar big" style="background-image: url('');">                    
+                  </div>
+              </div>
+
+          </div>          
+          
+
+
+      </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
+
+    <script>
+
+      var PresentationSlideInstance = function () {
+
+        var pageDataJS = {"top3MostEffectivePosts":[{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381565,"content":"Oscar nominee Adam Driver attends the 92nd Annual @TheAcademy  awards in Los Angeles last night wearing a custom… https://t.co/OrIwHLfBI1","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581352209},"showValues":[{"value":398,"label":"Likes"},{"value":98,"label":"Retweets"}],"score":496},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8383952,"content":"A unique marriage of @Burberry heritage and modernity. Our form-fitting knee-high sock boots in signature check. Sh… https://t.co/sdb5GY9TzR","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579622407},"showValues":[{"value":114,"label":"Likes"},{"value":17,"label":"Retweets"}],"score":131},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381611,"content":"Watch it live\nThe #BurberryAutumnWinter20 Runway Show\n17 February\n5pm GMT\n\n🖤 Like this post to receive a reminder b… https://t.co/O2wzvZclVD","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581424495},"showValues":[{"value":99,"label":"Likes"},{"value":13,"label":"Retweets"}],"score":112}]};
+
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+
+        var showAvatar = function() {
+
+          console.log("Let show the avatar --->", pageDataJS.top3MostEffectivePosts[0].avatar);
+          var newAvatar = pageDataJS.top3MostEffectivePosts[0].avatar.replace('_normal','');
+          slideDom.find(".avatar").css({'background-image':'url('+newAvatar+')'});
+
+        };
+
+
+        return {
+            init: function () {
+              showAvatar();
+            }
+        };
+        
+      }();
+
+      PresentationSlideInstance.init();
+
+    </script>
+
+
+  </body>
+</html>

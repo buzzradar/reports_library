@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-overall-audience-analysis.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-overall-audience-analysis-slide" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{topic.name}} Overall Audience Analysis</div>
+              <!-- <div class="bottom">Subtitle</div> -->
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="col_title">AUDIENCE BRAKEDOWN</div>
+                
+                <div id="pie_chart_graph" class="graph_wrap" style="height:380px;width:100%;"></div>
+              </div>
+              <div class="col2">
+                <div class="col_title">AUDIENCE COMMON PERSONALITY TRAITS</div>
+                <div style="margin-top: 25px;">
+                
+                  <div class="perso-trait-wrap">
+                    <p class="perso-trait"><i class="fa fa-chevron-right"></i> Tranquil, private, driven by a desire for organisation. (hardcoded)</p>
+                    <span class="percentage">99%</span>
+                  </div>
+
+                  <div class="perso-trait-wrap">
+                    <p class="perso-trait"><i class="fa fa-chevron-right"></i> Strict somewhat indirect and guarded, somber. (hardcoded)</p>
+                    <span class="percentage">99%</span>
+                  </div>
+
+                  <div class="perso-trait-wrap">
+                    <p class="perso-trait"><i class="fa fa-chevron-right"></i> Don't find taking pleasure in life to be particular motivating. (hardcoded)</p>
+                    <span class="percentage">99%</span>
+                  </div>
+
+                  <div class="perso-trait-wrap">
+                    <p class="perso-trait"><i class="fa fa-chevron-right"></i> Highly respect the groups belongs to and follow their guidance. (hardcoded)</p>
+                    <span class="percentage">99%</span>
+                  </div>
+
+                  <div class="perso-trait-wrap">
+                    <p class="perso-trait"><i class="fa fa-chevron-right"></i> Self-focused, relatively unconcerned with helping others. (hardcoded)</p>
+                    <span class="percentage">99%</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="col_title">CES GENDER BRAKEDOWN</div>
+                <div id="gender_graph" class="graph_wrap" style="height:320px;width:100%;"></div>                
+
+              </div>
+              <div class="col2">
+
+                <div class="prof-int-wrap">
+                  <h3>Professions</h3>
+                  <div class="professions_list_holder">
+                    
+                  </div>
+                </div>
+
+                <div class="prof-int-wrap" style="left:450px;">
+                  <h3>Interests</h3>
+                  <div class="interests_list_holder">
+                    
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      var OverallAudAnalysisInstance = function () {
+
+        var pageDataJS = {"overallAudienceAnalyser":{"pieChartData":[{"personality":"Entertainer","value":3},{"personality":"Adventurer","value":2},{"personality":"Advocate","value":1},{"personality":"Architect","value":1},{"personality":"Virtuoso","value":1},{"personality":"Mediator","value":1},{"personality":"Campaigner","value":1},{"personality":"Debater","value":1},{"personality":"Executive","value":1},{"personality":"Entrepreneur","value":1},{"personality":"Logician","value":1}],"genderBrakeDown":{"unknown":1,"male":9,"female":4},"professions":[{"name":"Estate Project Manager","value":1,"percentage":8}],"interests":[{"name":"\/art and entertainment\/shows and events","value":2,"percentage":15},{"name":"\/law, govt and politics\/government","value":1,"percentage":8},{"name":"\/law, govt and politics\/politics\/elections","value":1,"percentage":8},{"name":"\/law, govt and politics\/politics\/elections\/presidential elections","value":1,"percentage":8},{"name":"\/real estate","value":1,"percentage":8},{"name":"\/religion and spirituality\/buddhism","value":1,"percentage":8},{"name":"\/religion and spirituality\/hinduism","value":1,"percentage":8},{"name":"\/science\/ecology","value":1,"percentage":8},{"name":"\/society\/gay life","value":1,"percentage":8},{"name":"\/sports\/cricket","value":1,"percentage":8}],"consumptionPreferences":[{"groupId":1,"groupName":"When Purchasing Goods Will Consider","preferencesArray":[{"name":"Likely to be sensitive to ownership cost when buying automobiles","imgname":"cost","score":30},{"name":"Likely to prefer safety when buying automobiles","imgname":"safety","score":30},{"name":"Likely to prefer quality when buying clothes","imgname":"quality","score":45},{"name":"Likely to prefer style when buying clothes","imgname":"style","score":70},{"name":"Likely to prefer comfort when buying clothes","imgname":"comfort","score":45},{"name":"Likely to be influenced by brand name when making product purchases","imgname":"brandname","score":50},{"name":"Likely to be influenced by product utility when making product purchases","imgname":"utility","score":30}]},{"groupId":2,"groupName":"Purchasing Decisions Influenced By","preferencesArray":[{"name":"Likely to be influenced by online ads when making product purchases","imgname":"online_ads","score":60},{"name":"Likely to be influenced by social media when making product purchases","imgname":"social_media","score":56},{"name":"Likely to be influenced by family when making product purchases","imgname":"family_members","score":25},{"name":"Likely to indulge in spur of the moment purchases","imgname":"spur_of_moment","score":60}]},{"groupId":3,"groupName":"Entertainment preferences","preferencesArray":[{"name":"Likely to like documentary movies","imgname":"movie_documentary","score":50},{"name":"Likely to like action movies","imgname":"movie_action","score":50},{"name":"Likely to like drama movies","imgname":"movie_drama","score":35},{"name":"Likely to like war movies","imgname":"movie_war","score":45},{"name":"Likely to like science-fiction movies","imgname":"movie_science_fiction","score":40},{"name":"Likely to like historical movies","imgname":"movie_historical","score":40},{"name":"Likely to like musical movies","imgname":"movie_musical","score":25},{"name":"Likely to like horror movies","imgname":"movie_horror","score":45},{"name":"Likely to like adventure movies","imgname":"movie_adventure","score":45},{"name":"Likely to like romance movies","imgname":"movie_romance","score":56},{"name":"Likely to like rap music","imgname":"music_rap","score":56},{"name":"Likely to like country music","imgname":"music_country","score":30},{"name":"Likely to like R&B music","imgname":"music_r_b","score":60},{"name":"Likely to like hip hop music","imgname":"music_hip_hop","score":60},{"name":"Likely to like Latin music","imgname":"music_latin","score":25},{"name":"Likely to like rock music","imgname":"music_rock","score":45},{"name":"Likely to like classical music","imgname":"music_classical","score":35},{"name":"Likely to read entertainment magazines","imgname":"books_entertainment_magazines","score":15},{"name":"Likely to read non-fiction books","imgname":"books_non_fiction","score":45},{"name":"Likely to read financial investment books","imgname":"books_financial_investing","score":56},{"name":"Likely to read autobiographical books","imgname":"books_autobiographies","score":35}]},{"groupId":4,"groupName":"Inclinations","preferencesArray":[{"name":"Likely to eat out frequently","imgname":"eat_out","score":56},{"name":"Likely to have a gym membership","imgname":"gym_membership","score":60},{"name":"Likely to like outdoor activities","imgname":"outdoors","score":25},{"name":"Likely to read often","imgname":"read_frequently","score":40},{"name":"Likely to attend live musical events","imgname":"music_live_event","score":60},{"name":"Likely to have experience playing music","imgname":"music_playing","score":45},{"name":"Likely to consider starting a business in next few years","imgname":"start_business","score":50},{"name":"Likely to be concerned about the environment","imgname":"concerned_environment","score":40},{"name":"Likely to volunteer for social causes","imgname":"volunteer","score":30},{"name":"Likely to prefer using credit cards for shopping","imgname":"credit_card_payment","score":50}]}]}};
+
+      
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+        var arrayGenders = ['male','female','unknown'];
+        var gender_data = [];
+
+        var jsUcfirst = function(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        };
+
+
+        var createList = function($domListHolder, title, dataList, colorPercentages) {
+
+          var noDataMessage = 'Not enough relevant  data within this timeframe to provide meaningful analysis.';
+          // $domListHolder.html('<div class="card">'+noDataMessage+'</div>');
+          // $domListHolder.html('<ul class="mt-2"><li>One</li><li>two</li><li>three</li></ul>');
+
+
+
+
+          if (dataList.length == 0 ) {
+            //Display a Message that there is no data
+            $domListHolder.html('<div class="card">'+noDataMessage+'</div>');
+          }else{
+            var ul = '<ul class="mt-2">';
+            var max = 5;
+            $.each(dataList, function( index, value ) {
+              if (max == 0) return false;
+              var itemTurnIntoArray = value.name.split('\/');
+              var lastItem = itemTurnIntoArray[itemTurnIntoArray.length-1];  //Pat wants us to display only the last item as we get several interests in the same item.
+              ul += '<li><span style="color:'+colorPercentages+'"> <i class="fa fa-arrow-circle-right"></i></span> '+jsUcfirst(lastItem)+'</li>';
+              max --;
+            });
+          };
+          $domListHolder.html(ul);
+
+        };
+
+        var setArrayGenders = function() {
+
+          for (var i = 0; i < arrayGenders.length; i++) {
+            var genderObj = pageDataJS.overallAudienceAnalyser.genderBrakeDown;
+            if(genderObj.hasOwnProperty(arrayGenders[i])){
+                gender_data.push({'gender':arrayGenders[i],'value':genderObj[arrayGenders[i]]});
+            }
+          };
+
+        };
+
+
+        var loadChart = function() {
+
+          AmCharts.makeChart(slideDom.find('#pie_chart_graph').get(0), {
+            "type": "pie",
+            "theme": "none",
+            "addClassNames": true,
+            "dataProvider": pageDataJS.overallAudienceAnalyser.pieChartData,
+            "valueField": "value",
+            "radius" : '40%',
+            "titleField": "personality",
+            "legend":{
+              "enabled":true,
+              "align" : "center",
+              "labelText" : "[[title]]",
+              "valueText" : "[[percents]]%",
+            },
+            "startDuration":0,
+            "balloon":{
+              "fixedPosition":true,
+            },
+            "labelsEnabled" : false,
+            "balloonText": "[[title]]: [[percents]]%",
+            "pullOutOnlyOne": true,
+            "export": {
+              "enabled": true
+            },
+          });
+
+          AmCharts.makeChart(slideDom.find('#gender_graph').get(0), {
+            "type": "pie",
+            "theme": "none",
+            "addClassNames": true,
+            "dataProvider": gender_data,
+            "valueField": "value",
+            "radius" : '40%',
+            "titleField": "gender",
+            "startDuration" : 0,
+            "legend":{
+              "enabled":true,
+              "align" : "center",
+              "labelText" : "[[title]]",
+              "valueText" : "[[percents]]%",
+            },
+            "colors" : ['#00a099','#644ab7','#2d2f82'],
+            "labelsEnabled" : false,
+            "balloonText": "[[title]]: [[percents]]%",
+            "pullOutOnlyOne": true,
+            "legend":{
+              "enabled":true,
+              "align" : "center",
+              "labelText" : "[[title]]",
+              "valueText" : false,
+              "valueWidth" : 90,
+              "fontSize" : 18,
+              "maxColumns" : 3,
+              "bold" : false,
+              "markerType" : "circle",
+            },
+            "export": {
+              "enabled": true
+            },
+          });
+
+        };
+
+        var loadProfInterests = function() {
+
+          var $DomProfessions = slideDom.find('.professions_list_holder');
+          var $DomInterests = slideDom.find('.interests_list_holder');
+
+          createList($DomProfessions,"Professions",pageDataJS.overallAudienceAnalyser.professions, '#578EBE');
+          createList($DomInterests,"Interests",pageDataJS.overallAudienceAnalyser.interests, '#b0cf5c');
+
+        };
+
+
+        return {
+            init: function () {
+              setArrayGenders();
+              loadChart();
+              loadProfInterests();
+            }
+        };
+        
+      }();
+
+      OverallAudAnalysisInstance.init();
+
+          
+    </script>
+
+
+  </body>
+</html>

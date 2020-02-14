@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-most-talked-about.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide-2" class="report-top10-mentioned-topics" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">Volume of Conversation over [time frame]</strong></div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div id="top_10_mentioned_topics" class="graph_wrap" style="height:830px;"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+
+    <script>
+
+      var MTAInstance = function () {
+
+        var pageDataJS = {"mostTalkedAbout":[{"id":2,"name":"Hashtags","subjects":[{"label":"#burberry","value":"7.51","subjectId":null,"keywords":null},{"label":"#repost","value":"3.75","subjectId":null,"keywords":null},{"label":"#fashion","value":"2.65","subjectId":null,"keywords":null},{"label":"#london","value":"1.10","subjectId":null,"keywords":null},{"label":"#tb","value":"1.10","subjectId":null,"keywords":null},{"label":"#personaltrainer","value":"0.88","subjectId":null,"keywords":null},{"label":"#hypebeast","value":"0.88","subjectId":null,"keywords":null},{"label":"#fashionista","value":"0.88","subjectId":null,"keywords":null},{"label":"#style","value":"0.88","subjectId":null,"keywords":null},{"label":"#riccardotisci","value":"0.88","subjectId":null,"keywords":null}]},{"id":1,"name":"People Places","subjects":[{"label":"@burberry","value":"16.94","subjectId":null,"keywords":null},{"label":"@2niteflavour","value":"7.14","subjectId":null,"keywords":null},{"label":"@hugoboss","value":"5.71","subjectId":null,"keywords":null},{"label":"@moschino","value":"5.51","subjectId":null,"keywords":null},{"label":"@ceebenjy","value":"5.51","subjectId":null,"keywords":null},{"label":"@ferragamo","value":"3.88","subjectId":null,"keywords":null},{"label":"@the_mjf","value":"1.02","subjectId":null,"keywords":null},{"label":"@citibikenyc","value":"0.82","subjectId":null,"keywords":null},{"label":"@ecco_golf","value":"0.61","subjectId":null,"keywords":null},{"label":"@thegolfchica","value":"0.61","subjectId":null,"keywords":null}]}]};
+
+
+        var pageId = '-2';
+        var slideDom = $('#report_slide'+pageId);
+        var categoryId = pageId.split('-')[1];
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log("Category ID-->", categoryId);
+        console.log(pageDataJS);
+
+
+        var getElementArrayId = function(categoryId) {
+
+          var ret = null;
+          for (var i = 0; i < pageDataJS.mostTalkedAbout.length; i++) {
+            if ( categoryId == pageDataJS.mostTalkedAbout[i].id ) {
+              ret = pageDataJS.mostTalkedAbout[i];
+            }
+          }
+          if (ret ==null) console.log("ERROR: No Category ID found in the array.", pageDataJS.mostTalkedAbout);
+          return ret;
+        };
+
+
+        var getSlideTitle = function(categoryName) {
+
+          if (categoryName == "People Places") {
+            categoryName = "handles";
+          }
+
+          return "Most Talked About: " +categoryName; 
+
+        };
+
+
+        var loadChart = function() {
+
+          var dataProvider = [];
+          var categoryData = getElementArrayId(categoryId);
+          console.log("The Category Found is:", categoryData.name);
+          var categorySubjectsArray = categoryData.subjects;
+          //change title of the Slide
+          slideDom.find('.report_title .bottom').html(getSlideTitle(categoryData.name));
+
+
+          for (var i = 0; i < categorySubjectsArray.length; i++) {
+
+            var category = categorySubjectsArray[i].label;
+            var value = categorySubjectsArray[i].value;
+
+            dataProvider.push({
+              "topic": category,
+              "percentage": value,
+              "color": '#3fc6ca',
+            }); 
+          }
+
+
+          var chart = AmCharts.makeChart(slideDom.find('#top_10_mentioned_topics').get(0), {
+              "type": "serial",
+              "theme": "light",
+              "addClassNames": true,
+              "marginRight": 70,
+              "dataProvider": dataProvider,
+              "valueAxes": [{
+                "axisAlpha": 0,
+                "position": "left",
+                "title": " ",
+                "gridThickness":0,
+                "gridAlpha" : 0,
+                "fontSize" : 25,
+
+              }],
+              "startDuration": 0,
+              "graphs": [{
+                "balloonText": "<b>[[category]]: [[value]]%</b>",
+                "fillColorsField": "color",
+                "fillAlphas": 1,
+                "lineAlpha": 0,
+                "type": "column",
+                "valueField": "percentage",
+                "lineColor": "transparent",
+              }],
+              "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+              },
+              "categoryField": "topic",
+              "categoryAxis": {
+                "gridPosition": "start",
+                "labelRotation": 45,
+                "gridThickness":0,
+                "gridAlpha" : 0,
+                "fontSize" : 17,
+              },
+              "export": {
+                "enabled": true
+              }
+
+            });
+
+        };
+
+
+        return {
+            init: function () {
+              loadChart();
+            }
+        };
+
+      }();
+
+      MTAInstance.init();
+      
+          
+    </script>
+
+
+  </body>
+</html>

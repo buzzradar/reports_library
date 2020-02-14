@@ -1,0 +1,243 @@
+# Reports Library
+
+## Useful Code
+```
+{{ dump(pageData)}}
+{{ dump(pageDataJson)}}
+{{ dump(pageId) }}
+
+
+To get the JSON object from <script>:
+--------
+var pageDataJS = {{pageDataJson|raw}}
+console.log(pageDataJS)
+console.log( JSON.stringify(pageDataJS) );
+
+var pageId = "{{pageId|raw}}"
+console.log("Unique Page ID:", pageId);
+
+
+
+var pageDataJS = {};
+var pageId = '';
+var slideDom = $('#report_slide'+pageId);
+console.log("Unique Page ID:", "report_slide"+pageId);
+console.log(pageDataJS);
+
+
+
+
+
+{{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}
+
+{{slideTop}}
+
+{{topic.name}}
+
+{{ pageData.created | date('H:i:s jS M Y')}}
+
+
+
+
+
+
+
+
+```
+
+## To test the pageData
+```
+https://insights.buzzradar.com/app_dev.php/cms/reports-pages/21/preview-html
+```
+
+
+
+//=======================================
+//=======================================
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+<style type="text/css">
+html, body { color: #0000; background: #f9f9f9;}body { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: normal; font-style: normal; text-decoration: none; overflow-x: hidden;}.amcharts-chart-div a { display: none !important;}button:focus { outline: 0;}textarea:focus { outline: 0;}@media print { .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg { display: none; }}
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/amcharts.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/gauge.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/serial.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/pie.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+//=======================================
+//=======================================
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+
+</style>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/amcharts.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/serial.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/gauge.js"></script>
+<script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/pie.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+
+
+
+
+
+//============================
+TIMESTAMP TO HUMAN READABLE
+//============================
+new Date(contentObj.date.timestamp).toUTCString()
+
+
+
+var arrayGenders = ['male','female','unknown'];
+var gender_data = [];
+for (var i = 0; i < arrayGenders.length; i++) {
+  var genderObj = topAudienceData.audienceAnalyserTopPersonalityInsights.genderBrakeDown;
+  if(genderObj.hasOwnProperty(arrayGenders[i])){
+      console.log("yes, i have that property");
+      gender_data.push({'gender':arrayGenders[i],'value':genderObj[arrayGenders[i]]});
+  }
+};
+
+
+
+
+
+setTimeout(function() {
+  $('path').attr('stroke','transparent');
+},50);
+
+
+
+
+
+var formatNumber = function(value) {
+  var finalValue;
+  if (value > 1000000) {
+    finalValue = Number((value/1000000).toFixed(2)) +' M';
+    return finalValue;
+  }
+  if (value > 1000) {
+    finalValue = Number((value/1000).toFixed(2)) +' K';
+    return finalValue;
+  }else{
+    finalValue = value;
+    return finalValue;
+  }
+};
+
+
+
+
+
+
+
+var getSocialIcon = function(social) {
+
+  switch(social) {
+    case "twitter":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/twitter_bird.png';
+    break;
+    case "facebook":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/facebook.png';
+    break;
+    case "instagram":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/instagram.png';
+    break;
+  }
+
+};
+
+
+var getSocialSquareIcon = function(social) {
+
+  switch(social) {
+    case "twitter":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/twitter.png';
+    break;
+    case "facebook":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/facebook.png';
+    break;
+    case "youtube":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/youtube.png';
+    break;
+    case "instagram":
+      return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/square/instagram.png';
+    break;
+  }
+
+};
+
+
+
+var showStatsContent = function(arrayValues) {
+  var ret = '';
+  for (var i = 0; i < arrayValues.length; i++) {
+    ret += arrayValues[i].value + ' ' + arrayValues[i].label + ' ';
+  }
+  return ret;
+};
+
+
+
+var addImageContent = function(contentObj) {
+
+  var ret = '';
+  if (contentObj.image) {
+    ret = '<img class="img_content" src="'+contentObj.image+'" />';
+  }
+  return ret;
+
+};
+
+
+
+
+
+
+
+
+
+var pageDataJS = {{pageDataJson|raw}}
+var pageId = "{{pageId|raw}}"
+
+
+
+
+var HeatMapInstance = function () {
+
+  var loadChart = function() {
+
+
+  };
+
+
+  return {
+      init: function () {
+
+      }
+  };
+  
+}();
+
+HeatMapInstance.init();

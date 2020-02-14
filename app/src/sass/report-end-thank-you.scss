@@ -1,0 +1,153 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
+
+
+
+
+
+$orange: #f6921e;
+$teel: #4dc5b2;
+$dark: #404040;
+$green_positive:#7bdb46;
+$red_negative:#d45855;
+
+
+$twitter_color: #4dc5b2;
+$facebook_color: #5D88C6;
+$instagram_color: #A790E0;
+$youtube_color: #FC7A7A;
+
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+
+
+html, body {
+    color:#0000;
+    background: #f9f9f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+.amcharts-chart-div{
+    a {
+        display:none !important;
+    }
+}
+
+button:focus {outline:0;}
+textarea:focus {outline:0;}
+
+.absolute{
+    position:absolute;
+    width:1000px;
+    height:500px;
+    //background:pink;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+
+
+
+.report-end-thank-you {
+
+    position:absolute;
+    width:1920px;
+    height: 1080px;
+    top:0;
+    left:0;
+
+    .slide {
+        position: absolute;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        font-size:110px;
+
+        &.bg_orange {
+            background:$orange;
+        }
+        &.bg_dark {
+            background:$dark;
+        }
+
+        .content{
+            width:inherit;
+            position:absolute;
+            top:230px;
+            color:$dark;
+            font-size:30px;
+        }
+    }
+
+    .logo_corner {
+        position: absolute;
+        top:1000px;
+        left:1610px;
+    }
+
+
+
+
+    .thankyou{
+        text-align:center;
+        width:1920px;
+        top:0px;
+        position:absolute;
+        color: white;
+        margin-top:730px;
+
+        span{
+            color:$orange;
+        }
+        a{
+            text-align:center;
+            width:1920px;
+            top:50px;
+            position:absolute;
+            display:block;
+        }
+    }
+
+
+
+    .buzzradar_link{
+        text-align:center;
+        //background:green;
+        display:block;
+        color: white;
+        margin-top:130px;
+        font-size:50px;
+        text-decoration:underline;
+
+        span{
+            color:$orange;
+        }
+    }
+
+
+}
+
+
+

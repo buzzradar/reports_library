@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-basic-template.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-basic-template" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">Subtitle</div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="col_title">Colmumn 1</div>
+                <p>Nam vitae tortor eu turpis finibus gravida. Suspendisse potenti. Phasellus in augue risus. Ut in nulla lorem. Quisque at dolor auctor, eleifend eros in, porttitor ante. Aenean finibus sem nibh, sed ullamcorper elit tristique sed. Nam eu tempus metus, nec sollicitudin enim. Vivamus eget odio sapien. Mauris sed nibh vestibulum, consequat arcu ac, volutpat ipsum. Donec non nunc pulvinar, egestas est in, ornare lacus.</p>
+              </div>
+              <div class="col2">
+                <div class="col_title">Colmumn 2</div>
+                <p>Nam vitae tortor eu turpis finibus gravida. Suspendisse potenti. Phasellus in augue risus. Ut in nulla lorem. Quisque at dolor auctor, eleifend eros in, porttitor ante.</p>
+              </div>
+              <div class="col3">
+                <div class="col_title">Colmumn 3</div>
+                <p>Nam vitae tortor eu turpis finibus gravida. Suspendisse potenti. Phasellus in augue risus. Ut in nulla lorem. Quisque at dolor auctor, eleifend eros in, porttitor ante. Aenean finibus sem nibh, sed ullamcorper elit tristique sed. Nam eu tempus metus.</p>
+              </div>
+            </div>
+
+            <div class="content-area" style="width:770px;height:365px;top:0px;left:290px;">
+              <div class="col_title">Free Content Area</div>
+              <p>Nam vitae tortor eu turpis finibus gravida. Suspendisse potenti. Phasellus in augue risus. Ut in nulla lorem. Quisque at dolor auctor, eleifend eros in, porttitor ante. Aenean finibus sem nibh, sed ullamcorper elit tristique sed. Nam eu tempus metus.</p>
+              <p>Nam vitae tortor eu turpis finibus gravida. Suspendisse potenti. Phasellus in augue risus. Ut in nulla lorem. Quisque at dolor auctor, eleifend eros in, porttitor ante. Aenean finibus sem nibh, sed ullamcorper elit tristique sed. Nam eu tempus metus.</p>
+            </div>
+
+
+
+
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      var BasicTemplateInstance = function () {
+
+        var pageDataJS = {};
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+        console.log( JSON.stringify(pageDataJS) );
+
+
+        var loadChart = function() {
+
+
+        };
+
+
+        return {
+            init: function () {
+              
+            }
+        };
+        
+      }();
+
+      BasicTemplateInstance.init();
+
+      
+          
+    </script>
+
+
+  </body>
+</html>

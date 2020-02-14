@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-audience-consumption-preferences.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-audience-consumption-preferences-slide" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{topic.name}} Audience Consumption Preferences</div>
+              <!-- <div class="bottom">Subtitle</div> -->
+          </div>
+
+          <div class="content">
+
+            <div class="content-area">
+              <div class="col_title">We used our AI to profile the prevalent consumption preference of your audience</div>
+              <p class="highlight">We used our AI to profile the prevalent consumption preference of your audience.</p>
+
+              <p>Grouped into eight high-level categories, the more than 50 preferences indicate people's inclinations when shopping for clothing (comfort versus fashion) and automobiles (cost versus safety), their tendency for dining (dining out versus dining in), and their attitudes toward the environment and volunteering, among other things.</p>
+            </div>
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                <div class="consumption-group group1">
+                  <h5></h5>
+                  <ul>
+                    <!-- <li class="pos">Unlikely to indulge in spur of the moment purchases.</li>
+                    <li class="neg">Likely to prefer quality.</li>
+                    <li class="neg">Likely to prefer quality.</li>
+                    <li class="neg">Likely to prefer quality.</li> -->
+                  </ul>
+                </div>
+
+                <div class="consumption-group group2">
+                  <h5></h5>
+                  <ul>
+                    <!-- <li class="pos">Unlikely to indulge in spur of the moment purchases.</li>
+                    <li class="neg">Likely to prefer quality.</li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="col2">
+                <div class="consumption-group group3">
+                  <h5></h5>
+                  <ul>
+                    <!-- <li class="pos">Unlikely to indulge in spur of the moment purchases.</li>
+                    <li class="neg">Likely to prefer quality.</li>
+                    <li class="neg">Likely to prefer quality.</li>
+                    <li class="neg">Likely to prefer quality.</li> -->
+                  </ul>
+                </div>
+
+                <div class="consumption-group group4">
+                  <h5></h5>
+                  <ul>
+                    <!-- <li class="pos">Unlikely to like horror movies.</li>
+                    <li class="neg">Unlikely to like romance movies.</li>
+                    <li class="pos">Unlikely to read entertainment magazines.</li>
+                    <li class="pos">Likely to like country music.</li>
+                    <li class="neg">Likely to like drama movies.</li>
+                    <li class="pos">Likely to like actions movies.</li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+      var AudienceConsumptionPreferences = function () {
+
+        var pageDataJS = {"overallAudienceAnalyser":{"pieChartData":[{"personality":"Entertainer","value":3},{"personality":"Adventurer","value":2},{"personality":"Advocate","value":1},{"personality":"Architect","value":1},{"personality":"Virtuoso","value":1},{"personality":"Mediator","value":1},{"personality":"Campaigner","value":1},{"personality":"Debater","value":1},{"personality":"Executive","value":1},{"personality":"Entrepreneur","value":1},{"personality":"Logician","value":1}],"genderBrakeDown":{"unknown":1,"male":9,"female":4},"professions":[{"name":"Estate Project Manager","value":1,"percentage":8}],"interests":[{"name":"/art and entertainment/shows and events","value":2,"percentage":15},{"name":"/law, govt and politics/government","value":1,"percentage":8},{"name":"/law, govt and politics/politics/elections","value":1,"percentage":8},{"name":"/law, govt and politics/politics/elections/presidential elections","value":1,"percentage":8},{"name":"/real estate","value":1,"percentage":8},{"name":"/religion and spirituality/buddhism","value":1,"percentage":8},{"name":"/religion and spirituality/hinduism","value":1,"percentage":8},{"name":"/science/ecology","value":1,"percentage":8},{"name":"/society/gay life","value":1,"percentage":8},{"name":"/sports/cricket","value":1,"percentage":8}],"consumptionPreferences":[{"groupId":1,"groupName":"When Purchasing Goods Will Consider","preferencesArray":[{"name":"Likely to be sensitive to ownership cost when buying automobiles","imgname":"cost","score":30},{"name":"Likely to prefer safety when buying automobiles","imgname":"safety","score":30},{"name":"Likely to prefer quality when buying clothes","imgname":"quality","score":45},{"name":"Likely to prefer style when buying clothes","imgname":"style","score":70},{"name":"Likely to prefer comfort when buying clothes","imgname":"comfort","score":45},{"name":"Likely to be influenced by brand name when making product purchases","imgname":"brandname","score":50},{"name":"Likely to be influenced by product utility when making product purchases","imgname":"utility","score":30}]},{"groupId":2,"groupName":"Purchasing Decisions Influenced By","preferencesArray":[{"name":"Likely to be influenced by online ads when making product purchases","imgname":"online_ads","score":60},{"name":"Likely to be influenced by social media when making product purchases","imgname":"social_media","score":56},{"name":"Likely to be influenced by family when making product purchases","imgname":"family_members","score":25},{"name":"Likely to indulge in spur of the moment purchases","imgname":"spur_of_moment","score":60}]},{"groupId":3,"groupName":"Entertainment preferences","preferencesArray":[{"name":"Likely to like documentary movies","imgname":"movie_documentary","score":50},{"name":"Likely to like action movies","imgname":"movie_action","score":50},{"name":"Likely to like drama movies","imgname":"movie_drama","score":35},{"name":"Likely to like war movies","imgname":"movie_war","score":45},{"name":"Likely to like science-fiction movies","imgname":"movie_science_fiction","score":40},{"name":"Likely to like historical movies","imgname":"movie_historical","score":40},{"name":"Likely to like musical movies","imgname":"movie_musical","score":25},{"name":"Likely to like horror movies","imgname":"movie_horror","score":45},{"name":"Likely to like adventure movies","imgname":"movie_adventure","score":45},{"name":"Likely to like romance movies","imgname":"movie_romance","score":56},{"name":"Likely to like rap music","imgname":"music_rap","score":56},{"name":"Likely to like country music","imgname":"music_country","score":30},{"name":"Likely to like R&B music","imgname":"music_r_b","score":60},{"name":"Likely to like hip hop music","imgname":"music_hip_hop","score":60},{"name":"Likely to like Latin music","imgname":"music_latin","score":25},{"name":"Likely to like rock music","imgname":"music_rock","score":45},{"name":"Likely to like classical music","imgname":"music_classical","score":35},{"name":"Likely to read entertainment magazines","imgname":"books_entertainment_magazines","score":15},{"name":"Likely to read non-fiction books","imgname":"books_non_fiction","score":45},{"name":"Likely to read financial investment books","imgname":"books_financial_investing","score":56},{"name":"Likely to read autobiographical books","imgname":"books_autobiographies","score":35}]},{"groupId":4,"groupName":"Inclinations","preferencesArray":[{"name":"Likely to eat out frequently","imgname":"eat_out","score":56},{"name":"Likely to have a gym membership","imgname":"gym_membership","score":60},{"name":"Likely to like outdoor activities","imgname":"outdoors","score":25},{"name":"Likely to read often","imgname":"read_frequently","score":40},{"name":"Likely to attend live musical events","imgname":"music_live_event","score":60},{"name":"Likely to have experience playing music","imgname":"music_playing","score":45},{"name":"Likely to consider starting a business in next few years","imgname":"start_business","score":50},{"name":"Likely to be concerned about the environment","imgname":"concerned_environment","score":40},{"name":"Likely to volunteer for social causes","imgname":"volunteer","score":30},{"name":"Likely to prefer using credit cards for shopping","imgname":"credit_card_payment","score":50}]}]}}
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+
+        var showConsumptionPreferences = function() {
+
+          var consumptionPreferencesData = pageDataJS.overallAudienceAnalyser.consumptionPreferences;
+
+          for (var i = 0; i <= consumptionPreferencesData.length - 1; i++) {
+
+            var groupData = consumptionPreferencesData[i];
+            var groupTitle = slideDom.find('.group'+(i+1)).find('h5').html(groupData.groupName);
+            var groupDOM = slideDom.find('.group'+(i+1)).find('ul');
+            var numMaxItems = 5;
+
+            for (var j = 0; j < groupData.preferencesArray.length; j++) {
+              var score = Number(groupData.preferencesArray[j].score);
+              var liClass = (score >= 50) ? 'pos' : 'neg';
+              var thumbIcon = (score >= 50) ? '<i class="fa fa-thumbs-up"></i>' : '<i class="fa fa-thumbs-down"></i>';
+              groupDOM.append('<li class="'+liClass+'">'+thumbIcon+' '+groupData.groupName+' '+groupData.preferencesArray[j].name+'</li>');
+              numMaxItems --;
+              if (numMaxItems == 0) {
+                j = groupData.preferencesArray.length;
+              }
+            }
+
+          }
+
+        };
+
+
+        return {
+            init: function () {
+              showConsumptionPreferences();
+            }
+        };
+        
+      }();
+
+      AudienceConsumptionPreferences.init();
+        
+
+    </script>
+
+
+  </body>
+</html>
