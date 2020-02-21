@@ -62,6 +62,7 @@ textarea:focus {
   top: 30%;
   left: 550px;
   color: white;
+  width: 100%;
 }
 .report-presentation-slide .slide .title_report {
   font-size: 60px;

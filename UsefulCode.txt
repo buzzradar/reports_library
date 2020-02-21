@@ -66,6 +66,12 @@ html, body { color: #0000; background: #f9f9f9;}body { margin: 0; font-family: '
 <script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/gauge.js"></script>
 <script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/serial.js"></script>
 <script src="{{base_path}}/bundles/cms/assets/global/plugins/amcharts/amcharts/pie.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
 //=======================================

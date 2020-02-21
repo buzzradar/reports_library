@@ -127,6 +127,15 @@ textarea:focus {
   color: white;
   margin-top: 15px;
 }
+.report-basic-template .slide .display_error {
+  color: #404040;
+  background: #ffe71d;
+  padding: 15px 25px;
+  font-size: 25px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
 .report-basic-template .slide-background {
   position: absolute;
   top: 0;

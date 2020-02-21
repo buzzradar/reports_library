@@ -191,6 +191,15 @@ textarea:focus {outline:0;}
             }
         }
 
+        .no-data{
+            position:relative;
+            background:#f3f3f4;
+            padding:3px 25px;
+            font-size: 20px;
+            @include border-radius(15px);
+            color:#404040;
+        }
+
 
         
     }

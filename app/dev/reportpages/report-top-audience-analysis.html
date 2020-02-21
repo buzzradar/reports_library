@@ -37,8 +37,8 @@
       <div class="slide">
           
           <div class="report_title">
-              <div class="top">{{topic.name}} Top Audience Analysis</div>
-              <!-- <div class="bottom">Subtitle</div> -->
+              <div class="top">{{topic.name}}</div>
+              <div class="bottom">Top Audience Analysis</div>
           </div>
 
           <div class="content">
@@ -65,15 +65,15 @@
                   </div>
                   
                   <div class="gender-prof-int-item">
-                    <h6>Professions</h6>
+                    <h6>XXX</h6>
                     <div class="professions_list_holder">
-                      Hello
+                      
                     </div>
                   </div>
                   <div class="gender-prof-int-item">
-                    <h6>Interests</h6>
+                    <h6>XXX</h6>
                     <div class="interests_list_holder">
-                      World
+                      
                     </div>
                   </div>
 
@@ -155,11 +155,12 @@
         var slideDom = $('#report_slide'+pageId);
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
-        var arrayGenders = ['male','female','unknown'];
-        var gender_data = [];
 
 
         var getGenderData = function() {
+          
+          var arrayGenders = ['male','female','unknown'];
+          var gender_data = [];
 
           for (var i = 0; i < arrayGenders.length; i++) {
             var genderObj = pageDataJS.audienceAnalyserTopPersonalityInsights.genderBrakeDown;
@@ -167,6 +168,8 @@
                 gender_data.push({'gender':arrayGenders[i],'value':genderObj[arrayGenders[i]]});
             }
           };
+
+          return gender_data;
 
         };
 
@@ -179,8 +182,7 @@
         var createList = function($domListHolder, title, dataList, colorPercentages) {
 
           var noDataMessage = 'Not enough relevant  data within this timeframe to provide meaningful analysis.';
-          // $domListHolder.html('<div class="card">'+noDataMessage+'</div>');
-          // $domListHolder.html('<ul class="mt-2"><li>One</li><li>two</li><li>three</li></ul>');
+          $domListHolder.parent().find('h6').html(title);
 
           if (dataList.length == 0 ) {
             //Display a Message that there is no data
@@ -202,42 +204,51 @@
 
 
 
-        var loadChart = function() {
+        var loadGenderChart = function() {
 
-          AmCharts.makeChart(slideDom.find("#gender_graph").get(0), {
-            "type": "pie",
-            "theme": "none",
-            "addClassNames": true,
-            "dataProvider": gender_data,
-            "valueField": "value",
-            "radius" : '40%',
-            "titleField": "gender",
-            "startDuration" : 0,
-            "legend":{
-              "enabled":true,
-              "align" : "center",
-              "labelText" : "[[title]]",
-              "valueText" : "[[percents]]%",
-            },
-            "colors" : ['#00a099','#644ab7','#2d2f82'],
-            "labelsEnabled" : false,
-            "balloonText": "[[title]]: [[percents]]%",
-            "pullOutOnlyOne": true,
-            "legend":{
-              "enabled":true,
-              "align" : "center",
-              "labelText" : "[[title]]",
-              "valueText" : false,
-              "valueWidth" : 90,
-              "fontSize" : 18,
-              "maxColumns" : 1,
-              "bold" : false,
-              "markerType" : "circle",
-            },
-            "export": {
-              "enabled": true
-            },
-          });
+          var gender_data = getGenderData();
+
+          if (gender_data.length == 0 ) {
+            //Display a Message that there is no data
+            slideDom.find('#gender_graph').html('<div class="display_error"><strong>Warning: </strong>Gender Chart cannot be drawn cause there is no data.</div>');
+          }else{
+
+            AmCharts.makeChart(slideDom.find("#gender_graph").get(0), {
+              "type": "pie",
+              "theme": "none",
+              "addClassNames": true,
+              "dataProvider": gender_data,
+              "valueField": "value",
+              "radius" : '40%',
+              "titleField": "gender",
+              "startDuration" : 0,
+              "legend":{
+                "enabled":true,
+                "align" : "center",
+                "labelText" : "[[title]]",
+                "valueText" : "[[percents]]%",
+              },
+              "colors" : ['#00a099','#644ab7','#2d2f82'],
+              "labelsEnabled" : false,
+              "balloonText": "[[title]]: [[percents]]%",
+              "pullOutOnlyOne": true,
+              "legend":{
+                "enabled":true,
+                "align" : "center",
+                "labelText" : "[[title]]",
+                "valueText" : false,
+                "valueWidth" : 90,
+                "fontSize" : 18,
+                "maxColumns" : 1,
+                "bold" : false,
+                "markerType" : "circle",
+              },
+              "export": {
+                "enabled": true
+              },
+            });
+
+          }
 
         };
 
@@ -247,8 +258,8 @@
           var $DomProfessions = slideDom.find('.professions_list_holder');
           var $DomInterests = slideDom.find('.interests_list_holder');
 
-          createList($DomProfessions,"Professionsssss",pageDataJS.audienceAnalyserTopPersonalityInsights.professions, '#578EBE');
-          createList($DomInterests,"Interestsssss",pageDataJS.audienceAnalyserTopPersonalityInsights.interests, '#b0cf5c');
+          createList($DomProfessions,"Professions",pageDataJS.audienceAnalyserTopPersonalityInsights.professions, '#578EBE');
+          createList($DomInterests,"Interests",pageDataJS.audienceAnalyserTopPersonalityInsights.interests, '#b0cf5c');
 
         };
 
@@ -280,8 +291,8 @@
 
         return {
             init: function () {
-              getGenderData();
-              loadChart();
+              
+              loadGenderChart();
               loadProfessionsInterests();
               loadConsumptionPreferences();
 

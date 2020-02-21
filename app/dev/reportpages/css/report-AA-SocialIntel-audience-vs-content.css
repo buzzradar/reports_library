@@ -141,6 +141,16 @@ textarea:focus {
 .report-aa-socialintel-audience-vs-content .slide .card h3 {
   margin: 15px 0px 5px 0px;
 }
+.report-aa-socialintel-audience-vs-content .slide .no-data {
+  position: relative;
+  background: #f3f3f4;
+  padding: 3px 25px;
+  font-size: 20px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  color: #404040;
+}
 .report-aa-socialintel-audience-vs-content .slide-background {
   position: absolute;
   top: 0;

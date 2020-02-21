@@ -45,7 +45,7 @@
 
             <div class="main-layout-wrap">
               <div class="col1">
-                
+                &nbsp;
               </div>
               <div class="col2">
                 <div class="graph_wrap" style="height:830px;"></div>
@@ -82,7 +82,7 @@
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
         console.log( JSON.stringify(pageDataJS) );
-
+        
 
         
         var loadChart = function() {
@@ -100,6 +100,7 @@
             "type": "pie",
             "theme": "none",
             "startDuration" : 0,
+            "addClassNames": true,
             "dataProvider": dataProvider,
             "titleField": "social",
             "valueField": "value",

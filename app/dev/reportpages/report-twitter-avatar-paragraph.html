@@ -38,7 +38,7 @@
           
           <div class="report_title">
               <div class="top">{{report.name}}</div>
-              <!-- <div class="bottom">Subtitle</div> -->
+              <div class="bottom">Introduction</div>
           </div>
 
           <div class="content">
@@ -81,11 +81,13 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
+
     <script>
 
       var AvatarParagraphInstance = function () {
 
-        var pageDataJS = {"twitterHandlesInfo":[{"handle":"@burberry","avatar":"https://twitter.com/burberry/profile_image?size=bigger"}]};
+        var pageDataJS = {"twitterHandlesInfo":[{"handle":"@burberry","avatar":"https://twitter.com/burberry/profile_image?size=bigger"}],"top3MostEffectivePosts":[{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381565,"content":"Oscar nominee Adam Driver attends the 92nd Annual @TheAcademy  awards in Los Angeles last night wearing a custom… https://t.co/OrIwHLfBI1","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581352209},"showValues":[{"value":398,"label":"Likes"},{"value":98,"label":"Retweets"}],"score":496},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8380958,"content":"1 day to go… #BurberryAutumnWinter20 https://t.co/pHvk7EuHOA","image":"http://pbs.twimg.com/ext_tw_video_thumb/1229081949144256514/pu/img/VP2daw7kp_XRhTXl.jpg","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581870960},"showValues":[{"value":173,"label":"Likes"},{"value":28,"label":"Retweets"}],"score":201},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381061,"content":".@GiGiHadid part of the @Burberry family, walks the #BurberryAutumnWinter20 runway. Titled ‘Memories’, the new coll… https://t.co/luJyOeFECG","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1582030815},"showValues":[{"value":135,"label":"Likes"},{"value":36,"label":"Retweets"}],"score":171}]}
+;
 
 
         var pageId = '';
@@ -93,21 +95,19 @@
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
 
-        var showHandleAndAvatar = function(pageDataJS) {
+        var showAvatar = function() {
 
-          slideDom.find('.handle').html(pageDataJS.twitterHandlesInfo[0].handle)
-
-        };
-
-        var loadChart = function() {
-
+          console.log("Let show the avatar --->", pageDataJS.top3MostEffectivePosts[0].avatar);
+          var newAvatar = pageDataJS.top3MostEffectivePosts[0].avatar.replace('_normal','');
+          slideDom.find(".avatar").css({'background-image':'url('+newAvatar+')'});
 
         };
 
 
         return {
             init: function () {
-              showHandleAndAvatar(pageDataJS);
+              showAvatar();
+              slideDom.find('.handle').html(pageDataJS.twitterHandlesInfo[0].handle);
             }
         };
         
