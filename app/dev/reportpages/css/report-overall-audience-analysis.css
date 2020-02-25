@@ -131,9 +131,8 @@ textarea:focus {
 }
 .report-overall-audience-analysis-slide .slide .content .prof-int-wrap {
   position: absolute;
-  width: 300px;
+  width: 450px;
   height: auto;
-  margin-right: 10px;
 }
 .report-overall-audience-analysis-slide .slide .content .prof-int-wrap h3 {
   margin-top: 0;
@@ -143,11 +142,11 @@ textarea:focus {
   padding: 0;
 }
 .report-overall-audience-analysis-slide .slide .content .prof-int-wrap ul {
-  font-size: 22px;
+  font-size: 28px;
   list-style-type: none;
 }
 .report-overall-audience-analysis-slide .slide .content .prof-int-wrap ul li {
-  margin-bottom: 7px;
+  margin-bottom: 13px;
 }
 .report-overall-audience-analysis-slide .slide .content .prof-int-wrap ul.professions i {
   color: #578ebe;

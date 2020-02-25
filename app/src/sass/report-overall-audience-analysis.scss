@@ -176,9 +176,9 @@ textarea:focus {outline:0;}
 
             .prof-int-wrap{
                 position:absolute;
-                width:300px;
+                width:450px;
                 height:auto;
-                margin-right:10px;
+                //background:orange;
 
                 h3{
                     margin-top:0;
@@ -189,11 +189,11 @@ textarea:focus {outline:0;}
                 }
 
                 ul{
-                    font-size:22px;
+                    font-size:28px;
                     list-style-type: none;
 
                     li{
-                        margin-bottom:7px;
+                        margin-bottom:13px;
                     }
 
                     &.professions{

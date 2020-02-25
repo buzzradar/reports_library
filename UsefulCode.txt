@@ -36,8 +36,7 @@ console.log(pageDataJS);
 
 {{ pageData.created | date('H:i:s jS M Y')}}
 
-
-
+<div id="report_slide{{pageId}}" class="report-aa-socialintel-audience-vs-content" style="top:{{slideTop}}px;">
 
 
 

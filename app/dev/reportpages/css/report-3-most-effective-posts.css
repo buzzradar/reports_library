@@ -128,6 +128,37 @@ textarea:focus {
   transform: scale(0.9);
   transform-origin: 0 0;
 }
+.report-3-most-effective-posts .slide .content .retweet .grade {
+  width: auto;
+  height: 50px;
+  background: orange;
+  color: white;
+  display: inline-block;
+  padding: 10px 10px 0px 10px;
+  position: absolute;
+  right: 75px;
+  top: -10px;
+  font-size: 32px;
+  font-weight: bold;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.report-3-most-effective-posts .slide .content .retweet .grade.ap {
+  background: #26c282;
+}
+.report-3-most-effective-posts .slide .content .retweet .grade.a {
+  background: #1ba39b;
+}
+.report-3-most-effective-posts .slide .content .retweet .grade.b {
+  background: #f7ca19;
+}
+.report-3-most-effective-posts .slide .content .retweet .grade.c {
+  background: #e8505a;
+}
+.report-3-most-effective-posts .slide .content .retweet .grade.d {
+  background: #95a5a6;
+}
 .report-3-most-effective-posts .slide .content .retweet .social_network_corner_logo {
   position: relative;
   float: right;
@@ -202,7 +233,12 @@ textarea:focus {
   margin-top: 10px;
   line-height: 140%;
 }
-.report-3-most-effective-posts .slide .content .retweet .img_content {
+.report-3-most-effective-posts .slide .content .retweet .img_content_wrap {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+}
+.report-3-most-effective-posts .slide .content .retweet .img_content_wrap .img_content {
   position: relative;
   width: 100%;
   margin-top: 20px;
@@ -225,6 +261,13 @@ textarea:focus {
   font-weight: bold;
   font-size: 50px;
   top: -80px;
+}
+.report-3-most-effective-posts .slide .content .retweet .eng-rate {
+  color: white;
+  margin-top: 10px;
+}
+.report-3-most-effective-posts .slide .content .retweet .eng-rate span {
+  margin-right: 20px;
 }
 .report-3-most-effective-posts .slide .content .retweet:last-of-type {
   margin-right: 0px;
