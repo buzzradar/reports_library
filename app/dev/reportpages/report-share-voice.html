@@ -93,6 +93,7 @@
               dataProvider.push({
                 "social" : pageDataJS.shareOfVoice[i].name,
                 "value" : pageDataJS.shareOfVoice[i].twitter_mentions,
+                "color" : pageDataJS.shareOfVoice[i].colour,
               });
             }
 
@@ -105,12 +106,13 @@
             "titleField": "social",
             "valueField": "value",
             "labelRadius": 8,
-            "colors" : ['#e8973e','#69c3c8','#3f3e3e','#a7aaa9'],
             "radius": "35%",
             "innerRadius": "70%",
             "percentPrecision" : 2,
+            "colorField": "color",
+
             
-            "fontSize" : 25,
+            "fontSize" : 40,
             "fontFamily" : 'Open Sans',
             "labelsEnabled" : true,
             "labelText": "[[percents]] %",
@@ -123,10 +125,11 @@
             "legend":{
               "enabled":true,
               "align" : "center",
+              "position" : "right",
               "labelText" : "[[title]]",
               "valueText" : false,
               "valueWidth" : 90,
-              "fontSize" : 16,
+              "fontSize" : 30,
               "maxColumns" : 4,
               "bold" : false,
               "markerType" : "circle",

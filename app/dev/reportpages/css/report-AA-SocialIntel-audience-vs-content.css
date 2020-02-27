@@ -151,6 +151,15 @@ textarea:focus {
   border-radius: 15px;
   color: #404040;
 }
+.report-aa-socialintel-audience-vs-content .slide .display_error {
+  color: #404040;
+  background: #ffe71d;
+  padding: 15px 25px;
+  font-size: 25px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
 .report-aa-socialintel-audience-vs-content .slide-background {
   position: absolute;
   top: 0;

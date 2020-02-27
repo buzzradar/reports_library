@@ -118,21 +118,19 @@
 
           AmCharts.makeChart( slideDom.find('#pie_graph').get(0), {
             "type": "pie",
-            "pullOutDuration": 0,
-            "pullOutRadius": 0,
             "color": '#404040',
             "addClassNames": true,
             "startDuration":0,
             
 
-            "fontSize" : 25,
+            "fontSize" : 35,
             "fontFamily" : 'Open Sans',
             "labelsEnabled" : true,
-            "labelText": "[[value]]",
-            "labelRadius" : 10,
+            "labelText": "[[value]] %",
+            "labelRadius" : 40,
             "bold" : false,
 
-            "theme": "light",
+            "theme": "none",
             "dataProvider": [ 
                 {
                   "title": "Positive",
@@ -156,8 +154,7 @@
             "labelRadius": 5,
             "radius": "42%",
             "innerRadius": "60%",
-            "labelText": "",
-            "labelRadius": 50,
+            "labelRadius": 30,
             "legend":{
               "enabled":true,
               "align" : "center",

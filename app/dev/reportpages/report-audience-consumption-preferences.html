@@ -43,12 +43,12 @@
 
           <div class="content">
 
-            <div class="content-area">
+            <!-- <div class="content-area">
               <div class="col_title">We used our AI to profile the prevalent consumption preference of your audience</div>
               <p class="highlight">We used our AI to profile the prevalent consumption preference of your audience.</p>
 
               <p>Grouped into eight high-level categories, the more than 50 preferences indicate people's inclinations when shopping for clothing (comfort versus fashion) and automobiles (cost versus safety), their tendency for dining (dining out versus dining in), and their attitudes toward the environment and volunteering, among other things.</p>
-            </div>
+            </div> -->
 
             <div class="main-layout-wrap">
               <div class="col1">
@@ -136,18 +136,21 @@
           for (var i = 0; i <= consumptionPreferencesData.length - 1; i++) {
 
             var groupData = consumptionPreferencesData[i];
-            var groupTitle = slideDom.find('.group'+(i+1)).find('h5').html(groupData.groupName);
+            var groupTitle = slideDom.find('.group'+(i+1)).find('h5').html('<i class="fa fa-chevron-right"></i> ' + groupData.groupName);
             var groupDOM = slideDom.find('.group'+(i+1)).find('ul');
             var numMaxItems = 5;
 
             for (var j = 0; j < groupData.preferencesArray.length; j++) {
               var score = Number(groupData.preferencesArray[j].score);
+              var imgName = groupData.preferencesArray[j].imgname;
               var liClass = (score >= 50) ? 'pos' : 'neg';
               var thumbIcon = (score >= 50) ? '<i class="fa fa-thumbs-up"></i>' : '<i class="fa fa-thumbs-down"></i>';
               var preference = (score >= 50) ? groupData.preferencesArray[j].name : groupData.preferencesArray[j].name.replace('Likely','Unlikely');
 
+
+              var consumptionIcon = '<div class="consumption-icon-circle '+liClass+'"><img src="https://insights.buzzradar.com/bundles/insights/images/eng_optimiser/consumption-icons/'+imgName+'.svg" width="100%"></div>';
               
-              groupDOM.append('<li class="'+liClass+'">'+thumbIcon+' '+preference+'</li>');
+              groupDOM.append('<li class="'+liClass+'">'+consumptionIcon+' '+preference+'</li>');
               numMaxItems --;
               if (numMaxItems == 0) {
                 j = groupData.preferencesArray.length;

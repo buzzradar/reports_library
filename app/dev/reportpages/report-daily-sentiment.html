@@ -145,7 +145,7 @@
               var dataProvider = [];
               for (var i = 0; i < pageDataJS.twitterDailySentiment.chart.length; i++) {
 
-                  var monthDay = pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0];
+                  var monthDay = pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0].substr(0,3) + " "+ pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0].substr(pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0].length-2,pageDataJS.twitterDailySentiment.chart[i].date.split(',')[0].length);
                   var year = pageDataJS.twitterDailySentiment.chart[i].date.split(',')[1];
 
                   slideDom.find('.col_title.year').html('Year: '+year);

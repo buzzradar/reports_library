@@ -99,7 +99,7 @@ textarea:focus {outline:0;}
             width:1771px;
             height:850px;
             font-size:25px;
-            margin-top:20px;
+            margin-top:0px;
             margin-left:83px;
             //background:pink;
             padding:0px 20px;
@@ -124,7 +124,7 @@ textarea:focus {outline:0;}
                 color:#404040;
                 display:flex;
                 align-items: top;
-                margin-bottom:30px;
+                padding-top:20px;
 
                 .col1{
                     float: left;
@@ -179,15 +179,32 @@ textarea:focus {outline:0;}
             }
 
             li{
-                margin-top:10px;
+                margin-top:15px;
                 list-style-type: none;
 
                 &.neg{
-                    color:red;
+                    //color:red;
                 }
 
                 &.pos{
-                    color:#26c623;
+                    //color:#26c623;
+                }
+            }
+
+            .consumption-icon-circle{
+                width:50px;
+                height:50px;
+                display:inline-block;
+                vertical-align: middle;
+                margin-right:10px;
+                border-radius: 50%;
+
+                &.neg{
+                    background:#d05454;
+                }
+
+                &.pos{
+                    background:#25c281;
                 }
             }
         }

@@ -143,6 +143,7 @@ textarea:focus {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  opacity: 0;
 }
 .report-3-most-effective-posts .slide .content .retweet .grade.ap {
   background: #26c282;
@@ -242,6 +243,9 @@ textarea:focus {
   position: relative;
   width: 100%;
   margin-top: 20px;
+}
+.report-3-most-effective-posts .slide .content .retweet .img_content_wrap.short {
+  max-height: 275px;
 }
 .report-3-most-effective-posts .slide .content .retweet .date {
   position: relative;

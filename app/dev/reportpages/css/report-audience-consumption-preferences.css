@@ -68,7 +68,7 @@ textarea:focus {
   width: 1771px;
   height: 850px;
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: 83px;
   padding: 0px 20px;
 }
@@ -89,7 +89,7 @@ textarea:focus {
   color: #404040;
   display: flex;
   align-items: top;
-  margin-bottom: 30px;
+  padding-top: 20px;
 }
 .report-audience-consumption-preferences-slide .slide .content .main-layout-wrap .col1 {
   float: left;
@@ -129,14 +129,22 @@ textarea:focus {
   font-size: 20px;
 }
 .report-audience-consumption-preferences-slide .slide .consumption-group li {
-  margin-top: 10px;
+  margin-top: 15px;
   list-style-type: none;
 }
-.report-audience-consumption-preferences-slide .slide .consumption-group li.neg {
-  color: red;
+.report-audience-consumption-preferences-slide .slide .consumption-group .consumption-icon-circle {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 50%;
 }
-.report-audience-consumption-preferences-slide .slide .consumption-group li.pos {
-  color: #26c623;
+.report-audience-consumption-preferences-slide .slide .consumption-group .consumption-icon-circle.neg {
+  background: #d05454;
+}
+.report-audience-consumption-preferences-slide .slide .consumption-group .consumption-icon-circle.pos {
+  background: #25c281;
 }
 .report-audience-consumption-preferences-slide .slide-background {
   position: absolute;

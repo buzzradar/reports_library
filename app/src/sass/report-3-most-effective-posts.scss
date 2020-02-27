@@ -187,6 +187,7 @@ textarea:focus {outline:0;}
                     font-size:32px;
                     font-weight:bold;
                     @include border-radius(5px);
+                    opacity:0;
 
                     &.ap{
                         background:#26c282;
@@ -303,6 +304,10 @@ textarea:focus {outline:0;}
                         position:relative;
                         width:100%;
                         margin-top:20px;
+                    }
+
+                    &.short{
+                        max-height:275px;
                     }
 
                 }
