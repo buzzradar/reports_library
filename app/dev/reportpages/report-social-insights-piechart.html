@@ -38,7 +38,7 @@
           
           <div class="report_title">
               <div class="top">{{report.name}}</div>
-              <div class="bottom">Social Performance in Past 30 days</div>
+              <div class="bottom">{{topic.name}}: Social Performance</div>
           </div>
 
           <div class="content">
@@ -183,11 +183,11 @@
           var formatNumber = function(value) {
             var finalValue;
             if (value > 1000000) {
-              finalValue = Number((value/1000000).toFixed(2)) +' M';
+              finalValue = Number((value/1000000).toFixed(1)) +' M';
               return finalValue;
             }
             if (value > 1000) {
-              finalValue = Number((value/1000).toFixed(2)) +' K';
+              finalValue = Number((value/1000).toFixed(1)) +' K';
               return finalValue;
             }else{
               finalValue = value;
@@ -212,7 +212,7 @@
             }
             //Instagram
             if ( pageDataJS.socialPerformance.hasOwnProperty('numberOfInstagramFollowers') && pageDataJS.socialPerformance.numberOfInstagramFollowers.originalNumber != 0 ) {
-              alert(pageDataJS.socialPerformance.numberOfInstagramFollowers);
+              //alert(pageDataJS.socialPerformance.numberOfInstagramFollowers);
               var template = '<div class="follower"><img src="'+getSocialSquareIcon('instagram')+'" width="50" /><span>'+formatNumber(pageDataJS.socialPerformance.numberOfInstagramFollowers.originalNumber)+'</span></div>';
               targetDOM.append(template);
             }
@@ -334,26 +334,47 @@
 
           var displayVSPeriod = function () {
 
+            var prev,current,vsPrevious;
             var targetDOM = slideDom.find('.post_vs_previous_holder');
             
             //Twitter
             if ( pageDataJS.socialPerformance.twitter_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.twitter_engagement.total_posts != 0 ) {
-              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate+' %</span></div>';
+
+              current = pageDataJS.socialPerformance.twitter_engagement.engagement_rate;
+              prev = pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate;
+              vsPrevious = Math.round(((current-prev)/prev)*100);
+
+              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
               targetDOM.append(template);
             }
             //Facebook
             if ( pageDataJS.socialPerformance.facebook_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.facebook_engagement.total_posts != 0 ) {
-              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate+' %</span></div>';
+
+              current = pageDataJS.socialPerformance.facebook_engagement.engagement_rate;
+              prev = pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate;
+              vsPrevious = Math.round(((current-prev)/prev)*100);
+
+              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
               targetDOM.append(template);
             }
             //instagram
             if ( pageDataJS.socialPerformance.instagram_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.instagram_engagement.total_posts != 0 ) {
-              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate+' %</span></div>';
+
+              current = pageDataJS.socialPerformance.instagram_engagement.engagement_rate;
+              prev = pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate;
+              vsPrevious = Math.round(((current-prev)/prev)*100);
+
+              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
               targetDOM.append(template);
             }
             //youtube
             if ( pageDataJS.socialPerformance.youtube_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.youtube_engagement.total_posts != 0 ) {
-              var template = '<div class="post_vs_previous '+getPercentageColor(pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate)+'"><span>'+pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate+' %</span></div>';
+
+              current = pageDataJS.socialPerformance.youtube_engagement.engagement_rate;
+              prev = pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate;
+              vsPrevious = Math.round(((current-prev)/prev)*100);
+
+              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
               targetDOM.append(template);
             }
 
@@ -372,11 +393,11 @@
               "addClassNames": true,
               "startDuration":0,
               
-              "fontSize" : 30,
+              "fontSize" : 25,
               "fontFamily" : 'Open Sans',
               "labelsEnabled" : true,
               "labelText": "[[value]]",
-              "labelRadius" : 10,
+              "labelRadius" : -55,
               "bold" : false,
 
               "theme": "light",
@@ -399,11 +420,10 @@
               "titleField": "title",
               "valueField": "value",
               "colorField": "color",
-              "labelRadius": 5,
               "radius": "42%",
               "innerRadius": "60%",
-              "labelText": "[[value]]%",
-              "labelRadius": 30,
+              "labelText": "[[percents]]%",
+
               "legend":{
                 "enabled":true,
                 "align" : "center",

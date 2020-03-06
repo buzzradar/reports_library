@@ -96,11 +96,11 @@ textarea:focus {
 }
 .report-social-insights-piechart .slide .content .main-layout-wrap .col1 {
   float: left;
-  width: 55%;
+  width: 60%;
 }
 .report-social-insights-piechart .slide .content .main-layout-wrap .col2 {
   float: left;
-  width: 45%;
+  width: 40%;
 }
 .report-social-insights-piechart .slide .content .main-layout-wrap .col_title {
   position: relative;
@@ -168,6 +168,7 @@ textarea:focus {
   background: #ccc;
   width: 300px;
   height: 50px;
+  font-size: 30px;
 }
 .report-social-insights-piechart .slide .content .audience_engagement_column .percentage .bar_percentage {
   height: 50px;
@@ -187,7 +188,6 @@ textarea:focus {
   position: relative;
   left: 310px;
   font-weight: bold;
-  font-size: 33px;
 }
 .report-social-insights-piechart .slide .content .audience_engagement_column .percentage .prev_period_percentage {
   margin-left: 10px;

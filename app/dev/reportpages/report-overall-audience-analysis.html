@@ -38,7 +38,7 @@
           
           <div class="report_title">
               <div class="top">{{report.name}}</div>
-              <div class="bottom">Overall Audience Analysis</div>
+              <div class="bottom">{{topic.name}}: Overall Audience Analysis</div>
           </div>
 
           <div class="content">
@@ -119,11 +119,6 @@
         var createList = function($domListHolder, title, dataList, colorPercentages) {
 
           var noDataMessage = 'Not enough relevant  data within this timeframe to provide meaningful analysis.';
-          // $domListHolder.html('<div class="card">'+noDataMessage+'</div>');
-          // $domListHolder.html('<ul class="mt-2"><li>One</li><li>two</li><li>three</li></ul>');
-
-
-
 
           if (dataList.length == 0 ) {
             //Display a Message that there is no data
@@ -166,6 +161,7 @@
                     "categoryField": "category",
                     "rotate": true,
                     "startDuration": 1,
+                    "addClassNames": true,
                     "categoryAxis": {
                       "gridPosition": "start",
                           "axisAlpha": 0,
@@ -297,9 +293,16 @@
 
         return {
             init: function () {
-              loadGenderChart();
-              loadAudienceBreakdownChart();
-              loadProfInterests();
+
+              if (pageDataJS.overallAudienceAnalyser.length == 0 ){
+                slideDom.find('.main-layout-wrap').html('<div class="display_error">There are no consumption Preferences for this topic or time frame.</div>');
+                return false;
+              }else{
+                loadGenderChart();
+                loadAudienceBreakdownChart();
+                loadProfInterests();  
+              }
+              
             }
         };
         

@@ -38,7 +38,7 @@
           
           <div class="report_title">
               <div class="top">{{report.name}}</div>
-              <div class="bottom">Sentiment Driving Tweets</div>
+              <div class="bottom">{{topic.name}}: Sentiment Driving Tweets</div>
           </div>
 
           <div class="content">
@@ -123,11 +123,11 @@
             "startDuration":0,
             
 
-            "fontSize" : 35,
+            "fontSize" :25,
             "fontFamily" : 'Open Sans',
             "labelsEnabled" : true,
-            "labelText": "[[value]] %",
-            "labelRadius" : 40,
+            "labelText": "[[percents]] %",
+            "labelRadius" : 15,
             "bold" : false,
 
             "theme": "none",
@@ -151,10 +151,9 @@
             "titleField": "title",
             "valueField": "value",
             "colorField": "color",
-            "labelRadius": 5,
             "radius": "42%",
             "innerRadius": "60%",
-            "labelRadius": 30,
+
             "legend":{
               "enabled":true,
               "align" : "center",
@@ -220,6 +219,27 @@
 
         };
 
+
+
+
+        var converUnixDateJavascript = function(UNIX_timestamp) {
+
+          var a = new Date(UNIX_timestamp * 1000);
+          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          var year = a.getFullYear();
+          var month = months[a.getMonth()];
+          var date = a.getDate();
+          var hour = a.getHours();
+          var min = a.getMinutes();
+          var sec = a.getSeconds();
+          var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+          return time;
+
+        };
+
+
+
+
         var displayTweet = function(tweetInfo,tweetType) {
 
           console.log(tweetInfo);
@@ -232,7 +252,7 @@
                     template += ''+formatNumber(tweetInfo.followers)+' Followers';
                     template += '</div>';
                     template += '<div class="copy">'+tweetInfo.content+'</div>';
-                    template += '<div class="date"><u>'+new Date(tweetInfo.created.timestamp).toUTCString()+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
+                    template += '<div class="date"><u>'+converUnixDateJavascript(tweetInfo.created.timestamp)+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
                     template += '<div class="retweet_triangle '+tweetType+'"></div>';
                 template += '</div>';
 

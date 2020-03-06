@@ -120,6 +120,9 @@ textarea:focus {
   text-transform: uppercase;
   font-weight: bold;
 }
+.report-basic-template .slide .content .main-layout-wrap .col_title.center {
+  text-align: center;
+}
 .report-basic-template .slide .graph_wrap {
   position: relative;
   width: 100%;

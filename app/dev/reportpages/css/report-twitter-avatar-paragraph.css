@@ -101,7 +101,7 @@ textarea:focus {
 }
 .report-twitter-avatar-paragraph .slide .content .main-layout-wrap .col2 {
   float: left;
-  width: 60%;
+  width: 55%;
 }
 .report-twitter-avatar-paragraph .slide .content .main-layout-wrap .col_title {
   position: relative;
@@ -109,7 +109,7 @@ textarea:focus {
   font-size: 30px;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .report-twitter-avatar-paragraph .slide .content .main-layout-wrap .col_title.center {
   text-align: center;
@@ -117,7 +117,7 @@ textarea:focus {
 .report-twitter-avatar-paragraph .slide .content .avatar {
   position: relative;
   background-color: #bbb;
-  border-radius: 50%;
+  border-radius: 10%;
   display: inline-block;
   background-position: center;
   background-size: contain;
@@ -140,6 +140,10 @@ textarea:focus {
   height: 100px;
   color: white;
   margin-top: 15px;
+}
+.report-twitter-avatar-paragraph .slide .bzlink {
+  text-decoration: none;
+  color: #f6921e;
 }
 .report-twitter-avatar-paragraph .slide-background {
   position: absolute;

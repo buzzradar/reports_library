@@ -136,7 +136,7 @@ textarea:focus {outline:0;}
                 }
                 .col2{
                     float: left;
-                    width:60%;
+                    width:55%;
                     //background:grey;
                 }
                 .col_title{
@@ -145,7 +145,7 @@ textarea:focus {outline:0;}
                     font-size:30px;
                     text-transform:uppercase;
                     font-weight:bold;
-                    margin-bottom:100px;
+                    margin-bottom:50px;
 
                     &.center{
                         text-align:center;
@@ -163,7 +163,7 @@ textarea:focus {outline:0;}
             .avatar {
                 position:relative;
                 background-color: #bbb;
-                border-radius: 50%;
+                border-radius: 10%;
                 display: inline-block;
                 background-position: center;
                 background-size: contain;
@@ -198,7 +198,10 @@ textarea:focus {outline:0;}
 
 
         
-
+        .bzlink{
+            text-decoration:none;
+            color:$orange;
+        }
 
 
         
