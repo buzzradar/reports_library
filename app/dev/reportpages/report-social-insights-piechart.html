@@ -143,7 +143,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="../libraries/amcharts/amcharts.js"></script>
     <script src="../libraries/amcharts/serial.js"></script>
     <script src="../libraries/amcharts/pie.js"></script>
@@ -156,8 +156,14 @@
 
           var pageId = '';
           var slideDom = $('#report_slide'+pageId);
+          var custom = {
+            color : '#8ebf6a',
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+            bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+          };
           console.log("Unique Page ID:", "report_slide"+pageId);
           console.log(pageDataJS);
+
 
 
           var getSocialSquareIcon = function(social) {
@@ -338,44 +344,52 @@
             var targetDOM = slideDom.find('.post_vs_previous_holder');
             
             //Twitter
-            if ( pageDataJS.socialPerformance.twitter_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.twitter_engagement.total_posts != 0 ) {
+            if (pageDataJS.socialPerformance.twitter_engagement_prev){
+              if ( pageDataJS.socialPerformance.twitter_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.twitter_engagement.total_posts != 0 ) {
 
-              current = pageDataJS.socialPerformance.twitter_engagement.engagement_rate;
-              prev = pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate;
-              vsPrevious = Math.round(((current-prev)/prev)*100);
+                current = pageDataJS.socialPerformance.twitter_engagement.engagement_rate;
+                prev = pageDataJS.socialPerformance.twitter_engagement_prev.engagement_rate;
+                vsPrevious = Math.round(((current-prev)/prev)*100);
 
-              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
-              targetDOM.append(template);
+                var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
+                targetDOM.append(template);
+              }
             }
             //Facebook
-            if ( pageDataJS.socialPerformance.facebook_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.facebook_engagement.total_posts != 0 ) {
+            if (pageDataJS.socialPerformance.facebook_engagement_prev){
+              if ( pageDataJS.socialPerformance.facebook_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.facebook_engagement.total_posts != 0 ) {
 
-              current = pageDataJS.socialPerformance.facebook_engagement.engagement_rate;
-              prev = pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate;
-              vsPrevious = Math.round(((current-prev)/prev)*100);
+                current = pageDataJS.socialPerformance.facebook_engagement.engagement_rate;
+                prev = pageDataJS.socialPerformance.facebook_engagement_prev.engagement_rate;
+                vsPrevious = Math.round(((current-prev)/prev)*100);
 
-              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
-              targetDOM.append(template);
+                var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
+                targetDOM.append(template);
+              }
             }
             //instagram
-            if ( pageDataJS.socialPerformance.instagram_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.instagram_engagement.total_posts != 0 ) {
+            if (pageDataJS.socialPerformance.instagram_engagement_prev){
+              if ( pageDataJS.socialPerformance.instagram_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.instagram_engagement.total_posts != 0 ) {
 
-              current = pageDataJS.socialPerformance.instagram_engagement.engagement_rate;
-              prev = pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate;
-              vsPrevious = Math.round(((current-prev)/prev)*100);
+                current = pageDataJS.socialPerformance.instagram_engagement.engagement_rate;
+                prev = pageDataJS.socialPerformance.instagram_engagement_prev.engagement_rate;
+                vsPrevious = Math.round(((current-prev)/prev)*100);
 
-              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
-              targetDOM.append(template);
+                var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
+                targetDOM.append(template);
+              }
             }
             //youtube
-            if ( pageDataJS.socialPerformance.youtube_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.youtube_engagement.total_posts != 0 ) {
+            if (pageDataJS.socialPerformance.youtube_engagement_prev){
+              if ( pageDataJS.socialPerformance.youtube_engagement_prev.hasOwnProperty('engagement_rate') && pageDataJS.socialPerformance.youtube_engagement.total_posts != 0 ) {
 
-              current = pageDataJS.socialPerformance.youtube_engagement.engagement_rate;
-              prev = pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate;
-              vsPrevious = Math.round(((current-prev)/prev)*100);
+                current = pageDataJS.socialPerformance.youtube_engagement.engagement_rate;
+                prev = pageDataJS.socialPerformance.youtube_engagement_prev.engagement_rate;
+                vsPrevious = Math.round(((current-prev)/prev)*100);
 
-              var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
-              targetDOM.append(template);
+                var template = '<div class="post_vs_previous '+getPercentageColor(vsPrevious)+'"><span>'+vsPrevious+' %</span></div>';
+                targetDOM.append(template);
+              }
             }
 
 
@@ -443,6 +457,24 @@
           };
 
 
+          var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+            slideDom.find('.report_title').css('borderColor',newColor);
+
+            //Change Vendor Logo
+            //Developer Note: To avoid having issues placing the different logos, they must be 
+            //created within this dimensions: 300 x 131
+            slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+            slideDom.find('.footer').find('img').css('marginTop',-35);
+            slideDom.find('.footer').find('img').css('width',195);
+
+          };
+
+
           return {
               init: function () {
                 loadChart();
@@ -451,6 +483,8 @@
                 displayTotalNumberPosts(pageDataJS);
                 displayEngagementRate(pageDataJS);
                 displayVSPeriod(pageDataJS);
+
+                customize(custom);
               }
           };
           

@@ -66,6 +66,7 @@ textarea:focus {outline:0;}
     height: 1080px;
     top:0;
     left:0;
+    background-image: url('https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg');
     
     //--------------------------------
     // Main Content (Slide)
@@ -126,71 +127,13 @@ textarea:focus {outline:0;}
 
         }
 
-
+        .vendor-logo{
+            position:absolute;
+            left:1590px;
+        }
         
     }
  
-
-
-    //--------------------------------
-    // Background 
-    //--------------------------------
-
-
-    .slide-background{
-        position:absolute;
-        top:0;
-        left:0;
-        width:1920px;
-        height: 1080px;
-        overflow:hidden;
-        background:#2b3f7d;
-
-        .left-bar{
-            position:absolute;
-            top:0;
-            left:0;
-            width:83px;
-            height:1080px;
-        }
-
-        .right-bar{
-            position:absolute;
-            top:0px;
-            left:1895px;
-            width:25px;
-            height:1080px;
-        }
-
-        .bubbles{
-            .b-left{
-                position:absolute;
-                height: 1080px;
-                width: 1080px;
-                border-radius: 50%;
-                top:0px;
-                left:-650px;
-            }
-            .b-top{
-                position:absolute;
-                height: 950px;
-                width: 950px;
-                border-radius: 50%;
-                top:-700px;
-                left:510px;
-            }
-            .b-bottom{
-                position:absolute;
-                height: 500px;
-                width: 500px;
-                border-radius: 50%;
-                top:830px;
-                left:1550px;
-            }
-        }
-
-    }
-
 
     //--------------------------------
     // Color Palette 

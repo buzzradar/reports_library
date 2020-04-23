@@ -42,6 +42,17 @@ console.log(pageDataJS);
 
 
 
+var custom = {
+  color :  "{{report.colour is defined ? report.colour : '#8ebf6a' }}",
+  vendorLogoURL : "{{report.logo is defined ? report.logo : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png' }}",
+  bgURL : "{{report.bgImage is defined ? report.bgImage : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg' }}",
+};
+
+
+
+
+
+
 ```
 
 ## To test the pageData
