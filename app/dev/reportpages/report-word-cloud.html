@@ -82,6 +82,11 @@
           var pageDataJS = {"twitterWordCloud":{"data":["shirt","gucci","africa","flavour","versace","calvinklein","fendi","model","scarf","king","actor","baby","insta","page","musician","shower","coat","back","wearing","london"],"style":[{"color":"#FFFFFF","size":100},{"color":"#F6921E","size":80},{"color":"#77C0B2","size":60},{"color":"#FFFFFF","size":50},{"color":"#F6921E","size":40},{"color":"#77C0B2","size":30},{"color":"#FFFFFF","size":25},{"color":"#F6921E","size":25},{"color":"#77C0B2","size":25},{"color":"#FFFFFF","size":25},{"color":"#F6921E","size":20},{"color":"#77C0B2","size":20},{"color":"#FFFFFF","size":20},{"color":"#F6921E","size":20},{"color":"#77C0B2","size":15},{"color":"#FFFFFF","size":15},{"color":"#F6921E","size":15},{"color":"#77C0B2","size":15},{"color":"#FFFFFF","size":10},{"color":"#F6921E","size":10}]}};
           var pageId = '';
           var slideDom = $('#report_slide'+pageId);
+          var custom = {
+              color : '#8ebf6a',
+              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+          };
           console.log("Unique Page ID:", "report_slide"+pageId);
 
           var loadChart = function() {
@@ -142,10 +147,29 @@
           };
 
 
+          var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+            slideDom.find('.report_title').css('borderColor',newColor);
+
+            //Change Vendor Logo
+            //Developer Note: To avoid having issues placing the different logos, they must be 
+            //created within this dimensions: 300 x 131
+            slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+            slideDom.find('.footer').find('img').css('marginTop',-25);
+            slideDom.find('.footer').find('img').css('width',170);
+
+          };
+
+
           return {
               init: function () {
 
                 loadChart();
+                customize(custom);
 
               }
           };

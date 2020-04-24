@@ -107,6 +107,11 @@
 
         var pageId = '';
         var slideDom = $('#report_slide'+pageId);
+        var custom = {
+              color : '#8ebf6a',
+              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+        };
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
         var arrayGenders = ['male','female','unknown'];
@@ -291,9 +296,29 @@
         };
 
 
+        var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+            slideDom.find('.report_title').css('borderColor',newColor);
+
+            //Change Vendor Logo
+            //Developer Note: To avoid having issues placing the different logos, they must be 
+            //created within this dimensions: 300 x 131
+            slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+            slideDom.find('.footer').find('img').css('marginTop',-25);
+            slideDom.find('.footer').find('img').css('width',170);
+
+          };
+
+
         return {
             init: function () {
 
+              customize(custom);
+              
               if (pageDataJS.overallAudienceAnalyser.length == 0 ){
                 slideDom.find('.main-layout-wrap').html('<div class="display_error">There are no consumption Preferences for this topic or time frame.</div>');
                 return false;
@@ -302,6 +327,7 @@
                 loadAudienceBreakdownChart();
                 loadProfInterests();  
               }
+
               
             }
         };

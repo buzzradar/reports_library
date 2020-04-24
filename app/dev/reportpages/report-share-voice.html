@@ -74,11 +74,16 @@
 
     <script>
 
-      var BasicTemplateInstance = function () {
+      var ShareofVoiceInstance = function () {
 
         var pageDataJS = {"shareOfVoice":[{"subject_id":303,"name":"Panel Theme Container","colour":"#e88223","twitter_mentions":474,"percentage":"8.04"},{"subject_id":5,"name":"Adidas","colour":"#F6921E","twitter_mentions":4548,"percentage":"77.11"},{"subject_id":4,"name":"Puma","colour":"#990000","twitter_mentions":876,"percentage":"14.85"}]};
         var pageId = '';
         var slideDom = $('#report_slide'+pageId);
+        var custom = {
+              color : '#8ebf6a',
+              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+        };
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
         console.log( JSON.stringify(pageDataJS) );
@@ -139,15 +144,34 @@
         };
 
 
+        var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+            slideDom.find('.report_title').css('borderColor',newColor);
+
+            //Change Vendor Logo
+            //Developer Note: To avoid having issues placing the different logos, they must be 
+            //created within this dimensions: 300 x 131
+            slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+            slideDom.find('.footer').find('img').css('marginTop',-25);
+            slideDom.find('.footer').find('img').css('width',170);
+
+          };
+
+
         return {
             init: function () {
               loadChart();
+              customize(custom);
             }
         };
         
       }();
 
-      BasicTemplateInstance.init();
+      ShareofVoiceInstance.init();
 
     </script>
 

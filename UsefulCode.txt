@@ -253,6 +253,28 @@ var converUnixDateJavascript = function(UNIX_timestamp) {
 
 
 
+var customize = function(customObject) {
+
+  //Change Color
+  var newColor = customObject.color;
+  slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+  slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+  slideDom.find('.report_title').css('borderColor',newColor);
+
+  //Change Vendor Logo
+  //Developer Note: To avoid having issues placing the different logos, they must be 
+  //created within this dimensions: 300 x 131
+  slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+  slideDom.find('.footer').find('img').css('marginTop',-25);
+  slideDom.find('.footer').find('img').css('width',170);
+
+};
+
+
+
+
+
+
 
 var pageDataJS = {{pageDataJson|raw}}
 var pageId = "{{pageId|raw}}"

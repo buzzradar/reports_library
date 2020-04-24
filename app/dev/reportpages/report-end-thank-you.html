@@ -24,11 +24,56 @@
             </div>
             <div class="thankyou">
                 <span>THANK</span> YOU
-                <a href="http://www.buzzradar.com" class="buzzradar_link">buzzradar.com</a>
+                <!-- <a href="http://www.buzzradar.com" class="buzzradar_link">buzzradar.com</a> -->
             </div>
         </div>
 
     </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      var ThankYouInstance = function () {
+
+        
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        var custom = {
+              color : '#8ebf6a',
+              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+        };
+        console.log("Unique Page ID:", "report_slide"+pageId);
+
+
+        var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.thankyou').find('span').css('color',newColor);
+
+
+          };
+
+
+        return {
+            init: function () {
+              customize(custom);
+            }
+        };
+        
+      }();
+
+      ThankYouInstance.init();
+
+    </script>
+
 
   </body>
 </html>
