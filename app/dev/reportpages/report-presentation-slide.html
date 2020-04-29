@@ -83,10 +83,14 @@
         var customize = function(customObject) {
 
             //Change Background
-            slideDom.css('backgroundImage','url('+customObject.bgURL+')');
+            if(customObject.bgURL != ""){
+              slideDom.css('backgroundImage','url('+customObject.bgURL+')');
+            }
 
             //Change Vendor Logo
-            slideDom.find('.vendor-logo > img').attr('src',custom.vendorLogoURL);
+            if(customObject.vendorLogoURL != ""){
+              slideDom.find('.vendor-logo > img').attr('src',custom.vendorLogoURL);
+            }
 
         };
 
