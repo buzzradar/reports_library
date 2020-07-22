@@ -129,7 +129,7 @@
               var total = pageDataJS.twitterDailySentiment.total_mentions;
               var positive = pageDataJS.twitterDailySentiment.total_mentions_positive;
 
-              dom.find('p').html('Positive Mentions<br><strong>'+formatNumber(positive)+'K</strong>');
+              dom.find('p').html('Positive Mentions<br><strong>'+formatNumber(positive)+'</strong>');
               dom.find('h2').html(getPercentage(total, positive)+'%');
 
           };
@@ -140,7 +140,7 @@
               var total = pageDataJS.twitterDailySentiment.total_mentions;
               var negative = pageDataJS.twitterDailySentiment.total_mentions_negative;
 
-              dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'K</strong>');
+              dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'</strong>');
               dom.find('h2').html(getPercentage(total, negative)+'%');
 
           };
@@ -191,7 +191,7 @@
                     "lineAlpha": 0,
                     "title": "Negative",
                     "type": "column",
-                    "color": "#000000",
+                    "color": "#ffffff",
                     "valueField": "negative",
                     "fontSize" : 25,
                     "lineColor": "transparent",

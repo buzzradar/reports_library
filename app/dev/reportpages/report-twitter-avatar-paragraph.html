@@ -54,7 +54,7 @@
                 <div class="col_title">{{topic.name}}</div>
                 <div class="paragraph">
 
-                    Hello and welcome to the {{topic.customer.name}} report for {{topic.name}}.
+                    Hello and welcome to the Buzz Radar Social Intelligence report for {{topic.name}}
                     
                     <p>The aim across the following pages is to provide a wide range of useful insight across a variety of social channels. Each report is customised to match the objectives of its audience and the data available for collection. Once data is captured from all the available channels we then analyse every element using a comprehensive list of discovery processes, backed with the latest methodologies which are constantly improved using machine learning and human intervention. All this is done to extract actionable insights which is then presented in an easy to understand and consume format. </p>
                     
@@ -91,6 +91,9 @@
       var AvatarParagraphInstance = function () {
 
         var pageDataJS = {"twitterHandlesInfo":[{"handle":"@burberry","avatar":"https://twitter.com/burberry/profile_image?size=bigger"}],"top3MostEffectivePosts":[{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381565,"content":"Oscar nominee Adam Driver attends the 92nd Annual @TheAcademy  awards in Los Angeles last night wearing a custom… https://t.co/OrIwHLfBI1","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581352209},"showValues":[{"value":398,"label":"Likes"},{"value":98,"label":"Retweets"}],"score":496},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8380958,"content":"1 day to go… #BurberryAutumnWinter20 https://t.co/pHvk7EuHOA","image":"http://pbs.twimg.com/ext_tw_video_thumb/1229081949144256514/pu/img/VP2daw7kp_XRhTXl.jpg","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1581870960},"showValues":[{"value":173,"label":"Likes"},{"value":28,"label":"Retweets"}],"score":201},{"source":"twitter","user_id":false,"username":"Burberry","avatar":"http://pbs.twimg.com/profile_images/1024960867845197824/40BZozPb_normal.jpg","name":"Burberry","followers":8381061,"content":".@GiGiHadid part of the @Burberry family, walks the #BurberryAutumnWinter20 runway. Titled ‘Memories’, the new coll… https://t.co/luJyOeFECG","image":null,"date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1582030815},"showValues":[{"value":135,"label":"Likes"},{"value":36,"label":"Retweets"}],"score":171}]}
+
+
+        // pageDataJS = {"twitterHandlesInfo":[{"handle":"@clic_sargent","avatar":"https://twitter.com/clic_sargent/profile_image?size=bigger"}],"top3MostEffectivePosts":[]};
 ;
 
 
@@ -106,8 +109,14 @@
 
         var showAvatar = function() {
 
-          console.log("Let show the avatar --->", pageDataJS.top3MostEffectivePosts[0].avatar);
-          var newAvatar = pageDataJS.top3MostEffectivePosts[0].avatar.replace('_normal','');
+          var newAvatar;
+          //Top3MostEffectivePosts is empty so we need the avatar from twitterHandlesInfo
+          if (pageDataJS.top3MostEffectivePosts.length == 0) {
+            newAvatar = pageDataJS.twitterHandlesInfo[0].avatar;
+          }else{
+            newAvatar = pageDataJS.top3MostEffectivePosts[0].avatar.replace('_normal','');            
+          }
+          console.log("This is new avatar----->", newAvatar);
           slideDom.find(".avatar").css({'background-image':'url('+newAvatar+')'});
 
         };

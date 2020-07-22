@@ -37,7 +37,7 @@
       <div class="slide">
           
           <div class="report_title">
-              <div class="top">{{topic.name}}</div>
+              <div class="top">{{report.name}}</div>
               <div class="bottom">{{topic.name}}: Top Audience Analysis</div>
           </div>
 
@@ -61,7 +61,7 @@
                 
                   <div class="gender-prof-int-item">
                     <h6>Gender Brakedown</h6>
-                    <div id="gender_graph" class="graph_wrap" style="height:300px;"></div>
+                    <div id="gender_graph" class="graph_wrap" style="height:270px;"></div>
                   </div>
                   
                   <div class="gender-prof-int-item">
@@ -243,8 +243,8 @@
                 "labelText" : "[[title]]",
                 "valueText" : false,
                 "valueWidth" : 90,
-                "fontSize" : 18,
-                "maxColumns" : 1,
+                "fontSize" : 12,
+                "maxColumns" : 3,
                 "bold" : false,
                 "markerType" : "circle",
               },
@@ -271,18 +271,33 @@
 
         var loadConsumptionPreferences = function() {
 
-          for (var i = 0; i <= pageDataJS.audienceAnalyserTopPersonalityInsights.consumptionPreferences.length - 1; i++) {
+          //We need to filter all the icons that have a score >20 and <80
+          var dataConsumptionPreferencesArray = filterPreferences(pageDataJS.audienceAnalyserTopPersonalityInsights.consumptionPreferences);
 
-            var groupData = pageDataJS.audienceAnalyserTopPersonalityInsights.consumptionPreferences[i];
+
+          console.log(dataConsumptionPreferencesArray);
+
+          for (var i = 0; i <= dataConsumptionPreferencesArray.length - 1; i++) {
+
+            var groupData = dataConsumptionPreferencesArray[i];
             var groupTitle = slideDom.find('.group'+(i+1)).find('h5').html(groupData.groupName);
             var groupDOM = slideDom.find('.group'+(i+1)).find('ul');
-            var numMaxItems = 4;
+            var numMaxItems = 6;
 
             for (var j = 0; j < groupData.preferencesArray.length; j++) {
+
               var score = groupData.preferencesArray[j].score;
-              var liClass = (score >= 50) ? 'pos' : 'neg';
-              var thumbIcon = (score >= 50) ? '<i class="fa fa-thumbs-up"></i>' : '<i class="fa fa-thumbs-down"></i>';
-              groupDOM.append('<li class="'+liClass+'">'+thumbIcon+' '+groupData.groupName+' '+groupData.preferencesArray[j].name+'</li>');
+              var liClass;
+              if (score <= 20){
+                liClass = 'neg';
+              }
+              if (score >= 80){
+                liClass = 'pos';
+              }
+
+              var preference = groupData.preferencesArray[j].name;
+
+              groupDOM.append('<li class="'+liClass+'">'+preference+'</li>');
               numMaxItems --;
               if (numMaxItems == 0) {
                 j = groupData.preferencesArray.length;
@@ -292,6 +307,76 @@
           }
 
         };
+
+
+
+        var filterPreferences = function(dataConsumptionPreferencesArray) {
+
+          var filteredNewArray = [];
+          // var exceptionsArray = [
+          //   'be sensitive to ownership cost when buying automobiles',
+          //   'prefer safety when buying automobiles',
+          //   'prefer quality when buying clothes',
+          //   'prefer style when buying clothes',
+          //   'prefer comfort when buying clothes',
+          // ];
+
+          $.each(dataConsumptionPreferencesArray, function( index, consumptionGroup ) {
+
+              filteredNewArray[index] = {
+                  "groupId": consumptionGroup.groupId,
+                  "groupName": consumptionGroup.groupName,
+                  "preferencesArray": []
+              };
+              
+              $.each(consumptionGroup.preferencesArray, function( cons_index, iconInfo ) {
+
+                //If this criteria is matched remove item from the array cause 
+                //we don not want to display it.
+                //Icons must be < 20 (unlikely) and > 80 (likely) and also != 0
+
+                if ( (iconInfo.score <= 20 || iconInfo.score >= 80) && iconInfo.score != 0 ) {   
+
+                  if (iconInfo.score <= 20) {
+                    console.log("---> <= 20 : ",iconInfo.name, iconInfo.score);
+                    iconInfo.name = iconInfo.name.replace('Likely to ', '<i class="fa fa-thumbs-down"></i> <strong>Unlikely to </strong>');
+                  }
+                  if (iconInfo.score >= 80) {
+                    console.log("---> >= 80 : ",iconInfo.name, iconInfo.score);
+                    iconInfo.name = iconInfo.name.replace('Likely to ', '<i class="fa fa-thumbs-up"></i> <strong>Likely to </strong>');
+                  }
+
+                  filteredNewArray[index].preferencesArray.push(iconInfo);
+
+
+                }
+
+                //Now we will check If we need to change some of the copy, considering the exceptions
+                // $.each(exceptionsArray, function( index, item ) {
+
+                //   if ( iconInfo.name.indexOf(item) !== -1 ) {
+                //     // console.log(iconInfo.name, " --------------- MATCHES!!!!!!!!!");  
+                //     iconInfo.name = iconInfo.name.split('when')[0];
+                //   }
+
+                // });
+
+
+                if (consumptionGroup.groupName == "When Purchasing Goods Will Consider") {
+                    iconInfo.name = iconInfo.name.split('when')[0];  
+                }
+
+              });
+
+          });
+
+          return filteredNewArray;
+
+        };
+
+
+
+
 
 
         var customize = function(customObject) {
