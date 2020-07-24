@@ -247,23 +247,45 @@
 
         var displayTweet = function(tweetInfo,tweetType) {
 
-          console.log(tweetInfo);
-          var dom = slideDom.find('.holder_'+tweetType);
-          var template = '<div class="tweet '+tweetType+'">';
-                    template += '<img class="social_network_corner_logo" src="'+getSocialIcon('twitter')+'" width="40" />';
-                    template += '<div class="avatar" style="background-image: url(\''+tweetInfo.profileImageUrl+'\');"></div>';
-                    template += '<div class="handle">';
-                    template += ''+tweetInfo.username+'<br>';
-                    template += ''+formatNumber(tweetInfo.followers)+' Followers';
-                    template += '</div>';
-                    template += '<div class="copy">'+tweetInfo.content+'</div>';
-                    template += '<div class="date"><u>'+converUnixDateJavascript(tweetInfo.created.timestamp)+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
-                    template += '<div class="retweet_triangle '+tweetType+'"></div>';
-                template += '</div>';
+          function loadUserAvatarIntoDOM(tweetInfo) {
+            console.log(tweetInfo);
+            var dom = slideDom.find('.holder_'+tweetType);
+            var template = '<div class="tweet '+tweetType+'">';
+                      template += '<img class="social_network_corner_logo" src="'+getSocialIcon('twitter')+'" width="40" />';
+                      template += '<div class="avatar" style="background-image: url(\''+tweetInfo.profileImageUrl+'\');"></div>';
+                      template += '<div class="handle">';
+                      template += ''+tweetInfo.username+'<br>';
+                      template += ''+formatNumber(tweetInfo.followers)+' Followers';
+                      template += '</div>';
+                      template += '<div class="copy">'+tweetInfo.content+'</div>';
+                      template += '<div class="date"><u>'+converUnixDateJavascript(tweetInfo.created.timestamp)+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
+                      template += '<div class="retweet_triangle '+tweetType+'"></div>';
+                  template += '</div>';
 
-          dom.html(template);
+            dom.html(template);
+          }
+
+          tweetInfo.profileImageUrl = tweetInfo.profileImageUrl.replace('http://','https://');
+          $.get(tweetInfo.profileImageUrl)
+
+            .done(function() { 
+                // Do something now you know the image exists.
+                console.log("done!!!!");
+                loadUserAvatarIntoDOM(tweetInfo);                  
+            }).fail(function() { 
+                // Image doesn't exist - replace avatar with the EGG
+                console.log("fail!!!!!!!!!!!");
+                tweetInfo.profileImageUrl = 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/avatar/Twitter_NoProfileImage600x600.png';
+                loadUserAvatarIntoDOM(tweetInfo);                  
+            }); 
 
         };
+
+
+
+
+
+
 
         var customize = function(customObject) {
 
