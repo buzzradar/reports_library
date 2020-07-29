@@ -2,6 +2,11 @@
   "reportsentries": [
 
     {
+      "slug": "report-leaderboard",
+      "imgName" : "report_leaderboard.jpg",
+      "name": "Report Leaderboard"
+    },
+    {
       "slug": "report-share-voice",
       "imgName" : "report_share_voice.jpg",
       "name": "Report Share of Voice"
