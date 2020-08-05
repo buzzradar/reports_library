@@ -10,7 +10,7 @@
 To get the JSON object from <script>:
 --------
 var pageDataJS = {{pageDataJson|raw}}
-console.log(pageDataJS)
+console.log(pageDataJS) 
 console.log( JSON.stringify(pageDataJS) );
 
 var pageId = "{{pageId|raw}}"
