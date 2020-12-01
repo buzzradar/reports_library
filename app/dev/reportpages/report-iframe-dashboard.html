@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-iframe.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-iframe" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">{{topic.name}}: Subtitle</div>
+          </div>
+
+          <div class="content">
+            <!-- <iframe src="https://insights.buzzradar.com/preview/IDHTIA5N" height="850" width="1750" title="Iframe Example"></iframe> -->
+
+            <div class="dashboard_wrapper">
+                <div class="bz_embedWrapper" style="background: transparent;">
+                    <script src="https://insights.buzzradar.com/preview/last-version?id=HTIA5N&r=0"></script>
+                </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/serial.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      var IframeInstance = function () {
+
+        var pageDataJS = {};
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+        console.log( JSON.stringify(pageDataJS) );
+
+
+        var loadChart = function() {
+
+
+        };
+
+
+        return {
+            init: function () {
+              
+            }
+        };
+        
+      }();
+
+      IframeInstance.init();
+
+      
+          
+    </script>
+
+
+  </body>
+</html>

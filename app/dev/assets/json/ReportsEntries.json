@@ -2,6 +2,16 @@
   "reportsentries": [
 
     {
+      "slug": "report-iframe-dashboard",
+      "imgName" : "report_iframe.jpg",
+      "name": "Report Iframe Dashboard"
+    },
+    {
+      "slug": "report-generali-export-data",
+      "imgName" : "report_generali.jpg",
+      "name": "Report Generali Export Data"
+    },
+    {
       "slug": "report-leaderboard",
       "imgName" : "report_leaderboard.jpg",
       "name": "Report Leaderboard"
