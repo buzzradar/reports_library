@@ -2,6 +2,11 @@
   "reportsentries": [
 
     {
+      "slug": "report-twitter-mentions",
+      "imgName" : "report_twitter_mentions.jpg",
+      "name": "Report Twitter Mentions"
+    },
+    {
       "slug": "report-iframe-dashboard",
       "imgName" : "report_iframe.jpg",
       "name": "Report Iframe Dashboard"

@@ -105,6 +105,10 @@
               slideDom.find('#pie_chart_graph').html('<div class="display_error"><strong>Warning: </strong>Pie Chart cannot be drawn cause there is no data.</div>');
             }else{
   
+
+              console.clear();
+              console.log(pageDataJS.overallAudienceAnalyser.pieChartData);
+
               AmCharts.makeChart(slideDom.find('.'+targetCol).find('.graph_wrap').get(0), {
                 "type": "pie",
                 "theme": "none",
