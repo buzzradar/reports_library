@@ -1,0 +1,343 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+html, body {
+  color: #0000;
+  background: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+.amcharts-chart-div a {
+  display: none !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+.report-sentiment-driving-tweets {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+}
+.report-sentiment-driving-tweets .slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  color: #404040;
+}
+.report-sentiment-driving-tweets .slide .report_title {
+  text-transform: uppercase;
+  border-bottom: 10px solid #f6921d;
+  padding: 15px 15px 15px 105px;
+}
+.report-sentiment-driving-tweets .slide .report_title .top {
+  font-size: 40px;
+  font-weight: bold;
+}
+.report-sentiment-driving-tweets .slide .report_title .bottom {
+  font-size: 40px;
+}
+.report-sentiment-driving-tweets .slide .content {
+  position: relative;
+  width: 1771px;
+  height: 860px;
+  font-size: 25px;
+  margin-top: 25px;
+  margin-left: 83px;
+  padding: 0px 20px;
+}
+.report-sentiment-driving-tweets .slide .content .content-area {
+  color: black;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 500px;
+}
+.report-sentiment-driving-tweets .slide .content .main-layout-wrap {
+  color: #404040;
+  display: flex;
+  align-items: top;
+}
+.report-sentiment-driving-tweets .slide .content .main-layout-wrap .col1 {
+  float: left;
+  width: 50%;
+  margin-top: 0px;
+}
+.report-sentiment-driving-tweets .slide .content .main-layout-wrap .col2 {
+  float: left;
+  width: 50%;
+}
+.report-sentiment-driving-tweets .slide .content .main-layout-wrap .col_title {
+  position: relative;
+  color: #404040;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.report-sentiment-driving-tweets .slide .content .main-layout-wrap .col_title.center {
+  text-align: center;
+}
+.report-sentiment-driving-tweets .slide .content .tweet {
+  position: relative;
+  width: 800px;
+  height: auto;
+  background: #4dc5b2;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding: 20px 20px 0px 20px;
+  vertical-align: top;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.scale_down_10 {
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  transform-origin: 0 0;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .social_network_corner_logo {
+  position: relative;
+  float: right;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.positive {
+  background: #4dc5b2;
+  color: white;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.positive:before {
+  border-color: #7bdb46 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.negative {
+  background: #d45855;
+  color: white;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.negative:before {
+  border-color: #d45855 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.twitter {
+  background: #4dc5b2;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.twitter:before {
+  border-color: #4dc5b2 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.facebook {
+  background: #5D88C6;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.facebook:before {
+  border-color: #5D88C6 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.youtube {
+  background: #FC7A7A;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.youtube:before {
+  border-color: #FC7A7A transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.instagram {
+  background: #A790E0;
+}
+.report-sentiment-driving-tweets .slide .content .tweet.instagram:before {
+  border-color: #A790E0 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .avatar {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: grey;
+  background-position: center;
+  background-size: contain;
+  border: 0px;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .handle {
+  position: absolute;
+  top: 20px;
+  left: 110px;
+  width: 350px;
+  font-weight: bold;
+  font-size: 25px;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .copy {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 10px;
+  line-height: 140%;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .img_content {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+.report-sentiment-driving-tweets .slide .content .tweet .date {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  top: 5px;
+  margin-top: 15px;
+}
+.report-sentiment-driving-tweets .slide .content .retweet_triangle {
+  position: relative;
+  bottom: -30px;
+  left: 50px;
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 30px 0 30px;
+  border-color: #4dc5b2 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .retweet_triangle.positive {
+  border-color: #4dc5b2 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .retweet_triangle.negative {
+  border-color: #d45855 transparent transparent transparent;
+}
+.report-sentiment-driving-tweets .slide .content .tweet_type {
+  font-size: 35px;
+  font-weight: bold;
+}
+.report-sentiment-driving-tweets .slide .graph_wrap {
+  position: relative;
+  width: 870px;
+  height: 750px;
+  color: white;
+  margin-top: 15px;
+}
+.report-sentiment-driving-tweets .slide .sentiment_conversation_graph_outcome {
+  width: 385px;
+  height: 385px;
+  background: #4dc5b2;
+  position: absolute;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 35px;
+  top: 225px;
+  left: 1145px;
+}
+.report-sentiment-driving-tweets .slide .sentiment_conversation_graph_outcome label {
+  margin-top: 120px;
+  display: block;
+}
+.report-sentiment-driving-tweets .slide .sentiment_conversation_graph_outcome span {
+  display: block;
+  font-size: 100px;
+  font-weight: bold;
+}
+.report-sentiment-driving-tweets .slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: white;
+}
+.report-sentiment-driving-tweets .slide-background .left-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 83px;
+  height: 1080px;
+}
+.report-sentiment-driving-tweets .slide-background .right-bar {
+  position: absolute;
+  top: 0px;
+  left: 1895px;
+  width: 25px;
+  height: 1080px;
+}
+.report-sentiment-driving-tweets .slide-background .bubbles .b-top {
+  position: absolute;
+  height: 650px;
+  width: 650px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: -200px;
+  left: -150px;
+}
+.report-sentiment-driving-tweets .slide-background .bubbles .b-middle {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 281px;
+  left: 510px;
+}
+.report-sentiment-driving-tweets .slide-background .bubbles .b-bottom {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 930px;
+  left: 1620px;
+}
+.report-sentiment-driving-tweets .slide-background .vertical {
+  position: absolute;
+  font-size: 35px;
+  color: white;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  left: 15px;
+  top: 1040px;
+  text-transform: uppercase;
+}
+.report-sentiment-driving-tweets .footer {
+  position: absolute;
+  top: 1020px;
+  width: 1920px;
+  height: 60px;
+  color: #a9a9a9;
+}
+.report-sentiment-driving-tweets .footer .date-range {
+  position: absolute;
+  font-size: 25px;
+  top: 18px;
+  left: 100px;
+  text-transform: uppercase;
+}
+.report-sentiment-driving-tweets .footer img {
+  float: right;
+  margin-right: 40px;
+}
+.report-sentiment-driving-tweets .orange {
+  background: #f6921d;
+}
+.report-sentiment-driving-tweets .teel {
+  background: #3fc6ca;
+}
+.report-sentiment-driving-tweets .dark-blue {
+  background: #2b3f7d;
+}

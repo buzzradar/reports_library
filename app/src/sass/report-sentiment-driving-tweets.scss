@@ -1,0 +1,459 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
+
+
+$orange: #f6921e;
+$teel: #4dc5b2;
+$dark: #404040;
+$green_positive:#7bdb46;
+$red_negative:#d45855;
+
+
+$twitter_color: #4dc5b2;
+$facebook_color: #5D88C6;
+$instagram_color: #A790E0;
+$youtube_color: #FC7A7A;
+
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+
+
+html, body {
+    color:#0000;
+    background: #f9f9f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    overflow-x: hidden;
+}
+
+.amcharts-chart-div{
+    a {
+        display:none !important;
+    }
+}
+
+button:focus {outline:0;}
+textarea:focus {outline:0;}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+
+
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+
+
+.report-sentiment-driving-tweets{
+
+    position:absolute;
+    width:1920px;
+    height: 1080px;
+    top:0;
+    left:0;
+    
+    //--------------------------------
+    // Main Content (Slide)
+    //--------------------------------
+
+    .slide {
+        position:relative;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        color:#404040;
+
+        .report_title {
+            text-transform: uppercase;    
+            border-bottom:10px solid #f6921d;
+            padding:15px 15px 15px 105px;
+
+            .top{    
+                font-size: 40px;
+                font-weight:bold;
+            }
+            .bottom{    
+                font-size: 40px;
+            }
+
+        }
+
+
+        .content{
+            position:relative;
+            width:1771px;
+            height:860px;
+            font-size:25px;
+            margin-top:25px;
+            margin-left:83px;
+            //background:pink;
+            padding:0px 20px;
+
+            .content-area{
+                color:black;
+                position:relative;
+                top:0px;
+                left:0px;
+                width:500px;
+                height:500px;    
+                //background:yellow;
+            }
+
+            .main-layout-wrap{
+                color:#404040;
+                display:flex;
+                align-items: top;
+
+                .col1{
+                    float: left;
+                    width:50%;
+                    margin-top:0px;
+                    //background:#a5f5b8;
+                }
+                .col2{
+                    float: left;
+                    width:50%;
+                    //background:grey;
+                }
+                .col_title{
+                    position:relative;
+                    color:#404040;
+                    font-size:30px;
+                    text-transform:uppercase;
+                    font-weight:bold;
+                    margin-bottom:50px;
+
+                    &.center{
+                        text-align:center;
+                    }
+                }
+
+            }
+
+            //-----------------------
+            //TWEET
+            //-----------------------
+
+            .tweet {
+                position:relative;
+                width:800px;
+                height:auto;
+                background:$teel;
+                display:inline-block;
+                margin-top: 10px;
+                margin-bottom: 50px;
+                padding:20px 20px 0px 20px;
+                vertical-align:top;
+
+
+                &.scale_down_10{
+                    @include transform ( scale(0.9) );
+                    transform-origin: 0 0;
+                }
+
+                .social_network_corner_logo{
+                    position:relative;
+                    float:right;
+                }
+
+                &.positive{
+                    background:$teel;
+                    color:white;
+                }
+
+                &.positive:before{
+                    border-color: $green_positive transparent transparent transparent;
+                }
+
+                &.negative{
+                    background:$red_negative;
+                    color:white;
+                }
+
+                &.negative:before{
+                    border-color: $red_negative transparent transparent transparent;
+                }
+
+                &.twitter{
+                    background:$twitter_color;
+                }
+                &.twitter:before{
+                    border-color: $twitter_color transparent transparent transparent;
+                }
+                &.facebook{
+                    background:$facebook_color;
+                }
+                &.facebook:before{
+                    border-color: $facebook_color transparent transparent transparent;
+                }
+                &.youtube{
+                    background:$youtube_color;
+                }
+                &.youtube:before{
+                    border-color: $youtube_color transparent transparent transparent;
+                }
+                &.instagram{
+                    background: $instagram_color;
+                }
+                &.instagram:before{
+                    border-color: $instagram_color transparent transparent transparent;
+                }
+
+                .avatar {
+                    @include border-radius(10px);
+                    position:relative;
+                    width:80px;
+                    height:80px;
+                    background:grey;
+                    background-position: center;
+                    background-size: contain;
+                    border:0px;
+                }
+
+                .handle{
+                    position:absolute;
+                    top:20px;
+                    left:110px;
+                    width:350px;
+                    font-weight:bold;
+                    font-size:25px;
+                    //background:yellow;
+                }
+
+                .copy{
+                    position:relative;
+                    width:100%;
+                    font-size:20px;
+                    //background:red;
+                    margin-top:10px;
+                    line-height:140%;
+                }
+
+                .img_content{
+                    position:relative;
+                    width:100%;
+                    margin-top:20px;
+                }
+
+                .date{
+                    position:relative;
+                    width:100%;
+                    font-size:20px;
+                    top:5px;
+                    //background:grey;
+                    margin-top:15px;
+                }
+
+
+            }
+
+            .retweet_triangle {
+                position:relative;
+                bottom:-30px;
+                left:50px;
+                content: "";
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 30px 30px 0 30px;
+                border-color: $teel transparent transparent transparent;
+
+                &.positive{
+                    border-color: $teel transparent transparent transparent;
+                }
+                &.negative{
+                    border-color: $red_negative transparent transparent transparent;
+                }
+
+            }
+
+            .tweet_type{
+                font-size:35px;
+                font-weight:bold;
+            }
+
+        }
+
+
+        .graph_wrap {
+            position:relative;
+            width:870px;
+            height:750px;
+            color:white;
+            margin-top:15px;
+            //background:green;
+        }
+
+        .sentiment_conversation_graph_outcome{
+            width:385px;
+            height:385px;
+            background:$teel;
+            position:absolute;
+            text-align:center;
+            color:white;
+            text-transform: uppercase;
+            font-size:35px;
+            top:225px;
+            left:1145px;
+
+            label{
+                margin-top:120px;
+                display:block;
+            }
+
+            span{
+                display:block;
+                font-size:100px;
+                font-weight:bold;
+            }
+
+        }
+
+        
+
+
+
+        
+    }
+ 
+
+
+    //--------------------------------
+    // Background 
+    //--------------------------------
+
+
+    .slide-background{
+        position:absolute;
+        top:0;
+        left:0;
+        width:1920px;
+        height: 1080px;
+        overflow:hidden;
+        background:white;
+
+        .left-bar{
+            position:absolute;
+            top:0;
+            left:0;
+            width:83px;
+            height:1080px;
+        }
+
+        .right-bar{
+            position:absolute;
+            top:0px;
+            left:1895px;
+            width:25px;
+            height:1080px;
+        }
+
+        .bubbles{
+            .b-top{
+                position:absolute;
+                height: 650px;
+                width: 650px;
+                background-color: #f2f2f2;
+                border-radius: 50%;
+                top:-200px;
+                left:-150px;
+            }
+            .b-middle{
+                position:absolute;
+                height: 150px;
+                width: 150px;
+                background-color: #f2f2f2;
+                border-radius: 50%;
+                top:281px;
+                left:510px;
+            }
+            .b-bottom{
+                position:absolute;
+                height: 400px;
+                width: 400px;
+                background-color: #f2f2f2;
+                border-radius: 50%;
+                top:930px;
+                left:1620px;
+            }
+        }
+
+        .vertical{    
+            position:absolute;
+            font-size: 35px;
+            color:white;
+            transform: rotate(-90deg);
+            transform-origin: top left;
+            left:15px;
+            top:1040px;
+            text-transform: uppercase;    
+        }
+
+    }
+
+
+    //--------------------------------
+    // Footer 
+    //--------------------------------
+
+    .footer{
+        position:absolute;
+        top:1020px;
+        width:1920px;
+        height:60px;
+        color:#a9a9a9;
+        //background:yellow;
+
+
+        .date-range {
+            position:absolute;
+            font-size:25px;
+            top:18px;
+            left:100px;
+            text-transform: uppercase;    
+        }
+
+        img{
+            float:right;
+            margin-right:40px;
+        }
+    }
+
+
+    //--------------------------------
+    // Color Palette 
+    //--------------------------------
+
+    .orange {
+        background: #f6921d;
+    }
+    .teel {
+        background: #3fc6ca;
+    }
+    .dark-blue {
+        background: #2b3f7d;
+    }
+
+
+}
+
+
+
+
+

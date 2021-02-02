@@ -2,6 +2,11 @@
   "reportsentries": [
 
     {
+      "slug": "report-sentiment-driving-tweets",
+      "imgName" : "report_sentiment_driving_tweets.jpg",
+      "name": "Report Sentiment Driving Tweets"
+    },
+    {
       "slug": "report-twitter-mentions",
       "imgName" : "report_twitter_mentions.jpg",
       "name": "Report Twitter Mentions"

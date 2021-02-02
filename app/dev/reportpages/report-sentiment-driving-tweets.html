@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-sentiment-driving-tweets.css" rel="stylesheet">
+    
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-sentiment-driving-tweets" style="top:{{slideTop}}px;">
+
+      <div class="slide-background">
+        
+        <div class="bubbles">
+          <div class="b-top"></div>
+          <div class="b-middle"></div>
+          <div class="b-bottom"></div>
+        </div>
+        <div class="left-bar orange"></div>
+        <div class="right-bar orange"></div>
+        <div class="vertical"></div>
+
+      </div>
+
+      <div class="slide">
+          
+          <div class="report_title">
+              <div class="top">{{report.name}}</div>
+              <div class="bottom">{{topic.name}}: Sentiment Driving Tweets</div>
+          </div>
+
+          <div class="content">
+
+
+            <div class="main-layout-wrap">
+              <div class="col1">
+                
+                <div class="tweet_type">Most Positive</div>
+                <div class="holder_positive"></div>
+                <!-- <div class="tweet">
+                    <img class="social_network_corner_logo" src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/twitter_bird.png" width="40" />
+                    
+                    <div class="avatar" style="background-image: url('https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/avatar/twitter_avatar.jpg');"></div>
+                    <div class="handle">
+                      A. N. Account<br>
+                      @anaccount, 17,453 Followers
+                    </div>
+                    <div class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et maef.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et maef.</div>
+                    <div class="date"><u>4:45 AM - 28 Sep 2015</u> xxxx Retweets, xxxx Likes</div>
+                    <div class="retweet_triangle positive"></div>
+                </div> -->
+
+              </div>
+              <div class="col2">
+                <div class="tweet_type">Most Negative</div>
+                <div class="holder_negative"></div>
+              </div>
+            </div>
+
+          </div>
+
+
+      </div>
+
+      <div class="footer">
+          <div class="date-range">Date Range: {{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+          <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/RGB_NAME_WHITEBG_SMALL72.png" width="200">
+      </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="../libraries/amcharts/amcharts.js"></script>
+    <script src="../libraries/amcharts/pie.js"></script>
+
+    <script>
+
+      var SentimentDrivenInstance = function () {
+
+        var pageDataJS = {"twitterDailySentiment":{"chart":[{"created":"2020-01-08 00:00:00+00","twitter_mentions":16,"twitter_positive_tweets":8,"twitter_negative_tweets":4,"date":"January 08, 2020","pos_percent":"50.00","neg_percent":"25.00"},{"created":"2020-01-09 00:00:00+00","twitter_mentions":22,"twitter_positive_tweets":10,"twitter_negative_tweets":6,"date":"January 09, 2020","pos_percent":"45.45","neg_percent":"27.27"},{"created":"2020-01-10 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":5,"date":"January 10, 2020","pos_percent":"42.11","neg_percent":"26.32"},{"created":"2020-01-11 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":4,"twitter_negative_tweets":2,"date":"January 11, 2020","pos_percent":"40.00","neg_percent":"20.00"},{"created":"2020-01-12 00:00:00+00","twitter_mentions":14,"twitter_positive_tweets":4,"twitter_negative_tweets":2,"date":"January 12, 2020","pos_percent":"28.57","neg_percent":"14.29"},{"created":"2020-01-13 00:00:00+00","twitter_mentions":9,"twitter_positive_tweets":4,"twitter_negative_tweets":1,"date":"January 13, 2020","pos_percent":"44.44","neg_percent":"11.11"},{"created":"2020-01-14 00:00:00+00","twitter_mentions":13,"twitter_positive_tweets":4,"twitter_negative_tweets":4,"date":"January 14, 2020","pos_percent":"30.77","neg_percent":"30.77"},{"created":"2020-01-15 00:00:00+00","twitter_mentions":23,"twitter_positive_tweets":9,"twitter_negative_tweets":7,"date":"January 15, 2020","pos_percent":"39.13","neg_percent":"30.43"},{"created":"2020-01-16 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":8,"twitter_negative_tweets":5,"date":"January 16, 2020","pos_percent":"47.06","neg_percent":"29.41"},{"created":"2020-01-17 00:00:00+00","twitter_mentions":29,"twitter_positive_tweets":10,"twitter_negative_tweets":6,"date":"January 17, 2020","pos_percent":"34.48","neg_percent":"20.69"},{"created":"2020-01-18 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":6,"twitter_negative_tweets":3,"date":"January 18, 2020","pos_percent":"50.00","neg_percent":"25.00"},{"created":"2020-01-19 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":10,"twitter_negative_tweets":1,"date":"January 19, 2020","pos_percent":"58.82","neg_percent":"5.88"},{"created":"2020-01-20 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":6,"twitter_negative_tweets":3,"date":"January 20, 2020","pos_percent":"60.00","neg_percent":"30.00"},{"created":"2020-01-21 00:00:00+00","twitter_mentions":13,"twitter_positive_tweets":4,"twitter_negative_tweets":4,"date":"January 21, 2020","pos_percent":"30.77","neg_percent":"30.77"},{"created":"2020-01-22 00:00:00+00","twitter_mentions":11,"twitter_positive_tweets":2,"twitter_negative_tweets":2,"date":"January 22, 2020","pos_percent":"18.18","neg_percent":"18.18"},{"created":"2020-01-23 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":5,"twitter_negative_tweets":5,"date":"January 23, 2020","pos_percent":"26.32","neg_percent":"26.32"},{"created":"2020-01-24 00:00:00+00","twitter_mentions":18,"twitter_positive_tweets":6,"twitter_negative_tweets":2,"date":"January 24, 2020","pos_percent":"33.33","neg_percent":"11.11"},{"created":"2020-01-25 00:00:00+00","twitter_mentions":21,"twitter_positive_tweets":7,"twitter_negative_tweets":4,"date":"January 25, 2020","pos_percent":"33.33","neg_percent":"19.05"},{"created":"2020-01-26 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":0,"date":"January 26, 2020","pos_percent":"42.11","neg_percent":"0.00"},{"created":"2020-01-27 00:00:00+00","twitter_mentions":6,"twitter_positive_tweets":4,"twitter_negative_tweets":0,"date":"January 27, 2020","pos_percent":"66.67","neg_percent":"0.00"},{"created":"2020-01-28 00:00:00+00","twitter_mentions":11,"twitter_positive_tweets":7,"twitter_negative_tweets":1,"date":"January 28, 2020","pos_percent":"63.64","neg_percent":"9.09"},{"created":"2020-01-29 00:00:00+00","twitter_mentions":10,"twitter_positive_tweets":6,"twitter_negative_tweets":1,"date":"January 29, 2020","pos_percent":"60.00","neg_percent":"10.00"},{"created":"2020-01-30 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":5,"twitter_negative_tweets":3,"date":"January 30, 2020","pos_percent":"41.67","neg_percent":"25.00"},{"created":"2020-01-31 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":0,"twitter_negative_tweets":4,"date":"January 31, 2020","pos_percent":"0.00","neg_percent":"33.33"},{"created":"2020-02-01 00:00:00+00","twitter_mentions":12,"twitter_positive_tweets":2,"twitter_negative_tweets":3,"date":"February 01, 2020","pos_percent":"16.67","neg_percent":"25.00"},{"created":"2020-02-02 00:00:00+00","twitter_mentions":19,"twitter_positive_tweets":8,"twitter_negative_tweets":2,"date":"February 02, 2020","pos_percent":"42.11","neg_percent":"10.53"},{"created":"2020-02-03 00:00:00+00","twitter_mentions":14,"twitter_positive_tweets":5,"twitter_negative_tweets":4,"date":"February 03, 2020","pos_percent":"35.71","neg_percent":"28.57"},{"created":"2020-02-04 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":7,"twitter_negative_tweets":0,"date":"February 04, 2020","pos_percent":"41.18","neg_percent":"0.00"},{"created":"2020-02-05 00:00:00+00","twitter_mentions":18,"twitter_positive_tweets":2,"twitter_negative_tweets":6,"date":"February 05, 2020","pos_percent":"11.11","neg_percent":"33.33"},{"created":"2020-02-06 00:00:00+00","twitter_mentions":17,"twitter_positive_tweets":5,"twitter_negative_tweets":2,"date":"February 06, 2020","pos_percent":"29.41","neg_percent":"11.76"}],"total_mentions":460,"total_mentions_positive":174,"total_mentions_negative":92},"twitterSentimentTweets":{"positive":[{"universeCategory":[],"id":491099869,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579962015},"tweetId":"1221075280355262465","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579962007},"username":"LINGOLFCENTRE","name":"Lincoln Golf Centre","description":"24 bay floodlit driving range, 9 Hole golf course, ideal for all. Everyone welcomed with open arms. Green Fees from £8 Open 9-9 in week 8-6 over weekend","profileImageUrl":"http://pbs.twimg.com/profile_images/1201817099045351424/gfZ4Kt4-.jpg","followers":1611,"friends":2977,"imageUrl":null,"content":"Great to see so many smiling faces again at the junior coaching on a grey January morning. Big shouts out to players of the day for each class which went to:-\n\nLibby Burnett 🏆 \nJoshua Butterworth  🏆 \nShay Burberry 🏆 \nByron Scott - Walker 🏆 \n\nGreat work troops, keep practicing https://t.co/hO4n5D4P4W","retweets":0,"likes":0,"sentiment":20,"countryCode":"GB","country":"United Kingdom","userLocation":"Moor Lane Thorpe on The Hill ","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":true,"topNegative":null,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null},{"universeCategory":[],"id":490546038,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579449996},"tweetId":"1218927714549276672","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579449988},"username":"Msdavis2Them","name":"MSDAVIS2THEM","description":"Promise to always give you me..the Real Me..never mention everything I dabble in ..","profileImageUrl":"http://pbs.twimg.com/profile_images/1188212874809921536/L3RASj2P.jpg","followers":1470,"friends":805,"imageUrl":null,"content":"Asians be fly without doing too much or being loud lol my nail tech had on a Burberry hoodie and a Cartier on her right wrist just chilling lol she was wearing the hoodie like it was a tech lol I peeped like oh this bih got about 3k in just a chill day lol prob more 😂","retweets":0,"likes":0,"sentiment":16,"countryCode":"US","country":"United States","userLocation":"Houston, TX","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":true,"topNegative":null,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null},{"universeCategory":[],"id":491303973,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1580262894},"tweetId":"1222336749646622720","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1580262765},"username":"PrateEyeCare","name":"PrateFamilyEyeCare","description":"Prate Family Eye Care provides primary vision care services including routine evaluations, contact lens services, diagnosis and treatment of ocular diseases.","profileImageUrl":"http://pbs.twimg.com/profile_images/378800000609152409/82cd550dbc347513124b0e4516d36378.jpeg","followers":134,"friends":234,"imageUrl":null,"content":"Burberry glasses come in a variety of styles. We carry a huge selection of all Burberry frames and all for the best prices!\n•\n•\n•\n#PrateEye #Burberry #London #Glasses #Sunglasses #Eyewear #Designer #Trendy #Chic #Cool #Style #Stylish #Fashion #Fashionable #Fun #Model #Beauty https://t.co/GycZGNXRvQ","retweets":0,"likes":0,"sentiment":14,"countryCode":"US","country":"United States","userLocation":"Laurel Springs, NJ","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":true,"topNegative":null,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null}],"negative":[{"universeCategory":[],"id":490803993,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579648893},"tweetId":"1219761938990804992","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579648882},"username":"SpookKitten","name":"DonkCheney لا","description":"Opulence","profileImageUrl":"http://pbs.twimg.com/profile_images/750914118119333888/RwZsX1_I.jpg","followers":66,"friends":587,"imageUrl":null,"content":"I can’t stop thinking about @ItsHimOfficer ‘s claim that I insulted someone’s fake Burberry scarf while shitfaced. I didn’t do it, and no one believes me and I CANT STOP THINKING ABOUT IT. What a heinous, slanderous accusation.","retweets":0,"likes":0,"sentiment":-8,"countryCode":"US","country":"United States","userLocation":"Washington, DC","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":null,"topNegative":true,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null},{"universeCategory":[],"id":488577182,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1578554214},"tweetId":"1215170538869362688","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1578554207},"username":"stephaniebarbeh","name":"stephabulist🔥","description":"#MagicalRealism fiction writer, poet, writing teacher, kulturkommentatrix, UCR prof emerita, jew by choice, Jon Lovett certified “good boomer” wrestling fan.","profileImageUrl":"http://pbs.twimg.com/profile_images/1068400153730531328/hlA5fGOa.jpg","followers":718,"friends":834,"imageUrl":null,"content":"Sorry to be ignorant but who is this wrestler with the fake Burberry scarf and the pissy demeanor? #AEW","retweets":0,"likes":0,"sentiment":-6,"countryCode":"US","country":"United States","userLocation":"Coupeville, WA","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":null,"topNegative":true,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null},{"universeCategory":[],"id":490118206,"feedTwitterMention":5,"approved":true,"created":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579125131},"tweetId":"1217565121498820608","date":{"timezone":{"name":"UTC","transitions":[{"ts":-9223372036854776000,"time":"-292277022657-01-27T08:29:52+0000","offset":0,"isdst":false,"abbr":"UTC"}],"location":{"country_code":"??","latitude":0,"longitude":0,"comments":"?"}},"offset":0,"timestamp":1579125120},"username":"itAston","name":"a$ton","description":"22 years old / Graduate of @RiceUniversity / Developing [REDACTED] / @Google Software Engineer / from Houston 🤘 Living my best life","profileImageUrl":"http://pbs.twimg.com/profile_images/1217240559850590208/2AAG4i7W.jpg","followers":3636,"friends":579,"imageUrl":null,"content":"@iiWeiss_ The Adidas store is so bad now, the Clark's store is terrible now. I think they took out the Puma store. They don't have a Nike store. \n\nVans, maybe(?)\n\nOther than that, like unless you want to spend $2,000+ on Burberry or Gucci shoes, it just sucks as a whole now","retweets":0,"likes":0,"sentiment":-6,"countryCode":"US","country":"United States","userLocation":"San Francisco, CA","lang":"en","originalTweetId":null,"originalRetweets":0,"originalUsername":null,"originalDate":null,"originalProfileImageUrl":null,"originalFollowers":0,"feedTwitterMentionGroupId":null,"userVerified":false,"topInfluential":true,"topInfluentialApproved":true,"topPositive":null,"topNegative":true,"adultVerified":false,"highlight":false,"visionSafeSearchAdult":null,"safeSearchAdult":null,"visionSafeSearchSpoof":null,"safeSearchSpoof":null,"visionSafeSearchMedical":null,"safeSearchMedical":null,"visionSafeSearchViolence":null,"safeSearchViolence":null,"visionSafeSearchRacy":null,"safeSearchRacy":null,"source":null}]}};
+
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        var custom = {
+            color : '#8ebf6a',
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+            bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+          };
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+
+        var total = pageDataJS.twitterDailySentiment.total_mentions;
+        var pos = pageDataJS.twitterDailySentiment.total_mentions_positive;
+        var neg = pageDataJS.twitterDailySentiment.total_mentions_negative;
+        var neutral = total - pos - neg;
+        var favorablePerc = (total - neg)*100/total;
+
+        var loadChart = function() {
+
+          AmCharts.makeChart( slideDom.find('#pie_graph').get(0), {
+            "type": "pie",
+            "color": '#404040',
+            "addClassNames": true,
+            "startDuration":0,
+            
+
+            "fontSize" :25,
+            "fontFamily" : 'Open Sans',
+            "labelsEnabled" : true,
+            "labelText": "[[percents]] %",
+            "labelRadius" : 15,
+            "bold" : false,
+
+            "theme": "none",
+            "dataProvider": [ 
+                {
+                  "title": "Positive",
+                  "color": "#7bdb45",
+                  "value": pos,
+                }, 
+                {
+                  "title": "Negative",
+                  "color": "#d45855",
+                  "value": neg,
+                },
+                {
+                  "title": "Neutral",
+                  "color": "#535960",
+                  "value": neutral,
+                }, 
+            ],
+            "titleField": "title",
+            "valueField": "value",
+            "colorField": "color",
+            "radius": "42%",
+            "innerRadius": "60%",
+
+            "legend":{
+              "enabled":true,
+              "align" : "center",
+              "labelText" : "[[title]]",
+              "valueText" : false,
+              "valueWidth" : 90,
+              "fontSize" : 30,
+              "maxColumns" : 3,
+              "bold" : false,
+              "markerType" : "circle",
+            },
+            "export": {
+              "enabled": true
+            }
+          } );
+
+        };
+
+        var calculatePercentCentrePie = function (favorablePerc) {
+
+            var targetDOM = slideDom.find('.sentiment_conversation_graph_outcome');
+            targetDOM.find('span').html(Math.round(favorablePerc) + '%');
+
+          };
+
+        var formatNumber = function(value) {
+          var finalValue;
+          if (value > 1000000) {
+            finalValue = Number((value/1000000).toFixed(2)) +' M';
+            return finalValue;
+          }
+          if (value > 1000) {
+            finalValue = Number((value/1000).toFixed(2)) +' K';
+            return finalValue;
+          }else{
+            finalValue = value;
+            return finalValue;
+          }
+        };
+
+        var showPotentialReach = function(pageDataJS) {
+          $('.report-3-most-effective-posts').find('.report_title .bottom').html('Potential Reach: <strong>'+formatNumber(pageDataJS.twitterDailyReach.total)+'</strong>');
+        };
+
+        var showStatsContent = function(tweetInfo) {
+          var ret = 'Likes '+ tweetInfo.likes + ' Retweets '+tweetInfo.retweets;
+          return ret;
+        };
+
+        var getSocialIcon = function(social) {
+
+          switch(social) {
+            case "twitter":
+              return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/twitter_bird.png';
+            break;
+            case "facebook":
+              return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/facebook.png';
+            break;
+            case "instagram":
+              return 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/social/instagram.png';
+            break;
+          }
+
+        };
+
+
+
+
+        var converUnixDateJavascript = function(UNIX_timestamp) {
+
+          var a = new Date(UNIX_timestamp * 1000);
+          var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          var year = a.getFullYear();
+          var month = months[a.getMonth()];
+          var date = a.getDate();
+          var hour = a.getHours();
+          var min = a.getMinutes();
+          var sec = a.getSeconds();
+          var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+          return time;
+
+        };
+
+
+
+
+        var displayTweet = function(tweetInfo,tweetType) {
+
+          function loadUserAvatarIntoDOM(tweetInfo) {
+            console.log(tweetInfo);
+            var dom = slideDom.find('.holder_'+tweetType);
+            var template = '<div class="tweet '+tweetType+'">';
+                      template += '<img class="social_network_corner_logo" src="'+getSocialIcon('twitter')+'" width="40" />';
+                      template += '<div class="avatar" style="background-image: url(\''+tweetInfo.profileImageUrl+'\');"></div>';
+                      template += '<div class="handle">';
+                      template += ''+tweetInfo.username+'<br>';
+                      template += ''+formatNumber(tweetInfo.followers)+' Followers';
+                      template += '</div>';
+                      template += '<div class="copy">'+tweetInfo.content+'</div>';
+                      template += '<div class="date"><u>'+converUnixDateJavascript(tweetInfo.created.timestamp)+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
+                      template += '<div class="retweet_triangle '+tweetType+'"></div>';
+                  template += '</div>';
+
+            dom.append(template);
+          }
+
+          tweetInfo.profileImageUrl = tweetInfo.profileImageUrl.replace('http://','https://');
+          $.get(tweetInfo.profileImageUrl)
+
+            .done(function() { 
+                // Do something now you know the image exists.
+                console.log("done!!!!");
+                loadUserAvatarIntoDOM(tweetInfo);                  
+            }).fail(function() { 
+                // Image doesn't exist - replace avatar with the EGG
+                console.log("fail!!!!!!!!!!!");
+                tweetInfo.profileImageUrl = 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/avatar/Twitter_NoProfileImage600x600.png';
+                loadUserAvatarIntoDOM(tweetInfo);                  
+            }); 
+
+        };
+
+
+
+
+
+
+
+        var customize = function(customObject) {
+
+            //Change Color
+            var newColor = customObject.color;
+            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
+            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
+            slideDom.find('.report_title').css('borderColor',newColor);
+
+            //Change Vendor Logo
+            //Developer Note: To avoid having issues placing the different logos, they must be 
+            //created within this dimensions: 300 x 131
+            slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
+            slideDom.find('.footer').find('img').css('marginTop',-25);
+            slideDom.find('.footer').find('img').css('width',170);
+
+          };
+
+
+        return {
+            init: function () {
+              loadChart();
+              calculatePercentCentrePie(favorablePerc);
+              displayTweet(pageDataJS.twitterSentimentTweets.positive[0],'positive');
+              displayTweet(pageDataJS.twitterSentimentTweets.positive[1],'positive');
+              displayTweet(pageDataJS.twitterSentimentTweets.negative[0],'negative');
+              displayTweet(pageDataJS.twitterSentimentTweets.negative[1],'negative');
+              customize(custom);
+            }
+        };
+        
+      }();
+
+      SentimentDrivenInstance.init();
+
+    </script>
+        
+        
+
+
+  </body>
+</html>
