@@ -2,6 +2,11 @@
   "reportsentries": [
 
     {
+      "slug": "report-most-influential-users-discussing",
+      "imgName" : "report_most_influential_users_discussing.jpg",
+      "name": "Report Most Influential Users Discussing"
+    },
+    {
       "slug": "report-most-retweeted-mentions",
       "imgName" : "report_most_retweeted_mentions.jpg",
       "name": "Report Most Retweeted and Mentions"
