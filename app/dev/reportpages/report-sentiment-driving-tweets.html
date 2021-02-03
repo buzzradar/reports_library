@@ -106,76 +106,7 @@
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
 
-        var total = pageDataJS.twitterDailySentiment.total_mentions;
-        var pos = pageDataJS.twitterDailySentiment.total_mentions_positive;
-        var neg = pageDataJS.twitterDailySentiment.total_mentions_negative;
-        var neutral = total - pos - neg;
-        var favorablePerc = (total - neg)*100/total;
-
-        var loadChart = function() {
-
-          AmCharts.makeChart( slideDom.find('#pie_graph').get(0), {
-            "type": "pie",
-            "color": '#404040',
-            "addClassNames": true,
-            "startDuration":0,
-            
-
-            "fontSize" :25,
-            "fontFamily" : 'Open Sans',
-            "labelsEnabled" : true,
-            "labelText": "[[percents]] %",
-            "labelRadius" : 15,
-            "bold" : false,
-
-            "theme": "none",
-            "dataProvider": [ 
-                {
-                  "title": "Positive",
-                  "color": "#7bdb45",
-                  "value": pos,
-                }, 
-                {
-                  "title": "Negative",
-                  "color": "#d45855",
-                  "value": neg,
-                },
-                {
-                  "title": "Neutral",
-                  "color": "#535960",
-                  "value": neutral,
-                }, 
-            ],
-            "titleField": "title",
-            "valueField": "value",
-            "colorField": "color",
-            "radius": "42%",
-            "innerRadius": "60%",
-
-            "legend":{
-              "enabled":true,
-              "align" : "center",
-              "labelText" : "[[title]]",
-              "valueText" : false,
-              "valueWidth" : 90,
-              "fontSize" : 30,
-              "maxColumns" : 3,
-              "bold" : false,
-              "markerType" : "circle",
-            },
-            "export": {
-              "enabled": true
-            }
-          } );
-
-        };
-
-        var calculatePercentCentrePie = function (favorablePerc) {
-
-            var targetDOM = slideDom.find('.sentiment_conversation_graph_outcome');
-            targetDOM.find('span').html(Math.round(favorablePerc) + '%');
-
-          };
+        
 
         var formatNumber = function(value) {
           var finalValue;
@@ -300,8 +231,6 @@
 
         return {
             init: function () {
-              loadChart();
-              calculatePercentCentrePie(favorablePerc);
               displayTweet(pageDataJS.twitterSentimentTweets.positive[0],'positive');
               displayTweet(pageDataJS.twitterSentimentTweets.positive[1],'positive');
               displayTweet(pageDataJS.twitterSentimentTweets.negative[0],'negative');
