@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="   sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap" rel="stylesheet">
+
+    <link href="css/report-ces-cover.css" rel="stylesheet">
+
+    <title>Buzz Radar Reports Page</title>
+
+  </head>
+
+  <body>
+
+    <div id="report_slide" class="report-ces-cover">
+
+      <div class="slide">
+
+          <div class="content">
+
+              <div class="presentation_holder">
+                <div class="title_report">{{report.name|raw}}</div>
+                <div class="topic_name">{{topic.name}}</div>
+                <div class="date_report">{{fromDate | date('jS M Y') }} - {{ toDate | date('jS M Y') }}</div>
+                <img src="https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/PoweredBy_RGB_DarkBG.png" width="300" />
+              </div>
+
+              <div style="position: absolute;top:330px;left:200px;">
+                  <div class="avatar big"></div>
+              </div>
+
+          </div>          
+          
+
+
+      </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
+
+    <script>
+
+      var CESCoverSlide = function () {
+
+        var pageDataJS = {"twitterHandlesInfo":[{"id":14861876,"id_str":"14861876","name":"AMD","screen_name":"AMD","location":"Austin, TX","profile_location":null,"description":"Official corporate news about the AMD technology enabling today and inspiring tomorrow.","url":"https://t.co/MxedQNir9p","entities":{"url":{"urls":[{"url":"https://t.co/MxedQNir9p","expanded_url":"http://www.AMD.com","display_url":"AMD.com","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":974059,"friends_count":260,"listed_count":3695,"created_at":"Wed May 21 22:14:12 +0000 2008","favourites_count":9061,"utc_offset":null,"time_zone":null,"geo_enabled":true,"verified":true,"statuses_count":8970,"lang":null,"status":{"created_at":"Wed Feb 03 22:01:06 +0000 2021","id":1357086739685200000,"id_str":"1357086739685199872","text":"Be part of the future. From PC to the console to the cloud, the ultimate gaming experiences come alive with AMD.","truncated":false,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"source":"<a href=\"https://ads-api.twitter.com\" rel=\"nofollow\">Twitter for Advertisers (legacy)</a>","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":23,"favorite_count":210,"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"0A0909","profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png","profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png","profile_background_tile":true,"profile_image_url":"http://pbs.twimg.com/profile_images/1159963580319567872/FYwjYWG5.jpg","profile_image_url_https":"https://pbs.twimg.com/profile_images/1159963580319567872/FYwjYWG5.jpg","profile_banner_url":"https://pbs.twimg.com/profile_banners/14861876/1582052655","profile_link_color":"A59061","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"E6E1E6","profile_text_color":"000000","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"regular","handle":"@amd"}]};
+        
+
+
+        var pageId = '';
+        var slideDom = $('#report_slide'+pageId);
+        var custom = {
+            color : '#8ebf6a',
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/ibm_logo.png',
+            bgURL : 'https://e604928705f12d99b679-75d66e349be7351b0bb87db3c2ed768a.ssl.cf3.rackcdn.com/report/7571bfcba2a0c36a232d267765b33a2e513c3946.png',
+          };
+        console.log("Unique Page ID:", "report_slide"+pageId);
+        console.log(pageDataJS);
+
+        var showAvatar = function() {
+
+          console.log("Let show the avatar --->", pageDataJS.twitterHandlesInfo[0].profile_image_url_https);
+          var newAvatar = pageDataJS.twitterHandlesInfo[0].profile_image_url_https;
+          slideDom.find(".avatar").css({'background-image':'url('+newAvatar+')'});
+
+        };
+
+
+        var customize = function(customObject) {
+
+            //Change Background
+            if(customObject.bgURL != ""){
+              slideDom.css('backgroundImage','url('+customObject.bgURL+')');
+            }
+
+            //Change Vendor Logo
+            if(customObject.vendorLogoURL != ""){
+              slideDom.find('.vendor-logo > img').attr('src',custom.vendorLogoURL);
+            }
+
+        };
+
+
+        return {
+            init: function () {
+
+              if (pageDataJS.twitterHandlesInfo.length == 0) {
+                slideDom.find('.presentation_holder').append('<div class="display_error"><strong>Warning: </strong>The Slide does not have any info from the <u>Twitter Account</u>. Check the topic settings to solve this problem.</div>');
+              }else{
+                showAvatar();
+              }
+              customize(custom);
+
+            }
+        };
+        
+      }();
+
+      CESCoverSlide.init();
+
+    </script>
+
+
+  </body>
+</html>

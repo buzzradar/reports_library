@@ -1,0 +1,119 @@
+/* BUZZ PANELS GLOBAL CSS v0.2 */
+/* --------------------------------------- */
+/* Shared styles across report */
+/* --------------------------------------- */
+html, body {
+  color: #0000;
+  background: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+.amcharts-chart-div a {
+  display: none !important;
+}
+
+button:focus {
+  outline: 0;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+@media print {
+  .amcharts-bg, .amcharts-plot-area, .amcharts-legend-bg {
+    display: none;
+  }
+}
+/* --------------------------------------- */
+/* Specific styles for this page */
+/* --------------------------------------- */
+.report-ces-cover {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+  background-image: url("https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg");
+}
+.report-ces-cover .slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  color: #404040;
+}
+.report-ces-cover .slide .content {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  color: white;
+}
+.report-ces-cover .slide .presentation_holder {
+  position: absolute;
+  top: 30%;
+  left: 550px;
+  color: white;
+  width: 65%;
+}
+.report-ces-cover .slide .title_report {
+  font-size: 60px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.report-ces-cover .slide .topic_name {
+  font-size: 60px;
+  padding-bottom: 10px;
+}
+.report-ces-cover .slide .date_report {
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+.report-ces-cover .slide .avatar {
+  position: relative;
+  border-radius: 5%;
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: left;
+}
+.report-ces-cover .slide .avatar.big {
+  width: 300px;
+  height: 300px;
+}
+.report-ces-cover .slide .vendor-logo {
+  position: absolute;
+}
+.report-ces-cover .slide .display_error {
+  width: 800px;
+  color: #404040;
+  background: #ffe71d;
+  padding: 15px 25px;
+  font-size: 35px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+.report-ces-cover .orange {
+  background: #f6921d;
+}
+.report-ces-cover .teel {
+  background: #3fc6ca;
+}
+.report-ces-cover .dark-blue {
+  background: #2b3f7d;
+}
+.report-ces-cover .white {
+  background: white;
+}

@@ -92,7 +92,7 @@ textarea:focus {
   color: #404040;
   display: flex;
   align-items: top;
-  padding-top: 90px;
+  padding-top: 50px;
 }
 .report-twitter-avatar-paragraph .slide .content .main-layout-wrap .col1 {
   float: left;
@@ -114,6 +114,9 @@ textarea:focus {
 .report-twitter-avatar-paragraph .slide .content .main-layout-wrap .col_title.center {
   text-align: center;
 }
+.report-twitter-avatar-paragraph .slide .content .paragraph {
+  line-height: 160%;
+}
 .report-twitter-avatar-paragraph .slide .content .avatar {
   position: relative;
   background-color: #bbb;
@@ -124,6 +127,7 @@ textarea:focus {
   border: 5px #f6921e solid;
   background-repeat: no-repeat;
   margin-top: 50px;
+  overflow: hidden;
 }
 .report-twitter-avatar-paragraph .slide .content .avatar.big {
   width: 400px;
@@ -144,6 +148,16 @@ textarea:focus {
 .report-twitter-avatar-paragraph .slide .bzlink {
   text-decoration: none;
   color: #f6921e;
+}
+.report-twitter-avatar-paragraph .slide .display_error {
+  color: #404040;
+  background: #ffe71d;
+  padding: 15px 25px;
+  font-size: 25px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  margin-top: 30px;
 }
 .report-twitter-avatar-paragraph .slide-background {
   position: absolute;

@@ -348,7 +348,13 @@ textarea:focus {outline:0;}
 
         }
 
-        
+        .display_error{
+            color:#404040;
+            background:#ffe71d;
+            padding:15px 25px;
+            font-size: 25px;
+            @include border-radius(15px);
+        }
 
 
 

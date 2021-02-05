@@ -2,6 +2,11 @@
   "reportsentries": [
 
     {
+      "slug": "report-CES-cover",
+      "imgName" : "report_CES_cover.jpg",
+      "name": "Report CES Cover Slide"
+    },
+    {
       "slug": "report-most-influential-users-discussing",
       "imgName" : "report_most_influential_users_discussing.jpg",
       "name": "Report Most Influential Users Discussing"
