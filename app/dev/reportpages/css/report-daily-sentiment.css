@@ -127,18 +127,16 @@ textarea:focus {
   text-align: center;
   top: 0;
 }
-.report-daily-sentiment .slide .big_circle p {
-  padding: 0 30px;
-  margin-top: 50px;
-  margin-bottom: 0px;
-  font-size: 30px;
+.report-daily-sentiment .slide .big_circle .vertical-center {
+  padding-top: 70px;
 }
-.report-daily-sentiment .slide .big_circle h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 70px;
+.report-daily-sentiment .slide .big_circle p {
+  font-size: 25px;
+}
+.report-daily-sentiment .slide .big_circle .big {
+  font-size: 50px;
+  line-height: 20%;
+  font-weight: bold;
 }
 .report-daily-sentiment .slide .big_circle.pos {
   background: #71d53e;

@@ -92,10 +92,13 @@
         var pageId = '';
         var slideDom = $('#report_slide'+pageId);
         var custom = {
-              color : '#8ebf6a',
-              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
-              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
-        };
+            color : '#00A0DB',         //we use this color for BG
+            extra_color1: '#00A0DB',   //we use this color for graphs
+            extra_color2: '#00A0DB',   //we use this color for extra elements
+            bubbles_color : '#94D9F8', //for Bubbles in the BG
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+            bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+          };
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
 
@@ -118,6 +121,16 @@
             slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
             slideDom.find('.footer').find('img').css('marginTop',-25);
             slideDom.find('.footer').find('img').css('width',170);
+
+            //BG Bubbles
+            slideDom.find('.bubbles').find('div').css('backgroundColor',customObject.bubbles_color);
+
+            //Avatar Stroke
+            slideDom.find('.avatar').css('border-color',customObject.color);
+            slideDom.find('.avatar').css('border-width',8);
+
+            //Link
+            slideDom.find('.bzlink').css('color',customObject.color);
 
           };
 

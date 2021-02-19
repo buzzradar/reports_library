@@ -33,7 +33,7 @@
               </div>
 
               <div style="position: absolute;top:330px;left:200px;">
-                  <div class="avatar big"></div>
+                  <div class="avatar big" style="border: 8px solid white;"></div>
               </div>
 
           </div>          
@@ -60,10 +60,13 @@
         var pageId = '';
         var slideDom = $('#report_slide'+pageId);
         var custom = {
-            color : '#8ebf6a',
-            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/logos/ibm_logo.png',
-            bgURL : 'https://e604928705f12d99b679-75d66e349be7351b0bb87db3c2ed768a.ssl.cf3.rackcdn.com/report/7571bfcba2a0c36a232d267765b33a2e513c3946.png',
-          };
+            color : '#FF9900',         //we use this color for BG
+            extra_color1: '#FF9900',   //we use this color for graphs
+            extra_color2: '#4DC5B2',   //we use this color for extra elements
+            bubbles_color : '#F2F2F2', //for Bubbles in the BG
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+            bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+        };
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
 
@@ -87,6 +90,10 @@
             if(customObject.vendorLogoURL != ""){
               slideDom.find('.vendor-logo > img').attr('src',custom.vendorLogoURL);
             }
+
+            //Avatar Stroke
+            slideDom.find('.avatar').css('border-color',customObject.color);
+            slideDom.find('.avatar').css('border-width',8);
 
         };
 

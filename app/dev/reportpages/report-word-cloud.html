@@ -83,11 +83,15 @@
           var pageId = '';
           var slideDom = $('#report_slide'+pageId);
           var custom = {
-              color : '#8ebf6a',
-              vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
-              bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
+            color : '#00A0DB',         //we use this color for BG
+            extra_color1: '#00A0DB',   //we use this color for graphs
+            extra_color2: '#0081BE',   //we use this color for extra elements
+            bubbles_color : '#94D9F8', //for Bubbles in the BG
+            vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
+            bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
           };
           console.log("Unique Page ID:", "report_slide"+pageId);
+          console.log(pageDataJS);
 
           var loadChart = function() {
 
@@ -108,6 +112,11 @@
                   if ( wordcolor == "WHITE" || wordcolor == "#FFFFFF" || wordcolor == "#FFF") {
                     wordcolor = "#404040";
                   }
+
+                  //This is a hack for CES remove when CES Rerports are over
+                  if (wordcolor == "#F6921E") wordcolor = '#44C8F5';
+                  if (wordcolor == "#77C0B2") wordcolor = '#0081BE';
+
                   colors.push(wordcolor);
                 }
               }
@@ -128,6 +137,10 @@
 
               chart.background().fill("transparent");
 
+              //var state = chart.normal();
+              // Set font family.
+              //state.fontFamily('Karbon');
+
 
               // create and configure a color scale.
               var customColorScale = anychart.scales.ordinalColor();
@@ -138,7 +151,6 @@
 
               // add a color range
               //chart.colorRange().enabled(true);
-
 
               chart.draw();
             });
@@ -161,6 +173,9 @@
             slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
             slideDom.find('.footer').find('img').css('marginTop',-25);
             slideDom.find('.footer').find('img').css('width',170);
+
+            //BG Bubbles
+            slideDom.find('.bubbles').find('div').css('backgroundColor',customObject.bubbles_color);
 
           };
 

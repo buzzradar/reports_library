@@ -21,7 +21,18 @@ $youtube_color: #FC7A7A;
 /* --------------------------------------- */
 /* Shared styles across report */
 /* --------------------------------------- */
-
+@font-face {
+font-family: Karbon;
+src: url(https://insights.buzzradar.com/frontendassets/fonts/karbon/Karbon-Medium.otf);
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: Karbon;
+src: url(https://insights.buzzradar.com/frontendassets/fonts/karbon/Karbon-Bold.otf);
+font-weight: 900;
+font-style: normal;
+}
 
 html, body {
     color:#0000;
@@ -30,7 +41,7 @@ html, body {
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Karbon';
     font-size: 20px;
     font-weight: normal;
     font-style: normal;
@@ -164,10 +175,21 @@ textarea:focus {outline:0;}
                 .num_tweet{
                     position:absolute;
                     top:0px;
-                    left:-50px;
-                    color:black;
-                    font-size:30px;
+                    left:-60px;
+                    color:white;
+                    font-size:35px;
                     font-weight: bold;
+                    text-align: center;
+
+                    height: 50px;
+                    width: 50px;
+                    background-color: #404040;
+                    border-radius: 50%;
+                    display: inline-block;
+
+                    p{
+                        margin-top:8px;
+                    }
                 }
 
 
@@ -258,7 +280,7 @@ textarea:focus {outline:0;}
                 .copy{
                     position:relative;
                     width:100%;
-                    font-size:20px;
+                    font-size:30px;
                     //background:red;
                     margin-top:10px;
                     line-height:140%;

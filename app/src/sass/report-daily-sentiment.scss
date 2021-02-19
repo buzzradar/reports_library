@@ -173,19 +173,25 @@ textarea:focus {outline:0;}
           //border:5px solid #404040;
           top:0;
 
-          p{
-            padding:0 30px;
-            margin-top:50px;
-            margin-bottom:0px;
-            font-size:30px;
+          .vertical-center {
+            // margin: 0;
+            // position: absolute;
+            // width:100%;
+            // top: 50%;
+            // -ms-transform: translateY(-50%);
+            // transform: translateY(-50%);
+            //background-color: green;
+            padding-top: 70px;
           }
 
-          h2{
-            margin-top:0px;
-            margin-bottom:0px;
-            padding-top:0px;
-            padding-bottom:0px;
-            font-size:70px;
+          p{
+            font-size:25px;
+          }
+
+          .big{
+              font-size: 50px;
+              line-height: 20%;
+              font-weight: bold;
           }
 
           &.pos{

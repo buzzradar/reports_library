@@ -99,12 +99,16 @@
         var pageId = '';
         var slideDom = $('#report_slide'+pageId);
         var custom = {
-            color : '#8ebf6a',
+            color : '#00A0DB',         //we use this color for BG
+            extra_color1: '#00A0DB',   //we use this color for graphs
+            extra_color2: '#4DC5B2',   //we use this color for extra elements
+            bubbles_color : '#94D9F8', //for Bubbles in the BG
             vendorLogoURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/buzzradar_logo_reports.png',
             bgURL : 'https://3c90f21d2e52d99af65d-cc7a500d9b10d65e67a8ddf30b9c21f5.ssl.cf3.rackcdn.com/reports_imgs/bg/br_reports_bg.jpg',
           };
         console.log("Unique Page ID:", "report_slide"+pageId);
         console.log(pageDataJS);
+
 
 
         
@@ -171,11 +175,11 @@
 
 
 
-        var displayTweet = function(numTweet, tweetInfo,tweetType, column) {
+        var displayTweet = function(numTweet, tweetInfo,tweetType, column,custom) {
 
           var dom = slideDom.find(column).find('.holder_'+tweetType);
-            var template = '<div class="tweet '+tweetType+'">';
-                      template += '<div class="num_tweet">'+numTweet+'.</div>';
+            var template = '<div class="tweet '+tweetType+'" style="background:'+custom.extra_color2+';">';
+                      template += '<div class="num_tweet"><p>'+numTweet+'</p></div>';
                       template += '<img class="social_network_corner_logo" src="'+getSocialIcon('twitter')+'" width="40" />';
                       template += '<div class="avatar" style="background-image: url(\''+tweetInfo.profileImageUrl+'\');"></div>';
                       template += '<div class="handle">';
@@ -184,7 +188,7 @@
                       template += '</div>';
                       template += '<div class="copy">'+tweetInfo.content+'</div>';
                       template += '<div class="date"><u>'+converUnixDateJavascript(tweetInfo.created.timestamp)+'</u> <strong>'+showStatsContent(tweetInfo)+'</strong></div>';
-                      template += '<div class="retweet_triangle '+tweetType+'"></div>';
+                      template += '<div class="retweet_triangle '+tweetType+'" style="border-color: '+custom.extra_color2+' transparent transparent transparent;"></div>';
                   template += '</div>';
 
             dom.append(template);
@@ -200,10 +204,9 @@
         var customize = function(customObject) {
 
             //Change Color
-            var newColor = customObject.color;
-            slideDom.find('.slide-background').find('.left-bar').css('background',newColor);
-            slideDom.find('.slide-background').find('.right-bar').css('background',newColor);
-            slideDom.find('.report_title').css('borderColor',newColor);
+            slideDom.find('.slide-background').find('.left-bar').css('background',customObject.color);
+            slideDom.find('.slide-background').find('.right-bar').css('background',customObject.color);
+            slideDom.find('.report_title').css('borderColor',customObject.color);
 
             //Change Vendor Logo
             //Developer Note: To avoid having issues placing the different logos, they must be 
@@ -211,6 +214,10 @@
             slideDom.find('.footer').find('img').attr('src',customObject.vendorLogoURL);
             slideDom.find('.footer').find('img').css('marginTop',-25);
             slideDom.find('.footer').find('img').css('width',170);
+
+            //BG Bubbles
+            slideDom.find('.bubbles').find('div').css('backgroundColor',customObject.bubbles_color);
+            
 
           };
 
@@ -220,14 +227,14 @@
             if (pageDataJS.mostRetweetedTweets.length == 0) {
               slideDom.find('.main-layout-wrap').html('<div class="display_error"><strong>Warning: </strong>The match could not be drawn cause there is no data or the calculation turns "undefined". Check if the data is correct please.</div>');
             }else{
+              customize(custom);
               for (var index = 0; index < pageDataJS.mostRetweetedTweets.length; index++) {
                   var tweet = pageDataJS.mostRetweetedTweets[index];
                   var col = (index % 2) + 1;                    
-                  displayTweet(index+1,tweet,'neutral', '.col'+col);
+                  displayTweet(index+1,tweet,'neutral', '.col'+col,custom);
                   if (index == 3) return false;
               }
             }
-            customize(custom);
           }
         };
         

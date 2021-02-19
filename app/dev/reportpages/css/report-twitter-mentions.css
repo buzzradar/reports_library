@@ -126,19 +126,18 @@ textarea:focus {
   display: inline-block;
   text-align: center;
   top: 0;
+  color: white;
+}
+.report-twitter-mentions .slide .big_circle .vertical-center {
+  padding-top: 80px;
 }
 .report-twitter-mentions .slide .big_circle p {
-  padding: 0 30px;
-  margin-top: 80px;
-  margin-bottom: 0px;
-  font-size: 30px;
+  font-size: 25px;
 }
-.report-twitter-mentions .slide .big_circle h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 70px;
+.report-twitter-mentions .slide .big_circle .big {
+  font-size: 60px;
+  line-height: 20%;
+  font-weight: bold;
 }
 .report-twitter-mentions .slide .big_circle.pos {
   background: #71d53e;
