@@ -50,14 +50,21 @@
                 <div id="daily_sentiment_graph" class="graph_wrap" style="height:850px;width:1350px;"></div>
               </div>
 
-              <div class="big_circle pos" style="left:1440px;top:80px;">
+              <div class="big_circle pos" style="left:1440px;top:0px;">
                 <div class="vertical-center">
                   <p>Twitter Mentions XXX</p>
                   <div class="big">50 XXX</div>
                 </div>
               </div>
 
-              <div class="big_circle neg" style="left:1440px;top:440px;">
+              <div class="big_circle neg" style="left:1440px;top:280px;">
+                <div class="vertical-center">
+                  <p>Twitter Mentions XXX</p>
+                  <div class="big">50 XXX</div>
+                </div>
+              </div>
+
+              <div class="big_circle neutral" style="left:1440px;top:560px;">
                 <div class="vertical-center">
                   <p>Twitter Mentions XXX</p>
                   <div class="big">50 XXX</div>
@@ -145,19 +152,32 @@
 
           };
 
-          var showNegativeMentions = function(pageDataJS) {
+          var showNeutralMentions = function(pageDataJS) {
 
-              var dom = slideDom.find('.big_circle.neg');
+              var dom = slideDom.find('.big_circle.neutral');
               var total = pageDataJS.twitterDailySentiment.total_mentions;
+              var positive = pageDataJS.twitterDailySentiment.total_mentions_positive;
               var negative = pageDataJS.twitterDailySentiment.total_mentions_negative;
+              var neutral = total - positive - negative;
 
-              dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'</strong>');
-              dom.find('.big').html(getPercentage(total, negative)+'%');
-
-              //dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'</strong>');
-              //dom.find('h2').html(getPercentage(total, negative)+'%');
+              dom.find('p').html('Neutral Mentions<br><strong>'+formatNumber(neutral)+'</strong>');
+              dom.find('.big').html(getPercentage(total, neutral)+'%');
 
           };
+
+          var showNegativeMentions = function(pageDataJS) {
+
+            var dom = slideDom.find('.big_circle.neg');
+            var total = pageDataJS.twitterDailySentiment.total_mentions;
+            var negative = pageDataJS.twitterDailySentiment.total_mentions_negative;
+
+            dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'</strong>');
+            dom.find('.big').html(getPercentage(total, negative)+'%');
+
+            //dom.find('p').html('Negative Mentions<br><strong>'+formatNumber(negative)+'</strong>');
+            //dom.find('h2').html(getPercentage(total, negative)+'%');
+
+            };
 
           var loadChart = function() {
 
@@ -169,12 +189,19 @@
 
                   slideDom.find('.col_title.year').html('Year: '+year);
 
+                  var total = pageDataJS.twitterDailySentiment.chart[i].twitter_mentions;
+                  var positive = pageDataJS.twitterDailySentiment.chart[i].twitter_positive_tweets;
+                  var negative = pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets;
+                  var neutral = total - positive - negative;
+
                   dataProvider.push({
                       "date": monthDay,
                       "positive": pageDataJS.twitterDailySentiment.chart[i].twitter_positive_tweets,
                       "negative": pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets,
-                      "colorPos" : '#48BD9C',  //71d53e
-                      "colorNeg" : '#EE302F',  //ce4d4b
+                      "neutral": pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets,
+                      "colorPos" : '#48BD9C',       //71d53e
+                      "colorNeg" : '#EE302F',       //ce4d4b
+                      "colorNeutral" : '#BBBBBB',   //ce4d4b
                   });
               }
 
@@ -209,7 +236,20 @@
                     "valueField": "negative",
                     "fontSize" : 25,
                     "lineColor": "transparent",
-                }],
+                }, {
+                    "balloonText": "<b>[[title]]</b><br><span style='font-size:14px'>[[category]]: <b>[[value]]</b></span>",
+                    "fillAlphas": 1,
+                    "labelText": "[[value]]",
+                    "fillColorsField": "colorNeutral",
+                    "lineAlpha": 0,
+                    "title": "Neutral",
+                    "type": "column",
+                    "color": "#404040",
+                    "valueField": "neutral",
+                    "fontSize" : 25,
+                    "lineColor": "transparent",
+                }
+                ],
                 "categoryField": "date",
                 "categoryAxis": {
                     "gridPosition": "start",
@@ -261,6 +301,7 @@
               init: function () {
                 showPositiveMentions(pageDataJS);
                 showNegativeMentions(pageDataJS);
+                showNeutralMentions(pageDataJS);
                 loadChart();
                 customize(custom);
               }

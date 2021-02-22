@@ -119,8 +119,8 @@ textarea:focus {
 }
 .report-daily-sentiment .slide .big_circle {
   position: absolute;
-  height: 300px;
-  width: 300px;
+  height: 260px;
+  width: 260px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -131,7 +131,7 @@ textarea:focus {
   padding-top: 70px;
 }
 .report-daily-sentiment .slide .big_circle p {
-  font-size: 25px;
+  font-size: 20px;
 }
 .report-daily-sentiment .slide .big_circle .big {
   font-size: 50px;
@@ -140,13 +140,15 @@ textarea:focus {
 }
 .report-daily-sentiment .slide .big_circle.pos {
   background: #71d53e;
+  color: white;
 }
 .report-daily-sentiment .slide .big_circle.neg {
   background: #ce4d4b;
   color: white;
 }
 .report-daily-sentiment .slide .big_circle.neutral {
-  background: #4a4f55;
+  background: #BBBBBB;
+  color: #404040;
 }
 .report-daily-sentiment .slide-background {
   position: absolute;

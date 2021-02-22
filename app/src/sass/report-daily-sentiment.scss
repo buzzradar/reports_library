@@ -164,8 +164,8 @@ textarea:focus {outline:0;}
 
         .big_circle {
           position:absolute;
-          height: 300px;
-          width: 300px;
+          height: 260px;
+          width: 260px;
           background-color: #bbb;
           border-radius: 50%;
           display: inline-block;
@@ -174,18 +174,11 @@ textarea:focus {outline:0;}
           top:0;
 
           .vertical-center {
-            // margin: 0;
-            // position: absolute;
-            // width:100%;
-            // top: 50%;
-            // -ms-transform: translateY(-50%);
-            // transform: translateY(-50%);
-            //background-color: green;
             padding-top: 70px;
           }
 
           p{
-            font-size:25px;
+            font-size:20px;
           }
 
           .big{
@@ -196,6 +189,7 @@ textarea:focus {outline:0;}
 
           &.pos{
             background: #71d53e;
+            color:white;
           }
 
           &.neg{
@@ -204,7 +198,8 @@ textarea:focus {outline:0;}
           }
 
           &.neutral{
-            background: #4a4f55;
+            background: #BBBBBB;
+            color: $dark;
           }
 
         }
