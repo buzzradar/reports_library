@@ -194,16 +194,21 @@
                   var negative = pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets;
                   var neutral = total - positive - negative;
 
+                  console.log(monthDay, year, total, positive,negative, neutral)
+
                   dataProvider.push({
                       "date": monthDay,
                       "positive": pageDataJS.twitterDailySentiment.chart[i].twitter_positive_tweets,
                       "negative": pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets,
-                      "neutral": pageDataJS.twitterDailySentiment.chart[i].twitter_negative_tweets,
+                      "neutral": neutral,
                       "colorPos" : '#48BD9C',       //71d53e
                       "colorNeg" : '#EE302F',       //ce4d4b
                       "colorNeutral" : '#BBBBBB',   //ce4d4b
                   });
               }
+
+
+              console.log(dataProvider)
 
               var chart = AmCharts.makeChart(slideDom.find('#daily_sentiment_graph').get(0), {
                 "type": "serial",
