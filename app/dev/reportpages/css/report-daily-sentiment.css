@@ -148,7 +148,7 @@ textarea:focus {
 }
 .report-daily-sentiment .slide .big_circle.neutral {
   background: #BBBBBB;
-  color: #404040;
+  color: white;
 }
 .report-daily-sentiment .slide-background {
   position: absolute;
